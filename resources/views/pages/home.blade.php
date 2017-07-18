@@ -10,7 +10,7 @@
 
             <div class="top-gap"></div>
             <div class="wrapper">
-                <section class="header header-filter" style="background-image: url({{asset('img/home.jpg')}}); background-position:center;background-size:auto 50%;background-size:cover;background-repeat:no-repeat;">
+                <section class="header header-filter" style="background-image: url('assets/img/home.jpg'); background-position:center;background-size:auto 50%;background-size:cover;background-repeat:no-repeat;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
@@ -22,7 +22,7 @@
                                     <h6 class="text-center">Get Started - Now!</h6>
                                     <div class="text-center">
                                         <h3>
-                                        Among those who watch any TV through a game console, <strong>one third</strong> say watching TV was a<strong> main reason</strong> they bought their console.
+                                        Among those who watch any TV through a game console, <strong>one third</strong> say watching TV was a<strong> main reason</strong> they bought their console. 
                                         <h3>
                                     </div>
                                     <div class="text-center">
@@ -90,7 +90,7 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <figure class="graphic">
-                                    <img width="478" height="280" src="http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-768x450.png" class="attachment-478x280 size-478x280" alt="" srcset="http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-768x450.png 768w, http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-300x176.png 300w, http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min.png 956w" sizes="(max-width: 478px) 100vw, 478px" />
+                                    <img width="478" height="280" src="http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-768x450.png" class="attachment-478x280 size-478x280" alt="" srcset="http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-768x450.png 768w, http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min-300x176.png 300w, http://www.riyo.io/wp-content/uploads/2016/09/infastructure-graphic-min.png 956w" sizes="(max-width: 478px) 100vw, 478px" />                                
                                 </figure>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -179,7 +179,109 @@
                         </div>
                     </div>
                 </section>
-                
+                <footer id="colophon" class="site-footer" role="contentinfo">
+                    <div class="top-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                    <div id="text-2" class="widget widget_text">
+                                        <div class="textwidget">
+                                            <div class="footer-address">
+                                                <a href="index.html"><img src="assets/img/logo.png" alt="" />
+                                                </a>
+                                                <address>Kalibata City, <br> Tower Borneo, Jakarta Selatan 4192  </address>
+                                                <a class="phone" href="tel:(02) 8765 4321"><span>P: </span>(02) 8765 4321</a>
+                                                <span class="email">E: <a href="mailto:team@webexam.co.id"> team@webexam.co.id</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                    <div id="nav_menu-5" class="widget widget_nav_menu">
+                                        <h2 class="widget-title">Learn More</h2>
+                                        <div class="menu-learn-more-footer-container">
+                                            <ul id="menu-learn-more-footer" class="menu">
+                                                <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">Home</a>
+                                                </li>
+                                                <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a data-modal-id="#riyo-login-form" href="#">Log In</a>
+                                                </li>
+                                                <li id="menu-item-26" class="sign-up menu-item menu-item-type-custom menu-item-object-custom menu-item-26"><a data-modal-id="#riyo-signup-form" href="#">Sign Up</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                    <div id="nav_menu-6" class="widget widget_nav_menu">
+                                        <h2 class="widget-title">Support</h2>
+                                        <div class="menu-support-footer-container">
+                                            <ul id="menu-support-footer" class="menu">
+                                                <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="contact.html">Exam FAQ</a>
+                                                </li>
+                                                <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="contact.html">Contact Us</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                    <div id="nav_menu-7" class="widget widget_nav_menu">
+                                        <h2 class="widget-title">About Us</h2>
+                                        <div class="menu-about-us-footer-container">
+                                            <ul id="menu-about-us-footer" class="menu">
+                                                <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="about.html">Our Story</a>
+                                                </li>
+                                                <li id="menu-item-366" class="scroll-to menu-item menu-item-type-custom menu-item-object-custom menu-item-366"><a href="about.html">Team</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 last">
+                                    <div id="text-3" class="widget widget_text">
+                                        <h2 class="widget-title">Connect With Us</h2>
+                                        <div class="textwidget">
+                                            <ul class="get-social">
+                                                <li>
+                                                    <a class="icon-facebook"  target="_blank"></a>
+                                                </li>
+                                                <li>
+                                                    <a class="icon-twitter"  target="_blank"></a>
+                                                </li>
+                                                <li>
+                                                    <a class="icon-linkedin2"  target="_blank"></a>
+                                                </li>
+                                                <li>
+                                                    <a class="icon-instagram"  target="_blank"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="site-info">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <p class="copyright">Copyright <a href="http://www.riyo.io">Web Exam</a> 2017</p>
+                                    <div class="menu-footer-menu-container">
+                                        <ul id="footer-menu" class="menu">
+                                            <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"><a href="http://www.riyo.io/website-terms-of-use/">Terms of Service</a>
+                                            </li>
+                                            <li id="menu-item-67" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67"><a href="http://www.riyo.io/privacy/">Privacy Policy</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- .row -->
+                        </div>
+                        <!-- .container -->
+                    </div>
+                    <!-- .site-info -->
+                </footer>
                 <!-- #colophon -->
             </div>
             <!-- #page -->
