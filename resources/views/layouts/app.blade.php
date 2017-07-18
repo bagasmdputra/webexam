@@ -52,7 +52,7 @@
                                 </button>
                                 <div class="menu-top-main-menu-container">
                                     <ul id="primary-menu" class="menu">
-                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="welcome">Home</a>
+                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="home">Home</a>
                                         </li>
                                         <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about">About Us</a>
                                         </li>

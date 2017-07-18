@@ -1,17 +1,12 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
-
-
+Route::get('/', 'HomeController@index')->name('profile');
 Route::get('/about', 'AboutController@index');
-
-
-
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
 Route::get('/pricing','PricingController@index');
 Route::get('/contact','ContactController@index');
 Route::get('/exam','ExamController@index');
