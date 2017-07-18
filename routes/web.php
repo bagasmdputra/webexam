@@ -6,7 +6,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/about', 'AboutController@index');
+
+
+
 Route::get('/home', 'HomeController@index');
 Route::get('/pricing','PricingController@index');
 Route::get('/contact','ContactController@index');
