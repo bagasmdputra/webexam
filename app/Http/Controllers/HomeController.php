@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 
+use App\Pricing;
+
 class HomeController extends Controller
 {
     /**
@@ -25,6 +27,7 @@ class HomeController extends Controller
      */
      public function index()
      {
+
          return view('pages/home');
      }
 }

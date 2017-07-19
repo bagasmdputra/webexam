@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                   <h1><strong>USER</strong> Dashboard</h1></div>
-
+                  <h2>{{ Auth::user()->package }}</h2>
                 <div class="panel-body">
 
                 </div>
