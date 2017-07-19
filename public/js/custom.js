@@ -16,7 +16,7 @@
 		window.history.replaceState({}, document.title, clean_uri);
 		setTimeout(function(){
 			$('html,body').animate({
-				scrollTop: $(hashValue).offset().top - $('#masthead').outerHeight(true) 
+				scrollTop: $(hashValue).offset().top - $('#masthead').outerHeight(true)
 			}, 1000);
 		},500);
 	}
@@ -90,7 +90,7 @@
 		$('#riyo-popup').find(' > .popup-container').append( $target.contents() ).parent().attr( 'data-content-from', $this.attr('data-modal-id') ).fadeIn();
 		$(window).resize();
 		return false;
-	});  
+	});
 
 	// popup close
 	$('body').on('click', ".js-modal-close, .modal-overlay", function() {
@@ -113,7 +113,7 @@
 				});
 			}, 100)*/
 		/*$(".modal-box, .modal-overlay").fadeOut(500, function() {
-			
+
 		});*/
 
 		return false;
@@ -125,9 +125,9 @@
 			left: ($(window).width() - $(".modal-box").outerWidth()) / 2
 		});
 	});
- 
 
-	
+
+
 	// prevent default submit
 	$('.popup-form').on('submit', function() {
 		return false;
@@ -227,7 +227,7 @@
 				$this.detach().insertBefore( $form.find('input[type="submit"]') );
 		});
 	}
-	
+
 
 
 
@@ -250,8 +250,31 @@
 
 	});
 
+<<<<<<< HEAD
 	//  
 	
+=======
+	//
+	$('input.wpcf7-submit').on('click', function() {
+		var $this = $(this),
+			$form = $this.parents('form');
+		var check_error = setInterval(function() {
+			$form.find('span input, span select').each(function() {
+				var $input = $(this);
+				if( $input.hasClass('wpcf7-not-valid') ) {
+					$input.parents('label').addClass('field-error');
+				}
+				else {
+					$input.parents('label').removeClass('field-error');
+				}
+			});
+		});
+		setTimeout(function() {
+			clearInterval(check_error);
+		}, 1000);
+	});
+
+>>>>>>> 5550d2b2fdad5b124ae763a84900caa77d6158a2
 
 	/*
 	*  new_map
@@ -272,8 +295,8 @@
 			zoom		: 20,
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
 			scrollwheel: false,
-			draggable: false, 
-			zoomControl: false, 
+			draggable: false,
+			zoomControl: false,
 			scrollwheel: false,
 			disableDoubleClickZoom: false,
 			streetViewControl: false,
@@ -284,13 +307,13 @@
 		var map = new google.maps.Map( $el[0], args);
 
 
-		
+
 		map.markers = [];
 
 		$markers.each(function(){
 	    		add_marker( $(this), map );
 		});
-		
+
 		center_map( map );
 
 		return map;

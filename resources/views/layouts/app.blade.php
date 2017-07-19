@@ -9,6 +9,7 @@
         <link rel='stylesheet' id='robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab%3A100%2C300%2C400%2C700&#038;ver=4.8' type='text/css' media='all' />
 
         <!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//s.w.org' />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
@@ -22,6 +23,12 @@
         <script src="{{asset('js/jquery-migrate.min.js')}}"></script>
         <script src="{{asset('js/jquery.js')}}"></script>
 
+        <!-- Scripts -->
+        <script>
+            window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!};
+        </script>
 
 
     </head>
@@ -34,7 +41,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
                             <div class="site-branding">
-                                <a id="logo" href="index.html">
+                                <a id="logo" href="{{URL::route('profile') }}">
                                 <img src="{{asset('img/logo.png')}}" width="132" height="24" alt="Riyo">
                                 </a>
                             </div>
@@ -52,7 +59,7 @@
                                 </button>
                                 <div class="menu-top-main-menu-container">
                                     <ul id="primary-menu" class="menu">
-                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="home">Home</a>
+                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">Home</a>
                                         </li>
                                         <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about">About Us</a>
                                         </li>
@@ -68,58 +75,105 @@
                         </div>
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             <div class="top-login">
-                                <a data-modal-id="#riyo-login-form" href="#">Log In</a>
-                                <div id="riyo-login-form" class="hidden" style="display: none;">
-                                    <!-- HTML for login form -->
-                                    <div class="popup-box">
-                                        <a href="#" class="close-btn js-modal-close"></a>
-                                        <h2 class="block-title-red">Login</h2>
-                                        <span class="text-gray">We just need few details</span>
-                                        <form class="popup-form login" autocomplete="off" action="">
-                                            <label class="full">
-                                            <span>Username</span>
-                                            <input type="text" id="username" name="username" placeholder="Username">
-                                            </label>
-                                            <label class="full">
-                                            <span>Password</span>
-                                            <input type="password" id="password" name="password" placeholder="Password">
-                                            </label>
-                                            <input type="submit" value="Get Activation Code"  href="#riyo-active-form">
-                                            <input type="hidden" id="riyo-login-field" name="riyo-login-field" value="519ebde273" />
-                                            <input type="hidden" name="_wp_http_referer" value="/" />
-                                            <div>
-                                                <a href="" class="forgot">Forgot Password?</a>
+                                @if (Auth::guest())
+                                  <a data-modal-id="#riyo-login-form" href="#">Log In</a>
+                                  <div id="riyo-login-form" class="hidden" style="display: none;">
+                                      <!-- HTML for login form -->
+                                      <div class="popup-box">
+                                          <a href="#" class="close-btn js-modal-close"></a>
+                                          <h2 class="block-title-red">Login</h2>
+                                          <span class="text-gray">We just need few details</span>
+                                          <form class="popup-form login" autocomplete="off" action="{{ route('login') }}">
+                                            {{ csrf_field() }}
+                                              <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                              <label class="full">
+                                              <span>Email</span>
+                                              <input type="text" id="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                                              @if ($errors->has('email'))
+                                                  <span class="help-block">
+                                                      <strong>{{ $errors->first('email') }}</strong>
+                                                  </span>
+                                              @endif
+                                              </label>
                                             </div>
+                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                              <label class="full">
+                                              <span>Password</span>
+                                              <input type="password" id="password" name="password" placeholder="Password">
+                                              @if ($errors->has('password'))
+                                                  <span class="help-block">
+                                                      <strong>{{ $errors->first('password') }}</strong>
+                                                  </span>
+                                              @endif
+                                              </label>
+                                            </div>
+                                            <div class="form-group">
+                                              <input type="submit" value="Login" >
+                                            </div>
+
+                                              <div>
+                                                  <a href="" class="forgot">Forgot Password?</a>
+                                              </div>
+                                          </form>
+                                      </div>
+                                  </div>
+
+                                @endif
+
+                        @if (Auth::guest())
+                            <a class="btn" data-modal-id="#riyo-signup-form" href="#">Sign Up</a>
+
+                            <div id="riyo-active-form" class="hidden" style="display: none;">
+                                <!-- HTML for signup form -->
+                                <div class="popup-box">
+                                    <h2 class="block-title-red">Activate Your Account</h2>
+                                    <span class="text-gray">We've sent verification code to your email.</span>
+                                </div>
+                            </div>
+                            <div id="riyo-signup-form" class="hidden" style="display: none;">
+                                <!-- HTML for signup form -->
+                                <div class="popup-box">
+                                    <a href="#" class="close-btn js-modal-close"></a>
+                                    <h2 class="block-title-red">Get Started.</h2>
+                                    <span class="text-gray">We just need a few details.</span>
+
+                                    <form class="popup-form signup" action="">
+                                        <label class="full"><span>Name</span>
+                                        <input type="text" id="fullname" name="fullname" placeholder="Your Name">
+                                        </label>
+                                        <label class="full"><span>Email</span>
+                                        <input type="email" id="email" name="email" placeholder="Your Email Address">
+                                        </label>
+                                        <input type="submit" value="Sign Up" class="signup-submit " data-modal-id="#riyo-active-form" href="#">
+                                        <input type="hidden" id="riyo-signup-field" name="riyo-signup-field" value="50f194e9ae" />
+                                        <input type="hidden" name="_wp_http_referer" value="/" />
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <div class="dropdown">
+                                <a class="btn" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
                                         </form>
-                                    </div>
-                                </div>
-                                <a class="btn" data-modal-id="#riyo-signup-form" href="#">Sign Up</a>
-                                <div id="riyo-active-form" class="hidden" style="display: none;">
-                                    <!-- HTML for signup form -->
-                                    <div class="popup-box">
-                                        <h2 class="block-title-red">Activate Your Account</h2>
-                                        <span class="text-gray">We've sent verification code to your email.</span>
-                                    </div>
-                                </div>
-                                <div id="riyo-signup-form" class="hidden" style="display: none;">
-                                    <!-- HTML for signup form -->
-                                    <div class="popup-box">
-                                        <a href="#" class="close-btn js-modal-close"></a>
-                                        <h2 class="block-title-red">Get Started.</h2>
-                                        <span class="text-gray">We just need a few details.</span>
-                                        <form class="popup-form signup" action="">
-                                            <label class="full"><span>Name</span>
-                                            <input type="text" id="fullname" name="fullname" placeholder="Your Name">
-                                            </label>
-                                            <label class="full"><span>Email</span>
-                                            <input type="email" id="email" name="email" placeholder="Your Email Address">
-                                            </label>
-                                            <input type="submit" value="Sign Up" class="signup-submit " data-modal-id="#riyo-active-form" href="#">
-                                            <input type="hidden" id="riyo-signup-field" name="riyo-signup-field" value="50f194e9ae" />
-                                            <input type="hidden" name="_wp_http_referer" value="/" />
-                                        </form>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endif
+
+
+
                             </div>
                         </div>
                     </div>
@@ -232,7 +286,7 @@
                 <!-- .site-info -->
             </footer>
         </div>
-        <script type='text/javascript'>
+        <!-- <script type='text/javascript'>
             /* <![CDATA[ */
             var wpcf7 = {
                 "apiSettings": {
@@ -247,17 +301,17 @@
                 "cached": "1"
             };
             /* ]]> */
-        </script>
+        </script> -->
 
         <script type="text/javascript" src=" {{asset('js/pricing.js')}}"></script>
-        <script type='text/javascript'>
+        <!-- <script type='text/javascript'>
             /* <![CDATA[ */
             var riyo = {
                 "ajax": "http:\/\/www.riyo.io\/wp-admin\/admin-ajax.php",
                 "url": "http:\/\/www.riyo.io\/"
             };
             /* ]]> */
-        </script>
+        </script> -->
         <script type='text/javascript' src='http://www.riyo.io/wp-content/themes/riyo/js/custom.js?ver=4.8'></script>
         <script type='text/javascript' src='http://www.riyo.io/wp-includes/js/wp-embed.min.js?ver=4.8'></script>
         <div id="riyo-popup" class="modal-box">
@@ -279,5 +333,7 @@
             ga('create', 'UA-75070078-1', 'auto');
             ga('send', 'pageview');
         </script>
+        <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
