@@ -17,6 +17,9 @@
 
                                                 <h1 class="banner-title">We're aiming high</h1>
 
+
+
+
                                                 <span class="banner-content">We're on our way to becoming the world's go-to software platform for powering and sustaining the service economy.</span>
                                             </div>
                                         </div>
@@ -157,5 +160,5 @@
 
 
 
-                              
+
 @endsection

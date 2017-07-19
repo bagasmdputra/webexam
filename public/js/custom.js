@@ -177,87 +177,7 @@
 		return false;
 	});
 
-	// user signup form handler
-	$('form.signup').on('submit', function() {
-		var $form = $(this),
-			$fullName = $form.find('input#fullname'),
-			$company = $form.find('input#company'),
-			$email = $form.find('input#email'),
-			has_error = false;
-
-		$form.find('span.msg').remove();
-		$form.find('label.field-error').removeClass('field-error');
-
-		if( '' == $fullName.val() ) {
-			$fullName.parents('label').addClass('field-error');
-			has_error = true;
-		}
-
-		if( '' == $company.val() ) {
-			$company.parents('label').addClass('field-error');
-			has_error = true;
-		}
-
-		if( '' == $email.val() || ! filter.test( $email.val() ) ) {
-			$email.parents('label').addClass('field-error');
-			has_error = true;
-		}
-
-		if( true === has_error ) {
-			return false;
-		}
-
-		/*if( '' == $fullName.val() || '' == $company.val() || '' == $email.val() ) {
-			$form.prepend('<span class="error msg">Fields cannot be empty.</span>');
-			return false;
-		}*/
-
-		/*if( ! filter.test( $email.val() ) ) {
-			$form.prepend('<span class="error msg">Invalid Email.</span>');
-			return false;
-		}*/
-
-		$.ajax({
-			type: 'POST',
-			url: riyo.ajax,
-			data: {
-				action: 'riyo_user_signup',
-				fullname: $fullName.val(),
-				company: $company.val(),
-				email: $email.val(),
-				'riyo-signup-field' : $form.find('input#riyo-signup-field').val(),
-			}
-		})
-		.done(function(response) {
-			console.log(response);
-			if( response && true === response.status ) {
-				console.log('1');
-				$form.prepend('<span class="success msg">' + response.message + '</span>');
-				$form.find('input[type="text"], input[type="email"]').val('');
-				return false;
-			}
-			else if( response && ! response.status ) {
-				console.log('2');
-				$form.prepend('<span class="error msg">' + response.message + '</span>');
-				$form.find('input[type="text"], input[type="email"]').val('');
-				return false;
-			}
-			else {
-				console.log('3');
-				$form.prepend('<span class="error msg">Fail to create account.</span>');
-				return false;
-			}
-
-		})
-		.fail(function(jqXHR, textStatus) {
-			$form.prepend('<span class="error msg">' + textStatus + '</span>');
-			return false;
-		});
-
-		return false;
-	});
-
-	// load more posts
+		// load more posts
 	$('a.load-more').on('click', function(e) {
 		e.preventDefault();
 		var $this = $(this),
@@ -311,12 +231,7 @@
 
 
 
-	// signup form
-	$('form label input').on('focus', function() {
-		$(this).parents('label').addClass('active');
-	}).on('focusout', function() {
-		$(this).parents('label').removeClass('active');
-	});
+	
 
 	// custom tab
 	$('.tabs li').on('click', function(e) {
@@ -335,6 +250,10 @@
 
 	});
 
+<<<<<<< HEAD
+	//  
+	
+=======
 	//
 	$('input.wpcf7-submit').on('click', function() {
 		var $this = $(this),
@@ -355,6 +274,7 @@
 		}, 1000);
 	});
 
+>>>>>>> 5550d2b2fdad5b124ae763a84900caa77d6158a2
 
 	/*
 	*  new_map

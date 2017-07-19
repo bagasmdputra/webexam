@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ExamController extends Controller
+class CobaController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -34,6 +34,6 @@ class ExamController extends Controller
 
         $count = $exam_question->count();
 
-        return view('pages/exam', ['exam_question' => $exam_question]);
+        return view('pages/coba', ['exam_question' => $exam_question]);
     }
 }
