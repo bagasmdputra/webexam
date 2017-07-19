@@ -5,7 +5,7 @@
 <html lang="{{ config('examkosong.locale') }}">
 <head>
     <link rel="stylesheet" type="text/css" href="quiz.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript" href="quiz.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script type="text/javascript">
                     $(document).ready(function(){
                             answers = new Object();
