@@ -10,6 +10,7 @@ Route::get('/home', function () {
 Route::get('/pricing','PricingController@index');
 Route::get('/contact','ContactController@index');
 Route::get('/exam','ExamController@index');
+Route::get('/coba','CobaController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/resultreview', 'ResultController@index');
 Route::prefix('admin')->group(function(){

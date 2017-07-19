@@ -16,6 +16,32 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+button.question-box {
+  cursor: pointer;
+box-sizing: border-box;
+    padding:  20px;
+    border-radius: 5px;
+    margin-right: 2px;
+    margin-bottom: 20px;
+    background-color : #f7f7f7;
+    box-shadow: 3px 3px 3px #999999;
+}
+
+button.question-box:hover{
+  outline: none;
+    box-shadow: none;
+    background-color: #888888;
+}
+
+.no-question {
+color : black;
+    top: -15px;
+    right: -30px;
+    font-family: "Quicksand";
+    position: relative;
+
+}
+
 article,
 aside,
 details,
@@ -106,7 +132,7 @@ h5{
 @font-face{
     font-family: "futura-pt";
     src: url('Futura/FuturaPTMedium.otf');
-    
+
 }
 
 @font-face{
@@ -117,7 +143,7 @@ h5{
 .but-free-exam{
     padding : 0 10px;
     background-color: transparent;
- 
+
     font-size: 12px;
     text-align: center;
     border-top:1px solid #d15443;
@@ -2878,11 +2904,11 @@ div.wpcf7-validation-errors {
     font-family: 'Open Sans', sans-serif;
     color: #a0a1a3;
     font-weight: 300;
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 #close {
-  display: none; 
+  display: none;
 }
 
 
@@ -3934,7 +3960,7 @@ div.wpcf7-mail-sent-ok{
 }
 
 h3{
-    font-size: 12px; 
+    font-size: 12px;
 }
 
 .button-signup{
