@@ -17,7 +17,9 @@ class Question extends Migration
           $table->increments('id');
           $table->string('question');
           $table->string('domain_id')->unsigned();
+
           $table->foreign('domain_id')->references('id')->on('domain');
+
           $table->string('knowledge_id')->unsigned();
           $table->foreign('knowledge_id')->references('id')->on('knowledge_area');
       });
