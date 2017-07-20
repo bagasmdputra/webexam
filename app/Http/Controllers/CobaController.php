@@ -26,14 +26,14 @@ class CobaController extends Controller
      */
     public function index()
     {
-        $exam_question = DB::table('exam_question')
-                  ->join('question', 'exam_question.question_id', '=', 'question.id')
-                  ->select('exam_question.id', 'question.question')
-                  ->orderBy('exam_question.id', 'asc')
-                  ->get();
+      $exam_question = DB::table('exam_question')
+                ->join('question', 'exam_question.question_id', '=', 'question.id')
+                ->select('exam_question.id as id_question', 'question.question as question')
+                ->orderBy('id_question', 'asc')
+                ->get();
 
-        $count = $exam_question->count();
+      $count = $exam_question->count();
 
-        return view('pages/coba', ['exam_question' => $exam_question]);
+      return view('pages/coba', ['exam_question' => $exam_question]);
     }
 }

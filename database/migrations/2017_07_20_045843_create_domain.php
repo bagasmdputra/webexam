@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Domain extends Migration
+class CreateDomain extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class Domain extends Migration
     public function up()
     {
       Schema::create('domain', function (Blueprint $table) {
-        $table->increments('id');
+        $table->increments('id')->unsigned();
         $table->string('domain');
       });
 

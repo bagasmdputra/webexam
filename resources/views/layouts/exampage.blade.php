@@ -13,11 +13,9 @@
         <link rel='dns-prefetch' href='//s.w.org' />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" />
-        <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/membership.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
-        <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/question.css')}}" rel="stylesheet" />
+
+
 
         <script src="{{asset('js/jquery-migrate.min.js')}}"></script>
         <script src="{{asset('js/jquery.js')}}"></script>
