@@ -21,17 +21,6 @@ Route::get('/resultreview', 'ResultController@index');
 //   Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 // });
 
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
