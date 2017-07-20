@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ config('exampage.locale') }}">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
@@ -8,7 +9,7 @@
         <link rel='stylesheet' id='opensans-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C700%2C700i%2C800%2C800i&#038;ver=4.8' type='text/css' media='all' />
         <link rel='stylesheet' id='robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab%3A100%2C300%2C400%2C700&#038;ver=4.8' type='text/css' media='all' />
 
-        <!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
+
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
         <link rel='dns-prefetch' href='//s.w.org' />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
@@ -31,7 +32,7 @@
                       <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
                           <div class="site-branding">
                               <a id="logo" href="index.html">
-                              <img src="{{asset('img/logo.png')}}" width="132" height="24" alt="Riyo">
+                              <img src="{{asset('img/logo.png')}}" width="132" height="24" >
                               </a>
                           </div>
                           <!-- .site-branding -->
@@ -42,6 +43,9 @@
           <!-- #masthead -->
 
           @yield('content')
+
+          @yield('question-map')
+          @yield('script-question-map')
       </div>
     </body>
   </html>

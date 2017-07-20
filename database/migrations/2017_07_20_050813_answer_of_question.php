@@ -14,10 +14,10 @@ class AnswerOfQuestion extends Migration
      public function up()
      {
        Schema::create('answer', function (Blueprint $table) {
-           $table->increments('id');
+           $table->increments('id')->unsigned();
 
            $table->integer('question_id')->unsigned();
-           $table->foreign('question_id')->references('question_id')->on('exam_question');
+           $table->foreign('question_id')->references('id')->on('question');
 
            $table->string('answer')->nullable();
            $table->string('explanation')->nullable();
