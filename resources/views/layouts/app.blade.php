@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
         <link rel='stylesheet' id='opensans-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C700%2C700i%2C800%2C800i&#038;ver=4.8' type='text/css' media='all' />
         <link rel='stylesheet' id='robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab%3A100%2C300%2C400%2C700&#038;ver=4.8' type='text/css' media='all' />
+        <script src="https://use.fontawesome.com/db8e2cc276.js"></script>
 
         <!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -153,18 +154,28 @@
                         @else
                             <div class="dropdown">
                                 <a class="btn" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <img class="profile-image img-circle" src="/storage/{{ Auth::user()->avatar }}" style="width:32px; height:32px; top:10px; left:10px; right:10px; margin-right:10px; border-radius:50%">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                                      <a href="{{ route('profile') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('profile-form').submit();"><i class="fa fa-btn fa-user"></i>
+                                          profile
+                                      </a>
+                                      <a href="{{ route('logout') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
+                                          logout
+                                      </a>
+
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                        <form id="profile-form" action="{{ route('profile') }}" method="GET" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
