@@ -44,8 +44,7 @@
 
           @yield('content')
 
-          @yield('question-map')
-          @yield('script-question-map')
+          
       </div>
     </body>
   </html>

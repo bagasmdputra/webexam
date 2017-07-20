@@ -1,8 +1,13 @@
 @extends('layouts.exampage')
 
-@section('question-map')
-<section>
-<div class="container" id="questionMap">
+@section('content')
+
+
+
+
+
+    <section>
+<div class="container">
   <h2 class="block-title-red" style="font-size:40px; color: black; font-family:'Quicksand';">Question Map</h2>
   <br><br><br>
       <div class="col-lg-9">
@@ -29,8 +34,15 @@
                 @endphp
             @else
             <div class="col-lg-14 question-{{$question_id->id}}">
-                    <button onClick="openQuestion()" class="question-box question-{{$question_id->id}}" id="{{$question_id->id}} ">
-                    <a class="text" href="#">{{$question_id->id}}</a></button>
+                    <button class="question-box question-{{$question_id->id}}" id="{{$question_id->id}}">
+                    <div class="text">{{$question_id->id}}</div></button>
+                    <!-- <p class="p{{$question_id->id}}">{{$question_id->question}}</p> -->
+                    <!-- <form class="options">
+                        <input class="option" type="radio" name="question-{{$question_id->id}}" value=4>You walk right up to her, strike up a conversation, and ask for her number<br>
+                        <input class="option" type="radio" name="question-{{$question_id->id}}" value=3>You wait a few days until you get the courage to go and talk to her<br>
+                        <input class="option" type="radio" name="question-{{$question_id->id}}" value=2>You tell one of your mutual friends that you like her<br>
+                        <input class="option" type="radio" name="question-{{$question_id->id}}" value=1>You wait for her to come to you</br>
+                    </form> -->
             </div>
             @php
                 $count_2++;
@@ -50,20 +62,22 @@
       </div>
 </div>
     </section>
-@endsection
+    <!-- @foreach($exam_question as $question_id)
+      <div class="question">
+              <p class="p{{$question_id->id}}">{{$question_id->question}}</p>
+              <form class="options">
+                  <input class="option" type="radio" name="question-{{$question_id->id}}" value=4>You walk right up to her, strike up a conversation, and ask for her number<br>
+                  <input class="option" type="radio" name="question-{{$question_id->id}}" value=3>You wait a few days until you get the courage to go and talk to her<br>
+                  <input class="option" type="radio" name="question-{{$question_id->id}}" value=2>You tell one of your mutual friends that you like her<br>
+                  <input class="option" type="radio" name="question-{{$question_id->id}}" value=1>You wait for her to come to you</br>
+              </form>
+      </div>
+      @endforeach -->
 
-@section('script-question-map')
-<script>
 
-function openQuestion() {
-var currentQuestion = 0;
-  @foreach ($exam_question as $question_id)
-  currentQuestion = {{ $question_id-> $id_quest}};
 
-  document.getElementById('q'+(currentQues)).style.display = 'block';
-  document.getElementById('questionMap').style.display = 'none';
 
-  @endforeach
-}
-</script>
+
+
+
 @endsection

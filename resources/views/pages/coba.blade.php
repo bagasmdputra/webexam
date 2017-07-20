@@ -101,6 +101,6 @@ function prevQuestion() {
 <button class="prev-next" style="float:right; display: inline-block; margin-right: 3%;" onclick="prevQuestion()">Prev</button>
 </section>
 </body>
-</html>
+
 
   @endsection
