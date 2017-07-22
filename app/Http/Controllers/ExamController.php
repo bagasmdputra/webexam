@@ -24,16 +24,15 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $exam_question = DB::table('exam_question')
-                  ->join('question', 'exam_question.question_id', '=', 'question.id')
-                  ->select('exam_question.id', 'question.question')
-                  ->orderBy('exam_question.id', 'asc')
-                  ->get();
+     public function index()
+     {
+       $exam_question = DB::table('answer')
+                 ->join('question', 'question.id', '=', 'answer.question_id')
+                 ->join('exam_question', 'exam_question.question_id', '=', 'question.id')
+                 ->select('exam_question.id as id_question', 'question.question as question', 'answer.answer as answer')
+                 ->orderBy('id_question', 'asc')
+                 ->get();
 
-        $count = $exam_question->count();
-
-        return view('pages/exam', ['exam_question' => $exam_question]);
-    }
+       return view('pages/exam', ['exam_question' => $exam_question]);
+     }
 }

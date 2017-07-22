@@ -11,14 +11,14 @@
 
 
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//s.w.org' />
-        <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" />
+        <!-- <link rel='dns-prefetch' href='//s.w.org' /> -->
+        <!-- <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
+        <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" /> -->
         <link href="{{asset('css/question.css')}}" rel="stylesheet" />
 
 
 
-        <script src="{{asset('js/jquery-migrate.min.js')}}"></script>
+        <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
 
 
@@ -44,7 +44,7 @@
 
           @yield('content')
 
-          
+
       </div>
     </body>
   </html>

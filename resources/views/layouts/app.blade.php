@@ -7,21 +7,21 @@
         <title>@yield('title')</title>
         <link rel='stylesheet' id='opensans-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A300%2C300i%2C400%2C400i%2C600%2C600i%2C700%2C700i%2C800%2C800i&#038;ver=4.8' type='text/css' media='all' />
         <link rel='stylesheet' id='robotoslab-css' href='https://fonts.googleapis.com/css?family=Roboto+Slab%3A100%2C300%2C400%2C700&#038;ver=4.8' type='text/css' media='all' />
-        <script src="https://use.fontawesome.com/db8e2cc276.js"></script>
+        <!-- <script src="https://use.fontawesome.com/db8e2cc276.js"></script> -->
 
         <!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-        <link rel='dns-prefetch' href='//s.w.org' />
+        <!-- <link rel='dns-prefetch' href='//s.w.org' />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
-        <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" />
+        <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" /> -->
         <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
         <link href="{{asset('css/membership.css')}}" rel="stylesheet" />
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
 
-        <script src="{{asset('js/jquery-migrate.min.js')}}"></script>
+        <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
 
         <!-- Scripts -->
@@ -314,7 +314,7 @@
             /* ]]> */
         </script> -->
 
-        <script type="text/javascript" src=" {{asset('js/pricing.js')}}"></script>
+
         <!-- <script type='text/javascript'>
             /* <![CDATA[ */
             var riyo = {
@@ -323,8 +323,8 @@
             };
             /* ]]> */
         </script> -->
-        <script type='text/javascript' src='http://www.riyo.io/wp-content/themes/riyo/js/custom.js?ver=4.8'></script>
-        <script type='text/javascript' src='http://www.riyo.io/wp-includes/js/wp-embed.min.js?ver=4.8'></script>
+        <!-- <script type='text/javascript' src='http://www.riyo.io/wp-content/themes/riyo/js/custom.js?ver=4.8'></script> -->
+        <!-- <script type='text/javascript' src='http://www.riyo.io/wp-includes/js/wp-embed.min.js?ver=4.8'></script>
         <div id="riyo-popup" class="modal-box">
             <div class="popup-container"></div>
         </div>
@@ -343,8 +343,10 @@
 
             ga('create', 'UA-75070078-1', 'auto');
             ga('send', 'pageview');
-        </script>
+        </script> -->
         <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/pricing.js') }}"></script>
+
     </body>
 </html>

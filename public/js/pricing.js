@@ -1575,28 +1575,28 @@ function close_player() {
             }
         }, e
     });
-var hamburger = document.getElementById("hamburger"),
-    products_btn = document.getElementById("products_btn"),
-    features_btn = document.getElementById("features_btn");
-hamburger.addEventListener("click", function(t) {
-    t.preventDefault(), document.body.className.indexOf("menu ") != -1 ? document.body.className = document.body.className.replace("menu ", "") : document.body.className += " menu "
-}), products_btn && products_btn.addEventListener("click", function(t) {
-    t.preventDefault();
-    var e = 0;
-    document.body.className.indexOf("menu-features ") != -1 && (document.body.className = document.body.className.replace("menu-features ", ""), e = 600), window.setTimeout(function() {
-        document.body.className.indexOf("menu-products ") != -1 ? document.body.className = document.body.className.replace("menu-products ", "") : document.body.className += " menu-products "
-    }, e)
-}), features_btn && features_btn.addEventListener("click", function(t) {
-    t.preventDefault();
-    var e = 0;
-    document.body.className.indexOf("menu-products ") != -1 && (document.body.className = document.body.className.replace("menu-products ", ""), e = 600), window.setTimeout(function() {
-        document.body.className.indexOf("menu-features ") != -1 ? document.body.className = document.body.className.replace("menu-features ", "") : document.body.className += " menu-features "
-    }, e)
-}), "undefined" == typeof window.orientation && window.addEventListener("resize", function() {
-    processBaseScroll(), window.innerWidth <= 800 ? document.body.className.indexOf("menu-products ") != -1 && (document.body.className = document.body.className.replace("menu-products ", "")) : document.body.className.indexOf("menu ") != -1 && (document.body.className = "")
-}), window.addEventListener("scroll", function() {
-    processBaseScroll()
-}), processBaseScroll(), document.addEventListener("touchstart", function() {}, !0);
+// var hamburger = document.getElementById("hamburger"),
+//     products_btn = document.getElementById("products_btn"),
+//     features_btn = document.getElementById("features_btn");
+// hamburger.addEventListener("click", function(t) {
+//     t.preventDefault(), document.body.className.indexOf("menu ") != -1 ? document.body.className = document.body.className.replace("menu ", "") : document.body.className += " menu "
+// }), products_btn && products_btn.addEventListener("click", function(t) {
+//     t.preventDefault();
+//     var e = 0;
+//     document.body.className.indexOf("menu-features ") != -1 && (document.body.className = document.body.className.replace("menu-features ", ""), e = 600), window.setTimeout(function() {
+//         document.body.className.indexOf("menu-products ") != -1 ? document.body.className = document.body.className.replace("menu-products ", "") : document.body.className += " menu-products "
+//     }, e)
+// }), features_btn && features_btn.addEventListener("click", function(t) {
+//     t.preventDefault();
+//     var e = 0;
+//     document.body.className.indexOf("menu-products ") != -1 && (document.body.className = document.body.className.replace("menu-products ", ""), e = 600), window.setTimeout(function() {
+//         document.body.className.indexOf("menu-features ") != -1 ? document.body.className = document.body.className.replace("menu-features ", "") : document.body.className += " menu-features "
+//     }, e)
+// }), "undefined" == typeof window.orientation && window.addEventListener("resize", function() {
+//     processBaseScroll(), window.innerWidth <= 800 ? document.body.className.indexOf("menu-products ") != -1 && (document.body.className = document.body.className.replace("menu-products ", "")) : document.body.className.indexOf("menu ") != -1 && (document.body.className = "")
+// }), window.addEventListener("scroll", function() {
+//     processBaseScroll()
+// }), processBaseScroll(), document.addEventListener("touchstart", function() {}, !0);
 var modals_wrap = document.getElementById("modals"),
     modal_btns = document.querySelectorAll(".modal-btn"),
     modals = document.querySelectorAll(".modal"),
