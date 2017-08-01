@@ -18,6 +18,9 @@ class CreatePricingPackageTable extends Migration
           $table->string('name',15)->unique();
           $table->integer('pricing');
           $table->string('description');
+          $table->integer('duration');
+
+
       });
     }
 
@@ -28,6 +31,6 @@ class CreatePricingPackageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pricing');
+        Schema::dropIfExists('pricings');
     }
 }

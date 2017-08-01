@@ -3,13 +3,13 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('profile');
-Route::get('/about', 'AboutController@index');
+Route::get('/about', 'GeneralPagesController@about');
 Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::get('/pricing','PricingController@index');
-Route::get('/contact','ContactController@index');
+Route::get('/contact','GeneralPagesController@contact');
 Route::get('/exam','ExamController@index');
 Route::get('/coba','CobaController@index');
 Route::get('/dashboard','DashboardController@index');

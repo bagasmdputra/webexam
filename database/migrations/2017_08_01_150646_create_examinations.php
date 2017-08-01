@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKnowledgeArea extends Migration
+class CreateExaminations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateKnowledgeArea extends Migration
      */
     public function up()
     {
-      Schema::create('knowledge_areas', function (Blueprint $table) {
-        $table->increments('id')->unsigned();
-        $table->string('name');
+      Schema::create('examinations', function (Blueprint $table) {
+          $table->increments('id')->unsigned();
+          $table->string('name',30);
       });
     }
 
@@ -26,6 +26,6 @@ class CreateKnowledgeArea extends Migration
      */
     public function down()
     {
-          Schema::dropIfExists('knowledge_areas');
+        Schema::dropIfExists('examinations');
     }
 }

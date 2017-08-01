@@ -13,13 +13,11 @@ class AnswerOfQuestion extends Migration
      */
      public function up()
      {
-       Schema::create('answer', function (Blueprint $table) {
-           $table->increments('id')->unsigned();
-
+       Schema::create('answers', function (Blueprint $table) {
            $table->integer('question_id')->unsigned();
            $table->foreign('question_id')->references('id')->on('question');
 
-           $table->string('answer')->nullable();
+           $table->tinyInteger('answer')->nullable();
            $table->string('explanation')->nullable();
            $table->string('reference')->nullable();
 
@@ -33,6 +31,6 @@ class AnswerOfQuestion extends Migration
       */
      public function down()
      {
-         Schema::dropIfExists('answer');
+         Schema::dropIfExists('answers');
      }
 }

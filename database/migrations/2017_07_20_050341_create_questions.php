@@ -13,15 +13,21 @@ class CreateQuestions extends Migration
      */
      public function up()
      {
-       Schema::create('question', function (Blueprint $table) {
+       Schema::create('questions', function (Blueprint $table) {
            $table->increments('id')->unsigned();
            $table->string('question');
 
-           $table->integer('domain_id')->unsigned();
-           $table->foreign('domain_id')->references('id')->on('domain');
+           $table->integer('domain_id')
+           ->unsigned();
+           $table->foreign('domain_id')
+           ->references('id')
+           ->on('domain');
 
-           $table->integer('knowledge_id')->unsigned();
-           $table->foreign('knowledge_id')->references('id')->on('knowledge_area');
+           $table->integer('knowledge_id')
+           ->unsigned();
+           $table->foreign('knowledge_id')
+           ->references('id')
+           ->on('knowledge_area');
        });
      }
 
@@ -32,6 +38,6 @@ class CreateQuestions extends Migration
       */
      public function down()
      {
-         Schema::dropIfExists('question');
+         Schema::dropIfExists('questions');
      }
 }

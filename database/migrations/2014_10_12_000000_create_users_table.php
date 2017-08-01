@@ -18,9 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('name',100)->nullable();
             $table->string('email',40)->unique();
             $table->string('password');
-            $table->integer('package')->default(0);
+            $table->integer('package')->default(1);
             $table->rememberToken();
             $table->timestamps();
+            $table->date('expired_at')
         });
     }
 

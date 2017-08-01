@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class GeneralPagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,7 +21,11 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function about()
+    {
+        return view('pages/about');
+    }
+    public function contact()
     {
         return view('pages/contact');
     }
