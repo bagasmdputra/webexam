@@ -21,13 +21,13 @@ class CreateQuestions extends Migration
            ->unsigned();
            $table->foreign('domain_id')
            ->references('id')
-           ->on('domain');
+           ->on('domains');
 
            $table->integer('knowledge_id')
            ->unsigned();
            $table->foreign('knowledge_id')
            ->references('id')
-           ->on('knowledge_area');
+           ->on('knowledge_areas');
        });
      }
 

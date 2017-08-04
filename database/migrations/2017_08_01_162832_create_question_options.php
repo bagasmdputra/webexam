@@ -32,3 +32,4 @@ class CreateQuestionOptions extends Migration
     {
         Schema::dropIfExists('question_options');
     }
+}

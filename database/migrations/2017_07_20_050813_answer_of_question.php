@@ -15,7 +15,7 @@ class AnswerOfQuestion extends Migration
      {
        Schema::create('answers', function (Blueprint $table) {
            $table->integer('question_id')->unsigned();
-           $table->foreign('question_id')->references('id')->on('question');
+           $table->foreign('question_id')->references('id')->on('questions');
 
            $table->tinyInteger('answer')->nullable();
            $table->string('explanation')->nullable();

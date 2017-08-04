@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('package')->default(1);
             $table->rememberToken();
             $table->timestamps();
-            $table->date('expired_at')
+            $table->date('expired_at');
         });
     }
 

@@ -21,6 +21,7 @@ class CreateResults extends Migration
         $table->foreign('question_id')->references('id')->on('questions');
 
         $table->boolean('isTrue');
+        $table->tinyInteger('user_answer');
         $table->decimal('time_taken', 5, 2);
       });
     }
