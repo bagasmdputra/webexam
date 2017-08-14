@@ -11,9 +11,10 @@ Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::get('/pricing','PricingController@index');
 Route::get('/contact','GeneralPagesController@contact');
 Route::get('/exam','ExamController@index');
-Route::get('/coba','CobaController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/resultreview', 'ResultController@index');
+
+Route::get('/verifyemail/{token}','Auth\RegisterController@verify');
 // Route::prefix('admin')->group(function(){
 //   Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 //   Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
