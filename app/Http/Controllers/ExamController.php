@@ -26,10 +26,10 @@ class ExamController extends Controller
      */
      public function index()
      {
-       $exam_question = DB::table('answer')
-                 ->join('question', 'question.id', '=', 'answer.question_id')
-                 ->join('exam_question', 'exam_question.question_id', '=', 'question.id')
-                 ->select('exam_question.id as id_question', 'question.question as question', 'answer.answer as answer')
+       $exam_question = DB::table('answers')
+                 ->join('questions', 'questions.id', '=', 'answers.question_id')
+                 ->join('exam_questions', 'exam_questions.question_id', '=', 'answers.question_id')
+                 ->select('exam_questions.question_id as id_question', 'questions.question as question', 'answers.answer as answer')
                  ->orderBy('id_question', 'asc')
                  ->get();
 
