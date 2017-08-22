@@ -1,4 +1,4 @@
-<?php
+l<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,8 +14,8 @@ class CreateOnOpenedQuestions extends Migration
     public function up()
     {
       Schema::create('on_opened_questions', function (Blueprint $table) {
-        $table->integer('onexam_id')->unsigned();
-        $table->foreign('onexam_id')->references('id')->on('on_exams')->onDelete('cascade');;
+        $table->integer('exam_takens_id')->unsigned();
+        $table->foreign('exam_takens_id')->references('id')->on('exam_takens')->onDelete('cascade');;
 
         $table->DateTime('started_at');
 
@@ -26,7 +26,7 @@ class CreateOnOpenedQuestions extends Migration
         $table->boolean('isMarked')->default(0);
         $table->decimal('time_taken', 5, 2)->default(0);
 
-
+        $table->primary(array('exam_takens_id', 'question_id'));
       });
     }
 

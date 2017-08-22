@@ -15,7 +15,7 @@ class CreateExamTakens extends Migration
     {
       Schema::create('exam_takens', function (Blueprint $table) {
         $table->increments('id');
-        
+
         $table->integer('user_id')->unsigned();
         $table->foreign('user_id')->references('id')->on('users');
 
@@ -23,6 +23,8 @@ class CreateExamTakens extends Migration
 
         $table->integer('exam_id')->unsigned();
         $table->foreign('exam_id')->references('id')->on('examinations');
+
+        $table->boolean('isClosed');
       });
     }
 

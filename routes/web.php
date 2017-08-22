@@ -1,6 +1,5 @@
 <?php
 
-
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('profile');
 Route::get('/about', 'GeneralPagesController@about');
@@ -26,7 +25,8 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::post('/exam', 'ExamController@saveAnswer');
