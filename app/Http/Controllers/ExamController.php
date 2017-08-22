@@ -58,7 +58,7 @@ class ExamController extends Controller
       if (isset($on_opened_question)) {
         return response()->json(['response' => 'This is get method']);
       } else {
-        
+
       }
     }
   }
