@@ -109,7 +109,8 @@
               </tr>
             </table>
 
-            <input type="hidden" name="" value="">
+            <input type="hidden" name="exam_takens_id" value="1">
+            <input type="hidden" name="question_id" value="{{ $question -> id_question }}">
             <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
             <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()">Prev</button>
             <button type="submit" class="end-exam" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;" onclick="prevQuestion()">End Exam</button>
