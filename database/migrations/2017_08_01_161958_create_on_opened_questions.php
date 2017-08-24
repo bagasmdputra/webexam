@@ -17,9 +17,6 @@ class CreateOnOpenedQuestions extends Migration
         $table->integer('exam_takens_id')->unsigned();
         $table->foreign('exam_takens_id')->references('id')->on('exam_takens');
 
-        $table->integer('exam_id')->unsigned();
-        $table->foreign('exam_id')->references('id')->on('examinations');
-
         $table->integer('question_id')->unsigned();
         $table->foreign('question_id')->references('id')->on('questions') ->onDelete('cascade');
 

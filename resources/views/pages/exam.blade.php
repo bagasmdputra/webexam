@@ -11,23 +11,6 @@
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
 
-  window.onload=window.onfocus=function() {
-    // for (var i = 0; i < array.length; i++) {
-    //   array[i]
-    // }
-    // jQuery('.question').each(function() {
-    //   console.log(jQuery("question input[type=hidden][name=question_id]").val());
-    // });
-    //
-    // var token = jQuery("input[type=hidden][name=_token]").val();
-    //
-    // jQuery.ajax({
-    //   type: "POST",
-    //   url: "/exam",
-    //   data: {_token: token, exam_takens_id: '1', question_id: '100', user_answer: 1, isMarked: 0, time_taken: 0}
-    // });
-  }
-
   var answers = [];
 
   @foreach ($exam_question as $answerr)
