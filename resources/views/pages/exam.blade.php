@@ -10,22 +10,23 @@
 
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
-  // jQuery.ajax({
-  //   type: "POST",
-  //   url: "/exam",
-  // });
-  // function initReload() {
-  //   console.log("Masuk");
-  // }
-  // window.onload=window.onfocus=function() {
-  //   initReload()
-  // }
-  // window.onblur=function() {
-  //   console.log("Keluar");
-  // }
-  // window.onmousemove=function() {
-  //   console.log("b");
-  // }
+
+  window.onload=window.onfocus=function() {
+    // for (var i = 0; i < array.length; i++) {
+    //   array[i]
+    // }
+    // jQuery('.question').each(function() {
+    //   console.log(jQuery("question input[type=hidden][name=question_id]").val());
+    // });
+    //
+    // var token = jQuery("input[type=hidden][name=_token]").val();
+    //
+    // jQuery.ajax({
+    //   type: "POST",
+    //   url: "/exam",
+    //   data: {_token: token, exam_takens_id: '1', question_id: '100', user_answer: 1, isMarked: 0, time_taken: 0}
+    // });
+  }
 
   var answers = [];
 
@@ -67,13 +68,6 @@
 </head>
 <body>
   <section>
-
-    <form class="" action="/exam" method="post">
-      {{ csrf_field() }}
-      <input type="hidden" name="" value="">
-      <button type="submit" name="button">AAA</button>
-    </form>
-
     <div class="container">
       <div id="questionBlock">
         @foreach ($exam_question as $question)
@@ -83,7 +77,7 @@
             <tr><td><button class="answered tooltip"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
           </table>
 
-          <form class="" action="/exam" method="post">
+          <form class="question" action="/exam" method="post">
             {{ csrf_field() }}
             <table>
               <tr><h2 style="font-size:40px; color: #888888; font-family:'Quicksand'; position:relative;">Question {{ $question-> id_question }}</h2></tr>

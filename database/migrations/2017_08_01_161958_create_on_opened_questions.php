@@ -15,16 +15,20 @@ class CreateOnOpenedQuestions extends Migration
     {
       Schema::create('on_opened_questions', function (Blueprint $table) {
         $table->integer('exam_takens_id')->unsigned();
-        $table->foreign('exam_takens_id')->references('id')->on('exam_takens')->onDelete('cascade');;
+        $table->foreign('exam_takens_id')->references('id')->on('exam_takens');
+
+        $table->integer('exam_id')->unsigned();
+        $table->foreign('exam_id')->references('id')->on('examinations');
 
         $table->integer('question_id')->unsigned();
         $table->foreign('question_id')->references('id')->on('questions') ->onDelete('cascade');
 
         $table->tinyInteger('user_answer')->nullable();
         $table->boolean('isMarked')->default(0);
+        $table->boolean('isAnswered')->default(0);
         $table->integer('time_taken')->default(0);
+        $table->boolean('isTrue')->default(0);
 
-        $table->primary(array('exam_takens_id', 'question_id'));
       });
     }
 
