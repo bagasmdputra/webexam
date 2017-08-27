@@ -77,7 +77,7 @@
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             <div class="top-login">
                                 @if (Auth::guest())
-                                  <a data-modal-id="#riyo-login-form" href="#">Log In</a>
+                                  <a href="{{url('/login')}}">Log In</a>
                                   <div id="riyo-login-form" class="hidden" style="display: none;">
                                       <!-- HTML for login form -->
                                       <div class="popup-box">
@@ -122,7 +122,7 @@
                                 @endif
 
                         @if (Auth::guest())
-                            <a class="btn" data-modal-id="#riyo-signup-form" href="#">Sign Up</a>
+                              <a class="btn" href="{{url('/register')}}">Sign Up</a>
 
                             <div id="riyo-active-form" class="hidden" style="display: none;">
                                 <!-- HTML for signup form -->
