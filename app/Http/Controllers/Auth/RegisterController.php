@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
@@ -65,11 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      $date = isset($_GET['date'])? $_GET['date'] : date('Y-m-d');
+      $expireddate = date('Y-m-d', mktime(0, 0, 0, date('m') + 1, date('d') + 20, date('Y')));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'email_token' => base64_encode($data['email']),
+            'expired_at' => $expireddate,
         ]);
     }
 
