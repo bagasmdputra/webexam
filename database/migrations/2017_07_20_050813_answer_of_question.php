@@ -21,6 +21,7 @@ class AnswerOfQuestion extends Migration
            $table->string('explanation')->nullable();
            $table->string('reference')->nullable();
 
+           $table->primary(array('question_id', 'answer'));
        });
      }
 
