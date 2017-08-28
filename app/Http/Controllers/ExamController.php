@@ -107,4 +107,18 @@ class ExamController extends Controller
 
     return response()->json(['questions' => $quest_detail, 'quest_option' => $quest_option]);
   }
+
+  public function getExam(Request $request, $url) {
+    $user_id = Auth::id();
+
+    $exam_question = DB::table('on_opened_questions')
+    ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
+    ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
+    ->select('on_opened_questions.question_id as questions')
+    ->where('examinations.url_name', '=', $url)
+    ->where('exam_takens.user_id', '=', $user_id)
+    ->get();
+
+    return response()->json(['questions' => $exam_question]);
+  }
 }
