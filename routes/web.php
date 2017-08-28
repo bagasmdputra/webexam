@@ -11,7 +11,7 @@ Route::get('/pricing','PricingController@index');
 Route::get('/contact','GeneralPagesController@contact');
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
-Route::get('/resultreview', 'ResultController@index');
+Route::get('/result/{examid}', 'ResultController@getResult');
 
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify');
 // Route::prefix('admin')->group(function(){
