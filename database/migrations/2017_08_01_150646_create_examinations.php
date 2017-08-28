@@ -16,6 +16,7 @@ class CreateExaminations extends Migration
       Schema::create('examinations', function (Blueprint $table) {
           $table->increments('id')->unsigned();
           $table->string('name',30);
+          $table->string('url_name');
       });
     }
 

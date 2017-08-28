@@ -5,6 +5,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Auth;
 use App\Model\On_opened_question;
 use App\Http\Requests;
 
@@ -77,6 +78,25 @@ class ExamController extends Controller
         $on_opened_question->time_taken = $time_taken;
         $on_opened_question->save();
       }
+    }
+
+    elseif ($request->isMethod('get')) {
+      $history_exam = DB::table('exam_takens')->select()
+      ->get();
+
+                  return response()->json(['response' => 'This is post methodaa']);
+    }
+  }
+
+  public function getHistory(Request $request) {
+    $id = Auth::user()->id;
+
+    if ($request->isMethod('get')) {
+      $history_exam = DB::table('exam_takens')->select()
+      ->where('user_id', $id)
+      ->get();
+
+      return response()->json(['response' => $history_exam]);
     }
   }
 }
