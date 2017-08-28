@@ -5,7 +5,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Model\On_opened_question;
 use App\Http\Requests;
 
@@ -38,17 +38,6 @@ class ExamController extends Controller
     return view('pages/exam', ['exam_question' => $exam_question]);
   }
 
-  public function indexBackup() {
-    $history_exam = DB::table('exam_takens')
-      ->join('users', 'users.id', '=', 'exam_takens.user_id')
-      ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
-      ->select('examinations.name as name')
-      ->where('users.id', '=', '1')
-      ->get();
-
-      return view('pages/exam', ['history_exam' => $history_exam]);
-  }
-
   public function saveAnswer(Request $request) {
     if ($request->isMethod('post')){
       $this->validate($request, [
@@ -79,17 +68,10 @@ class ExamController extends Controller
         $on_opened_question->save();
       }
     }
-
-    elseif ($request->isMethod('get')) {
-      $history_exam = DB::table('exam_takens')->select()
-      ->get();
-
-                  return response()->json(['response' => 'This is post methodaa']);
-    }
   }
 
   public function getHistory(Request $request) {
-    $id = Auth::user()->id;
+    $id = Auth::id();
 
     if ($request->isMethod('get')) {
       $history_exam = DB::table('exam_takens')->select()
@@ -98,5 +80,31 @@ class ExamController extends Controller
 
       return response()->json(['response' => $history_exam]);
     }
+  }
+
+  public function getQuest(Request $request, $url, $id) {
+    $user_id = Auth::id();
+
+    $quest_detail = DB::table('on_opened_questions')
+    ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
+    ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
+    ->join('questions', 'questions.id', '=', 'on_opened_questions.question_id')
+    ->join('domains', 'domains.id', '=', 'questions.domain_id')
+    ->select('examinations.name as name', 'on_opened_questions.user_answer as user_answer',
+              'on_opened_questions.isMarked as isMarked', 'on_opened_questions.isAnswered as isAnswered',
+              'on_opened_questions.time_taken as time_taken', 'questions.question as question',
+              'domains.domain as domain')
+    ->where('examinations.url_name', '=', $url)
+    ->where('on_opened_questions.question_id', '=', $id)
+    ->where('exam_takens.user_id', '=', $user_id)
+    ->get();
+
+    $quest_option = DB::table('question_options')
+    ->join('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
+    ->select('question_options.option_id as option_number', 'question_options.option as option')
+    ->where('on_opened_questions.question_id', '=', $id)
+    ->get();
+
+    return response()->json(['questions' => $quest_detail, 'quest_option' => $quest_option]);
   }
 }

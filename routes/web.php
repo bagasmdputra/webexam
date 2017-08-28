@@ -30,6 +30,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+
+Route::get('/exam/{url}/{id}', [
+  'as' => 'getQuest', 'uses' => 'ExamController@getQuest'
+]);
 Route::get('/exam/history', 'ExamController@getHistory');
 Route::post('/exam', 'ExamController@saveAnswer');
 Route::get('/exam/{id}', 'ExamController@saveAnswer');
