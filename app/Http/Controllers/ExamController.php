@@ -116,9 +116,10 @@ class ExamController extends Controller
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
     ->select('on_opened_questions.question_id as questions')
     ->where('examinations.url_name', '=', $url)
-    ->where('exam_takens.user_id', '=', $user_id)
+    ->where('exam_takens.user_id', '=', 1)
     ->get();
 
-    return response()->json(['questions' => $exam_question]);
+    return view('pages/exam', ['exam_question' => $exam_question]);
+    // return response()->json(['questions' => $exam_question]);
   }
 }
