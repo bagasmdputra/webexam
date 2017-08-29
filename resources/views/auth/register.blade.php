@@ -63,9 +63,9 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
 
-                                <a type="submit"  class="btn btn-link">
+                                <button type="submit"  class="btn btn-link">
                                     Register
-                                </a>
+                                </button>
 
                             </div>
                         </div>

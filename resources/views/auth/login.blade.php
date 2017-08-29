@@ -50,9 +50,9 @@
 
                         <div class="form-group">
                             <div style="padding: 0 8px 8px;" class="col-md-8 col-md-offset-4">
-                              <a type="submit" class="btn btn-link">
+                              <button type="submit" class="btn">
                                   Login
-                              </a>
+                              </button>
 <br>
                               <a style="color: gray; font-size: 12px;" href="{{ route('password.request') }}">
                                     Forgot Your Password?

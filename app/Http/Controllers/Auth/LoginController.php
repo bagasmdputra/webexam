@@ -39,7 +39,7 @@ class LoginController extends Controller
     public function userLogout()
     {
         Auth::guard('web')->logout();
-        return redirect()->route('profile');
+        return redirect()->route('dashboard');
     }
 
     public function index()
