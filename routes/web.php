@@ -11,7 +11,7 @@ Route::get('/pricing','PricingController@index');
 Route::get('/contact','GeneralPagesController@contact');
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
-Route::get('/resultreview', 'ResultController@index');
+Route::get('/result/{examid}', 'ResultController@getResult');
 
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify');
 // Route::prefix('admin')->group(function(){
@@ -29,4 +29,10 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get('/exam/{url}/{id}', [
+  'as' => 'getQuest', 'uses' => 'ExamController@getQuest'
+]);
+Route::get('/exam/{url}', 'ExamController@getExam');
+Route::get('/exam/history', 'ExamController@getHistory');
 Route::post('/exam', 'ExamController@saveAnswer');
+Route::get('/exam/{id}', 'ExamController@saveAnswer');

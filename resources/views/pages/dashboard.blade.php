@@ -18,8 +18,8 @@
 
 <section class="cd-faq">
 
-	<h2 class="block-title-red" style="font-size:60px;">Welcome, Andreas!</h2>
-	<h4>Your expiration date is on <span style="font-weight: bold;">September, 27th 2017</span></h4>
+	<h2 class="block-title-red" style="font-size:60px;">Welcome,   {{ Auth::user()->name }}</h2>
+	<h4>Your expiration date is on <span style="font-weight: bold;">  {{ Auth::user()->expired_at }}</span></h4>
 	<div class="cd-faq-items">
 		<ul id="basics" class="cd-faq-group">
 

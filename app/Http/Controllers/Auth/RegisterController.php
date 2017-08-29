@@ -11,6 +11,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
 
+use Carbon\Carbon;
+
 class RegisterController extends Controller
 {
     /*
@@ -66,15 +68,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-      $date = isset($_GET['date'])? $_GET['date'] : date('Y-m-d');
-      $expireddate = date('Y-m-d', mktime(0, 0, 0, date('m') + 1, date('d') + 20, date('Y')));
+      $date = Carbon::now();
+      $date = new Carbon();
+      $expireddate = $date->addDays(60);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'email_token' => base64_encode($data['email']),
-            'expired_at' => $expireddate,
+            'expired_at' => $expireddate->toDateTimeString(),
         ]);
+        echo $expireddate;
     }
 
 

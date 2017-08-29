@@ -19,12 +19,14 @@ class CreateExamTakens extends Migration
         $table->integer('user_id')->unsigned();
         $table->foreign('user_id')->references('id')->on('users');
 
-        $table->DateTime('taken_at');
-
         $table->integer('exam_id')->unsigned();
         $table->foreign('exam_id')->references('id')->on('examinations');
 
+        $table->DateTime('taken_at');
+
         $table->boolean('isClosed');
+
+        $table->boolean('isPassed');
       });
     }
 

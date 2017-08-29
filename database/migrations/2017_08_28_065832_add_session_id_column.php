@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExaminations extends Migration
+class AddSessionIdColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateExaminations extends Migration
      */
     public function up()
     {
-      Schema::create('examinations', function (Blueprint $table) {
-          $table->increments('id')->unsigned();
-          $table->string('name',30);
-          $table->string('url_name');
+      Schema::table('users', function (Blueprint $table) {
+        $table->string('session_id')->nullable();
       });
     }
 
@@ -27,6 +25,6 @@ class CreateExaminations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examinations');
+        //
     }
 }

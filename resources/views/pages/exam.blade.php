@@ -10,56 +10,7 @@
 
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
-    // jQuery.ajax({
-    //   type: "POST",
-    //   url: "/exam",
-    // });
-  // function initReload() {
-  //   console.log("Masuk");
-  // }
-  // window.onload=window.onfocus=function() {
-  //   initReload()
-  // }
-  // window.onblur=function() {
-  //   console.log("Keluar");
-  // }
-  // window.onmousemove=function() {
-  //   console.log("b");
-  // }
 
-  var answers = [];
-
-  @foreach ($exam_question as $answerr)
-  answers.push( "{{ $answerr-> answer }}" );
-  @endforeach
-
-  var currentQues = 1;      //Current question to display
-  var numQues = answers.length; //Number of Questions
-  var numChoi = 3;            //How many possible answers
-
-  function clearQuestions() {
-    var sel = document.getElementById('questionBlock').getElementsByTagName('div');
-    for (var i=0; i<sel.length; i++) {
-      document.getElementById(sel[i].id).style.display = 'none';
-    }
-  }
-  function nextQuestion(id) {
-    document.getElementById('questionMap').style.display = 'none';
-    clearQuestions();
-    document.getElementById('q'+(currentQues+1)).style.display = 'block';
-    currentQues++;  if (currentQues > numQues) { currentQues--; }
-  }
-
-  function prevQuestion() {
-    clearQuestions();
-    document.getElementById('q'+(currentQues-1)).style.display = 'block';
-    currentQues--;  if (currentQues > numQues) { currentQues++; }
-  }
-
-  function showQuestion(id) {
-    document.getElementById('questionMap').style.display = 'none';
-    clearQuestions();
-    document.getElementById(id).style.display = 'block';
   }
 
   </script>
@@ -67,54 +18,6 @@
 </head>
 <body>
   <section>
-
-    <form class="" action="/exam" method="post">
-      {{ csrf_field() }}
-      <input type="hidden" name="" value="">
-      <button type="submit" name="button">AAA</button>
-    </form>
-
-    <div class="container">
-      <div id="questionBlock">
-        @foreach ($exam_question as $question)
-        <div id="q{{ $question-> id_question }}" class="questionBlock">
-          <table style="float: right; margin-right: -10%;">
-            <tr><td><button class="marked tooltip"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
-            <tr><td><button class="answered tooltip"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
-          </table>
-
-          <table>
-            <tr><h2 style="font-size:40px; color: #888888; font-family:'Quicksand'; position:relative;">Question {{ $question-> id_question }}</h2></tr>
-            <tr><h3 style="font-size:15px; color: #888888; font-family:'Quicksand'; margin-top: 5%;">{{ $question-> question }}</h3></tr>
-            <ul style="margin-top: 5%;">
-              <tr>
-                <td><label><input type="radio" name="q{{ $question-> id_question }}" value="{{ $question-> answer }}">{{ $question-> answer }}</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="radio" name="q{{ $question-> id_question }}" value="{{ $question-> answer }}">{{ $question-> answer }}</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="radio" name="q{{ $question-> id_question }}" value="{{ $question-> answer }}">{{ $question-> answer }}</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="radio" name="q{{ $question-> id_question }}" value="{{ $question-> answer }}">{{ $question-> answer }}</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="radio" name="q{{ $question-> id_question }}" value="{{ $question-> answer }}">{{ $question-> answer }}</label></td>
-              </tr>
-            </ul>
-            <tr>
-            </tr>
-          </table>
-
-          <button class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
-          <button class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()">Prev</button>
-          <button class="end-exam" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;" onclick="prevQuestion()">End Exam</button>
-        </div>
-        @endforeach
-      </div>
-    </div>
-
     <div class="container">
       <div id="questionMap">
         <h2 class="block-title-red" style="font-size:40px; color: black; font-family:'Quicksand';">Question Map</h2>
@@ -144,9 +47,9 @@
               $count_2++;
               @endphp
               @else
-              <div class="col-lg-14 question-{{$question_id->id_question}}">
-                <button onClick="showQuestion('q{{$question_id->id_question}}')" class="question-box question-{{$question_id->id_question}}" id="{{$question_id->id_question}}">
-                  <div class="text">{{$question_id->id_question}}</div>
+              <div class="col-lg-14 question-{{$question_id->questions}}">
+                <button onClick="showQuestion('q{{$question_id->questions}}')" class="question-box question-{{$question_id->questions}}" id="{{$question_id->questions}}">
+                  <div class="text">{{ $count_2 + 1 }}</div>
                 </button>
               </div>
               @php
