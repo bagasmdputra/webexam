@@ -26,24 +26,27 @@ class ResultController extends Controller
 
     public function cekExamUser($examid){
       $id = Auth::id();
-      $exam = DB::table('exam_takens')->whereColumn([
-         ['user_id', '=', $id],
+      $exam = DB::table('exam_takens')->where([
          ['id', '=', $examid],
+         ['user_id', '=', $id],
+         ['isClosed', '=', 1],
       ])->get();
-      if($exam = 1 ){
-        return true;
+      if($exam === null){
+        return false;
       }
-      return false;
+      return true;
     }
 
     public function getResult($examid){
       $cek = $this->cekExamUser($examid);
       if ($cek){
         $result =
-        DB::table('results')
-            ->leftJoin('answers', 'results.question_id', '=', 'answers.question_id')
-            ->leftJoin('questions', 'results.question_id', '=', 'questions.id')
-            ->where('exam_taken_id', $examid)
+        DB::table('on_opened_questions')
+            ->leftJoin('answers', 'on_opened_questions.question_id', '=', 'answers.question_id')
+            ->leftJoin('questions', 'on_opened_questions.question_id', '=', 'questions.id')
+            ->leftJoin('domains', 'domains.id', '=', 'questions.domain_id')
+            ->leftJoin('knowledge_areas', 'knowledge_areas.id', '=', 'questions.knowledge_id')
+            ->where('exam_takens_id', $examid)
             ->get();
         return view('pages/result', ['result' => $result]);
       }
