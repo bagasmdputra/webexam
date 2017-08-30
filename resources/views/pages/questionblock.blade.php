@@ -24,10 +24,18 @@
     }
 
     function changeValue(buttonID) {
-      if (buttonID === 'mark') {
-        console.log("a");
-      } else if (buttonID === 'answer') {
-        console.log("b");
+      if (buttonID === 'isMarked') {
+        if (document.getElementById("isMarked").value == 1) {
+          document.getElementById("isMarked").value = 0;
+        } else {
+          document.getElementById("isMarked").value = 1;
+        }
+      } else if (buttonID === 'isAnswered') {
+        if (document.getElementById("isAnswered").value == 1) {
+          document.getElementById("isAnswered").value = 0;
+        } else {
+          document.getElementById("isAnswered").value = 1;
+        }
       }
     }
   </script>
@@ -38,8 +46,8 @@
     @foreach($quest_detail as $question)
     <div id="q{{ $question-> id_question }}" class="questionBlock">
       <table style="float: right; margin-right: -10%;">
-        <tr><td><button class="marked tooltip" onclick="changeValue('mark')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
-        <tr><td><button class="answered tooltip" onclick="changeValue('answer')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+        <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+        <tr><td><button class="answered tooltip" onclick="changeValue('isAnswered')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
 
       </table>
 
@@ -59,14 +67,14 @@
           </tr>
         </table>
 
-        <input type="hidden" name="exam_takens_id" value="4">
-        <input type="hidden" name="question_id" value="41">
+        <input type="hidden" name="question_id" value="{{ $question->id_question }}">
+        <input type="hidden" name="exam_takens_id" value="{{ $question->exam_takens_id }}">
         <input type="hidden" name="isMarked" id="isMarked" value="1">
         <input type="hidden" name="isAnswered" id="isAnswered" value="1">
-        <input type="hidden" name="time_taken" value="100">
-        <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
-        <button type="button" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()">Prev</button>
-        <button type="submit" class="end-exam" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;" onclick="prevQuestion()">End Exam</button>
+        <input type="hidden" name="time_taken" value="">
+        <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " value="Submit">Next</button>
+        <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " >Prev</button>
+        <button type="submit" class="end-exam" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;" >End Exam</button>
       </form>
       @endforeach
         <tr>

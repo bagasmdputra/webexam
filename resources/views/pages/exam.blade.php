@@ -48,7 +48,7 @@
               @endphp
               @else
               <div class="col-lg-14 question-{{$question_id->questions}}">
-                <button onClick="showQuestion({{$question_id->questions}})" class="question-box question-{{$question_id->questions}}" id="{{$question_id->questions}}">
+                <button onClick="showQuestion({{$count_2 + 1}})" class="question-box question-{{$question_id->questions}}" id="{{$question_id->questions}}">
                   <div class="text">{{ $count_2 + 1 }}</div>
                 </button>
               </div>
