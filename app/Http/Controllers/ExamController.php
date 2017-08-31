@@ -44,29 +44,22 @@ class ExamController extends Controller
         'exam_takens_id' => 'required',
         'question_id' => 'required',
         'user_answer' => 'nullable',
+        'isAnswered' => 'nullable',
         'isMarked' => 'nullable',
-        'time_taken' => 'nullable'
+        'time_taken' => 'nullable',
       ]);
 
       $exam_takens_id = $request->exam_takens_id;
       $question_id = $request->question_id;
       $user_answer = $request->user_answer;
+      $isAnswered = $request->isAnswered;
       $isMarked = $request->isMarked;
       $time_taken = $request->time_taken;
 
       $on_opened_question = On_opened_question::where('exam_takens_id', $exam_takens_id)
                                                 ->where('question_id', $question_id)
-                                                ->update(['user_answer' => $user_answer, 'isMarked' => $isMarked, 'time_taken' => $time_taken]);
+                                                ->update(['user_answer' => $user_answer, 'isMarked' => $isMarked, 'time_taken' => $time_taken, 'isAnswered' => $isAnswered]);
 
-      if ($on_opened_question == 0) {
-        $on_opened_question = new On_opened_question;
-        $on_opened_question->exam_takens_id = $exam_takens_id;
-        $on_opened_question->question_id = $question_id;
-        $on_opened_question->user_answer = $user_answer;
-        $on_opened_question->isMarked = $isMarked;
-        $on_opened_question->time_taken = $time_taken;
-        $on_opened_question->save();
-      }
     }
   }
 
@@ -90,22 +83,25 @@ class ExamController extends Controller
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
     ->join('questions', 'questions.id', '=', 'on_opened_questions.question_id')
     ->join('domains', 'domains.id', '=', 'questions.domain_id')
-    ->select('examinations.name as name', 'on_opened_questions.user_answer as user_answer',
+    ->select('examinations.name as name', 'on_opened_questions.question_id as id_question', 'on_opened_questions.user_answer as user_answer',
               'on_opened_questions.isMarked as isMarked', 'on_opened_questions.isAnswered as isAnswered',
               'on_opened_questions.time_taken as time_taken', 'questions.question as question',
-              'domains.domain as domain')
+              'domains.domain as domain', 'exam_takens.id as exam_takens_id')
     ->where('examinations.url_name', '=', $url)
-    ->where('on_opened_questions.question_id', '=', $id)
-    ->where('exam_takens.user_id', '=', $user_id)
+    ->where('exam_takens.user_id', '=', 1)
+    ->offset(($id - 1))
+    ->limit(1)
     ->get();
 
     $quest_option = DB::table('question_options')
     ->join('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
     ->select('question_options.option_id as option_number', 'question_options.option as option')
     ->where('on_opened_questions.question_id', '=', $id)
+    ->limit(4)
     ->get();
 
-    return response()->json(['questions' => $quest_detail, 'quest_option' => $quest_option]);
+    // return response()->json(['question' => $quest_detail, 'quest_option' => $quest_option]);
+    return view('pages/questionblock', ['quest_detail' => $quest_detail, 'quest_option' => $quest_option]);
   }
 
   public function getExam(Request $request, $url) {
