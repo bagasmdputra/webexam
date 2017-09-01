@@ -9,120 +9,519 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
 	<link href="{{asset('css/reset.css')}}" rel="stylesheet" />
 	<link href="{{asset('css/result.css')}}" rel="stylesheet" />
   <script src="{{asset('js/modernizr.js')}}"></script>
-  <script src="{{asset('js/main.js')}}"></script>
+
     <!-- <script src="{{asset('js/jquery.mobile.custom.min.js')}}"></script> -->
-      <script src="{{asset('js/jquery-2.1.1.js')}}"></script>
+    <script src="{{ asset('js/jquery.js')}}"></script>
+      <!-- <script src="{{ asset('js/jquery.mobile.custom.min.js')}}"></script> -->
+
+      <script src="{{asset('js/main.js')}}"></script>
 
 	<title>Result</title>
 </head>
 <body>
-<header>
-	<h1>YOUR EXAM RESULT</h1>
-</header>
 <section class="cd-faq">
+
 	<ul class="cd-faq-categories">
-		<li><a class="selected" href="#general">General</a></li>
-		<li><a href="#domain">Domain</a></li>
-		<li><a href="#knowledge">Knowledge Area</a></li>
+    <button id="Reset">Clear Filters</button>
+    <fieldset>
+    <h4>General</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".not-answered"/>
+      <label>Not Answered</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".correct"/>
+      <label>Correct</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".wrong"/>
+      <label>Wrong</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h4>Domain</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".initiating"/>
+      <label>Initiating</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".planning"/>
+      <label>Planning</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".executing"/>
+      <label>Executing</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <h4>Knowledge Area</h4>
+    <div class="checkbox">
+      <input type="checkbox" value=".integration"/>
+      <label>Integration</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".scope"/>
+      <label>Scope</label>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" value=".time"/>
+      <label>Time</label>
+    </div>
+  </fieldset>
+
 
 	</ul> <!-- cd-faq-categories -->
 
-	<div class="cd-faq-items">
+	<div class="cd-faq-items container" id="Container">
 		<ul id="basics" class="cd-faq-group">
-			<li class="cd-faq-title"><h2>General</h2></li>
-			<li>
-				<a class="cd-faq-trigger" href="#0">Q1</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis, possimus officia sint sequi ex tenetur id impedit est pariatur iure animi non a ratione reiciendis nihil sed consequatur atque repellendus fugit perspiciatis rerum et. Dolorum consequuntur fugit deleniti, soluta fuga nobis. Ducimus blanditiis velit sit iste delectus obcaecati debitis omnis, assumenda accusamus cumque perferendis eos aut quidem! Aut, totam rerum, cupiditate quae aperiam voluptas rem inventore quas, ex maxime culpa nam soluta labore at amet nihil laborum? Explicabo numquam, sit fugit, voluptatem autem atque quis quam voluptate fugiat earum rem hic, reprehenderit quaerat tempore at. Aperiam.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
+			<li class="cd-faq-title"><h2>Review Your Result</h2></li>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">Q2</a>
-				<div class="cd-faq-content">
-					<p><span>1 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?</p>
-          <p></p>
+			<li class="not-answered">
+				<a class="cd-faq-trigger unanswered " href="#0">
+          <div class="no-quest">
+            Q1
+          </div>
 
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+				<div class="cd-faq-content">
+          <br>
+					<div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
         </div> <!-- cd-faq-content -->
 			</li>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">Q3</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
-				</div> <!-- cd-faq-content -->
+      <li class="wrong">
+				<a class="cd-faq-trigger wrong" href="#0">
+          <div class="no-quest">
+            Q2
+          </div>
+
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+				<div class="cd-faq-content wrong-content">
+          <br>
+					<div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
 			</li>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">Q4</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
-		</ul> <!-- cd-faq-group -->
+      <li class="correct">
+        <a class="cd-faq-trigger true" href="#0">
+          <div class="no-quest">
+            Q3
+          </div>
 
-		<ul id="domain" class="cd-faq-group">
-			<li class="cd-faq-title"><h2>Domain</h2></li>
-			<li>
-				<a class="cd-faq-trigger" href="#0">How does syncing work?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">How do I upload files from my phone or tablet?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempore, placeat quisquam rerum! Eligendi fugit dolorum tenetur modi fuga nisi rerum, autem officiis quaerat quos. Magni quia, quo quibusdam odio. Error magni aperiam amet architecto adipisci aspernatur! Officia, quaerat magni architecto nostrum magnam fuga nihil, ipsum laboriosam similique voluptatibus facilis nobis? Eius non asperiores, nesciunt suscipit veniam blanditiis veritatis provident possimus iusto voluptas, eveniet architecto quidem quos molestias, aperiam eum reprehenderit dolores ad deserunt eos amet. Vero molestiae commodi unde dolor dicta maxime alias, velit, nesciunt cum dolorem, ipsam soluta sint suscipit maiores mollitia assumenda ducimus aperiam neque enim! Quas culpa dolorum ipsam? Ipsum voluptatibus numquam natus? Eligendi explicabo eos, perferendis voluptatibus hic sed ipsam rerum maiores officia! Beatae, molestias!</p>
-				</div> <!-- cd-faq-content -->
-			</li>
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">How do I link to a file or folder?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
-		</ul> <!-- cd-faq-group -->
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content true-content">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
 
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
 
-		<ul id="knowledge" class="cd-faq-group">
-			<li class="cd-faq-title"><h2>Knowledge Area</h2></li>
-			<li>
-				<a class="cd-faq-trigger" href="#0">Can I have an invoice for my subscription?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">Why did my credit card or PayPal payment fail?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur accusantium dolorem vel, ad, nostrum natus eos, nemo placeat quos nisi architecto rem dolorum amet consectetur molestiae reprehenderit cum harum commodi beatae necessitatibus. Mollitia a nostrum enim earum minima doloribus illum autem, provident vero et, aspernatur quae sunt illo dolorem. Corporis blanditiis, unde, neque, adipisci debitis quas ullam accusantium repudiandae eum nostrum quis! Velit esse harum qui, modi ratione debitis alias laboriosam minus eaque, quod, itaque labore illo totam aut quia fuga nemo. Perferendis ipsa laborum atque assumenda tempore aspernatur a eos harum non id commodi excepturi quaerat ullam, explicabo, incidunt ipsam, accusantium quo magni ut! Ratione, magnam. Delectus nesciunt impedit praesentium sed, aliquam architecto dolores quae, distinctio consectetur obcaecati esse, consequuntur vel sit quis blanditiis possimus dolorum. Eaque architecto doloremque aliquid quae cumque, vitae perferendis enim, iure fugiat, soluta aut!</p>
-				</div> <!-- cd-faq-content -->
-			</li>
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
 
-			<li>
-				<a class="cd-faq-trigger" href="#0">Why does my bank statement show multiple charges for one upgrade?</a>
-				<div class="cd-faq-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
-				</div> <!-- cd-faq-content -->
-			</li>
-		</ul> <!-- cd-faq-group -->
+      <li class="not-answered">
+        <a class="cd-faq-trigger unanswered" href="#0">
+          <div class="no-quest">
+            Q4
+          </div>
 
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
 
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
 
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content ">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
 
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
+
+      <li class="not-answered">
+        <a class="cd-faq-trigger unanswered" href="#0">
+          <div class="no-quest">
+            Q5
+          </div>
+
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
+
+      <li class="correct">
+        <a class="cd-faq-trigger true" href="#0">
+          <div class="no-quest">
+            Q6
+          </div>
+
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content true-content">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
+
+      <li class="correct">
+        <a class="cd-faq-trigger true" href="#0">
+          <div class="no-quest">
+            Q7
+          </div>
+
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content true-content">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
+
+      <li class="wrong">
+        <a class="cd-faq-trigger wrong" href="#0">
+          <div class="no-quest">
+            Q8
+          </div>
+
+          <div class="time-taken-wrap">
+              <div class="time-taken">
+                2.25 s
+              </div>
+
+              <div class="dom-know">
+                <div class="domain">
+                  initiating
+                </div>
+
+                <div class="knowledge">
+                  knowledge management
+                </div>
+              </div>
+          </div>
+        </a>
+        <div class="cd-faq-content wrong-content">
+          <br>
+          <div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+            <br>
+          <div class="options">
+
+            <div><p><span>A. </span> Lorem ipsum</p></div>
+            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
+            <div><p><span>C. </span> Lorem ipsum</p></div>
+            <div><p><span>D. </span> Lorem ipsum</p></div>
+          </p>
+
+          </div>
+          <br>
+          <div>
+            <div class="title-explanation">Explanation: </div>
+
+            <div class="option-explanation">
+              <div><p><span>A) </span> Lorem ipsum</p></div>
+              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
+              <div><span><p><span>C) </span> Lorem ipsum</p></div>
+              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+            </div>
+          </div>
+          <br>
+          <div class="reference">
+            <p>Reference : <span> Lorem Ipsum </span></p>
+          </div>
+        </div> <!-- cd-faq-content -->
+      </li>
 	</div> <!-- cd-faq-items -->
+
+  <div class="cd-faq-score">
+    <ul id="basics" class="cd-faq-group">
+			<li class="cd-faq-title"><h2>Your Score</h2></li>
+    <p>100 % </p>
+  </ul>
+
+  </div>
 	<a href="#0" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/jquery.mobile.custom.min.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/2.1.11/jquery.mixitup.js'></script>
+<script src="{{asset('js/result.js')}}"></script>
+
+
 </body>
 </html>
 

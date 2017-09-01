@@ -17,7 +17,7 @@ body {
   font-size: 100%;
   font-family: "Open Sans", sans-serif;
   color: #4e5359;
-
+  background-color: #ffffff;
 }
 body::after {
   /* overlay layer visible on small devices when the right panel slides in */
@@ -47,8 +47,13 @@ body.cd-overlay::after {
 }
 
 a {
-  color: #a9c056;
+  color: black;
   text-decoration: none;
+
+}
+
+h4 {
+  line-height: 3rem;
 }
 
 /* --------------------------------
@@ -61,10 +66,10 @@ header {
   height: 180px;
   line-height: 180px;
   text-align: center;
-
+  background-color: #a9c056;
 }
 header h1 {
-  color: #a9c056;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
@@ -84,7 +89,7 @@ header h1 {
 
 .cd-faq {
   width: 90%;
-  max-width: 1024px;
+  max-width: 1542px;
   margin: 2em auto;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -108,12 +113,12 @@ header h1 {
   height: 50px;
   line-height: 50px;
   padding: 0 28px 0 16px;
-  background-color: #4e5359;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
+  color: black;
   white-space: nowrap;
-  border-bottom: 1px solid #555b61;
+
   text-overflow: ellipsis;
 }
 .cd-faq-categories a::before, .cd-faq-categories a::after {
@@ -124,7 +129,7 @@ header h1 {
   display: inline-block;
   height: 1px;
   width: 10px;
-  background-color: #7f868e;
+  background-color: #f4f4f4;
 }
 .cd-faq-categories a::after {
   -webkit-transform: rotate(90deg);
@@ -156,12 +161,84 @@ header h1 {
     display: none;
   }
   .no-touch .cd-faq-categories a:hover {
-    background: #555b61;
+    background: #a9c056;
   }
   .no-js .cd-faq-categories {
     width: 100%;
     margin-bottom: 2em;
   }
+
+  .checkbox{
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 8px;
+  line-height: 20px;
+}
+
+.checkbox input[type="checkbox"]{
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.checkbox label{
+  display: inline;
+  vertical-align: middle;
+  text-align: left;
+  padding-left: 2em;
+
+}
+
+.checkbox label:before,
+.checkbox label:after{
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.checkbox label:before{
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.checkbox label:after{
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: #a9c056;
+  opacity: 0;
+  pointer-events: none;
+}
+
+label {
+  font-size: 0.75rem;
+}
+
+.checkbox input:checked ~ label:after{
+  opacity: 1;
+}
+
+.checkbox input:focus ~ label:before{
+  background: #eee;
+}
+
 }
 @media only screen and (min-width: 1024px) {
   .cd-faq-categories {
@@ -186,7 +263,7 @@ header h1 {
     transition: opacity 0.2s;
   }
   .cd-faq-categories .selected {
-    background: #42464b !important;
+    background: #f4f4f4 !important;
   }
   .cd-faq-categories .selected::before {
     opacity: 1;
@@ -243,7 +320,7 @@ header h1 {
   .cd-faq-items {
     position: static;
     height: auto;
-    width: 78%;
+    width: 60%;
     float: right;
     overflow: visible;
     -webkit-transform: translateZ(0) translateX(0);
@@ -258,13 +335,14 @@ header h1 {
 @media only screen and (min-width: 1024px) {
   .cd-faq-items {
     float: none;
-    width: 100%;
+    width: 80%;
     padding-left: 220px;
   }
   .no-js .cd-faq-items {
     padding-left: 0;
   }
 }
+
 
 .cd-close-panel {
   position: fixed;
@@ -379,13 +457,81 @@ header h1 {
 }
 @media only screen and (min-width: 768px) {
   .cd-faq-trigger {
-    font-size: 24px;
-
-    font-size: 1.5rem;
+    font-size: 12px;
+    font-size: 1.3rem;
     font-weight: 300;
     margin: 0;
-    padding: 0px 0px 16px 0px;
-    background-color: #bfbfbf;
+    vertical-align: middle;
+    padding: 12px 24px 12px 12px;
+  }
+
+  .title-explanation {
+    font-size: 1rem;
+    color:black;
+    line-height: 20px;
+  }
+
+  /*.option-explanation{
+    padding-left: 1%;
+
+  }*/
+
+
+  .no-quest{
+    width : 25%;
+    float : left;
+    position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  }
+
+  .time-taken-wrap{
+    display: inline-block;
+    width : 95%;
+    text-align: right;
+  }
+
+  .time-taken{
+    font-size : 1.15rem;
+  }
+
+  .dom-know{
+    font-size: 0.75rem;
+  }
+
+  .domain {
+    display: inline-block;
+  }
+
+  .knowledge {
+    display: inline-block;
+    border-left: 1px solid black;
+    padding-left: 5px;
+  }
+
+  .answer-right {
+    font-weight: bold;
+  }
+
+  .unanswered {
+    background-color: #f4f4f4;
+  }
+
+  .wrong {
+    background-color: #EE8E9A;
+  }
+
+  .wrong-content {
+      background-color: rgba(238, 142, 154, 0.5);
+
+  }
+
+  .true {
+    background-color: #88E081;
+  }
+
+  .true-content{
+    background-color: rgba(136, 224, 129, 0.5);
   }
   .cd-faq-trigger::before, .cd-faq-trigger::after {
     /* arrow icon on the right */
@@ -394,7 +540,7 @@ header h1 {
     top: 50%;
     height: 2px;
     width: 13px;
-    background: #cfdca0;
+    background: black;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transition-property: -webkit-transform;
@@ -436,20 +582,88 @@ header h1 {
 }
 
 .cd-faq-content p {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 10px;
+  font-size: 0.75rem;
   line-height: 1.4;
-  color: #6c7d8e;
+  color: black;
 }
+
+
 @media only screen and (min-width: 768px) {
   .cd-faq-content {
     display: none;
-    padding: 0 24px 30px;
+    padding: 0 50px 30px;
   }
   .cd-faq-content p {
     line-height: 1.6;
   }
   .no-js .cd-faq-content {
     display: block;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  .cd-faq-score {
+    width: 20%;
+    float: right;
+    right: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+  .cd-faq-score a {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding-right: 24px;
+    padding: 0 24px;
+    -webkit-transition: background 0.2s, padding 0.2s;
+    -moz-transition: background 0.2s, padding 0.2s;
+    transition: background 0.2s, padding 0.2s;
+  }
+  .cd-faq-score a::before, .cd-faq-categories a::after {
+    display: none;
+  }
+  .no-touch .cd-faq-categories a:hover {
+    background: #555b61;
+  }
+  .no-js .cd-faq-score {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .cd-faq-score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    z-index: 2;
+  }
+  .cd-faq-score a::before {
+    /* decorative rectangle on the left visible for the selected item */
+    display: block;
+    top: 0;
+    right: auto;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #a9c056;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+  .cd-faq-score .selected {
+    background: #42464b !important;
+  }
+  .cd-faq-score .selected::before {
+    opacity: 1;
+  }
+  .cd-faq-score.is-fixed {
+    /* top and left value assigned in jQuery */
+    position: fixed;
+  }
+  .no-js .cd-faq-score {
+    position: relative;
   }
 }
