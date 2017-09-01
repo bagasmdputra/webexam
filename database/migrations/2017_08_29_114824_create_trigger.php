@@ -22,6 +22,7 @@ class CreateTrigger extends Migration
     BEGIN
 
       DECLARE done INT DEFAULT FALSE;
+      DECLARE number INT DEFAULT 0;
       DECLARE question_id_cur INT;
       DECLARE cursor_question_id CURSOR FOR SELECT question_id FROM exam_questions WHERE exam_id = new.exam_id ORDER BY RAND();
       DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
@@ -36,7 +37,8 @@ class CreateTrigger extends Migration
           LEAVE insert_question_to_opened_questions;
         END IF;
 
-        INSERT INTO on_opened_questions VALUES (new.id, question_id_cur, NULL, 0, 0, 0, 0);
+        SET number = (number + 1);
+        INSERT INTO on_opened_questions VALUES (new.id, question_id_cur, NULL, 0, 0, 0, 0, number);
 
       END LOOP insert_question_to_opened_questions;
 
