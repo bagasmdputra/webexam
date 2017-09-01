@@ -12,7 +12,6 @@ Route::get('/contact','GeneralPagesController@contact');
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/result/{examid}', 'ResultController@getResult');
-Route::get('/hasil','HasilController@index');
 
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify');
 // Route::prefix('admin')->group(function(){
@@ -36,3 +35,4 @@ Route::get('/exam/{url}/{id}', [
 Route::get('/exam/{url}', 'ExamController@getExam');
 Route::get('/exam/history', 'ExamController@getHistory');
 Route::post('/exam', 'ExamController@saveAnswer');
+Route::get('/exam/{id}', 'ExamController@saveAnswer');

@@ -10,9 +10,9 @@
 
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
-    function showQuestion(id) {
-      window.location = 'http://localhost:8000/exam/real_exam_1/' + id;
-    }
+
+  }
+
   </script>
 
 </head>
@@ -48,7 +48,7 @@
               @endphp
               @else
               <div class="col-lg-14 question-{{$question_id->questions}}">
-                <button onClick="showQuestion({{$count_2 + 1}})" class="question-box question-{{$question_id->questions}}" id="{{$question_id->questions}}">
+                <button onClick="showQuestion('q{{$question_id->questions}}')" class="question-box question-{{$question_id->questions}}" id="{{$question_id->questions}}">
                   <div class="text">{{ $count_2 + 1 }}</div>
                 </button>
               </div>

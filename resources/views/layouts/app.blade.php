@@ -279,7 +279,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <p class="copyright">Copyright <a href="">Web Exam</a> 2017</p>
+                                <p class="copyright">Copyright <a href="http://www.riyo.io">Web Exam</a> 2017</p>
                                 <div class="menu-footer-menu-container">
                                     <ul id="footer-menu" class="menu">
                                         <li id="menu-item-68" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"><a href="http://www.riyo.io/website-terms-of-use/">Terms of Service</a>

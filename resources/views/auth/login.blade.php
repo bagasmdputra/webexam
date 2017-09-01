@@ -50,9 +50,7 @@
 
                         <div class="form-group">
                             <div style="padding: 0 8px 8px;" class="col-md-8 col-md-offset-4">
-
-                              
-                              <button type="submit">
+                              <button type="submit" class="btn btn-link">
                                   Login
                               </button>
 <br>

@@ -17,8 +17,6 @@ class CreateExaminations extends Migration
           $table->increments('id')->unsigned();
           $table->string('name',30);
           $table->string('url_name');
-
-          $table->unique('name', 'url_name');
       });
     }
 
