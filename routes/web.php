@@ -9,6 +9,7 @@ Route::get('/home', function () {
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::get('/send','MailCOntroller@send');
 Route::get('/pricing','PricingController@index');
+Route::get('/hasil','HasilController@index');
 Route::get('/contact','GeneralPagesController@getContact');
 Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPaymentController@postContact']);
 Route::get('/exam','ExamController@index');
