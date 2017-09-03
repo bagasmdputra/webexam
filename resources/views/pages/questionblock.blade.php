@@ -9,18 +9,19 @@
 
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
+    function backToGrid() {
+      
+    }
     function nextQuestion() {
       var pathArray = window.location.pathname.split( '/' );
       var newId = Number(pathArray[pathArray.length - 1])
       document.getElementById('next_id').value = Number(newId + 1);
     }
-
     function prevQuestion() {
       var pathArray = window.location.pathname.split( '/' );
       var newId = Number(pathArray[pathArray.length - 1])
       document.getElementById('next_id').value = Number(newId - 1);
     }
-
     function changeValue(buttonID) {
       if (buttonID === 'isMarked') {
         if (document.getElementById("isMarked").value == 1) {
@@ -36,7 +37,6 @@
         }
       }
     }
-
     function getTimeRemaining(endtime, isMaju) {
       var t;
       if (isMaju) {
@@ -58,37 +58,39 @@
         'seconds': seconds
       };
     }
-
     window.onload = function () {
       var taken_at = document.getElementById('taken_at').value;
       var deadline = new Date(Date.parse(new Date(taken_at)) + 1 * 3 * 60 * 60 * 1000);
       initializeClock('clockdiv', deadline, true);
       initializeClock('clockdiv2', 0, false);
-
       var temp = document.getElementById('user_answer_id').value;
       if (temp != "") {
         $('input:radio[name=user_answer]:nth(' + (temp - 1) + ')').attr('checked',true);
       }
+      document.addEventListener('contextmenu', event => event.preventDefault());
     }
+
+    jQuery(document).bind('keydown', function(e) {
+      if (e.ctrlKey && (e.which == 83)) {
+        e.preventDefault();
+        return false;
+      }
+    });
 
     function initializeClock(id, endtime, isMaju) {
       var clock = document.getElementById(id);
       var hoursSpan = clock.querySelector('.hours');
       var minutesSpan = clock.querySelector('.minutes');
       var secondsSpan = clock.querySelector('.seconds');
-
       function updateClock() {
         var t = getTimeRemaining(endtime, isMaju);
-
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
         if (t.total <= 0) {
           clearInterval(timeinterval);
         }
       }
-
       updateClock();
       var timeinterval = setInterval(updateClock, 1000);
     }
@@ -97,41 +99,27 @@
 
 </head>
 <body>
-  <h1>Countdown Clock</h1>
-    <div id="clockdiv">
-      <div>
+<br><br>
+    <div id="clockdiv" class="countdown-right">
+      <div class="countdown">
         <span class="hours"></span>
-        <div class="smalltext">Hours</div>
+        <div class="smalltext countdown">Hours</div>
       </div>
-      <div>
+      <div class="countdown">
         <span class="minutes"></span>
-        <div class="smalltext">Minutes</div>
+        <div class="smalltext countdown">Minutes</div>
       </div>
-      <div>
+      <div class="countdown">
         <span class="seconds"></span>
-        <div class="smalltext">Seconds</div>
+        <div class="smalltext countdown">Seconds</div>
       </div>
     </div>
-    <div id="clockdiv2">
-      <div>
-        <span class="hours"></span>
-        <div class="smalltext">Hours</div>
-      </div>
-      <div>
-        <span class="minutes"></span>
-        <div class="smalltext">Minutes</div>
-      </div>
-      <div>
-        <span class="seconds"></span>
-        <div class="smalltext">Seconds</div>
-      </div>
-    </div>
-  <div class="container">
+      <div class="container">
     <div id="questionBlock">
       @foreach($quest_detail as $question)
       <div id="q{{ $question-> id_question }}" class="questionBlock">
         <table style="float: right; margin-right: -10%;">
-          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip" onclick="backToGrid()"><p class="tooltiptext">Back to Grid</p></button></td></tr>
           <tr><td><button class="answered tooltip" onclick="changeValue('isAnswered')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
 
         </table>
@@ -139,7 +127,7 @@
         <form class="question" action="/exam" method="post">
           {{ csrf_field() }}
           <table>
-              <tr><h2 style="font-size:40px; color: #888888; font-family:'Quicksand'; position:relative;">Question {{ $question-> id_question }}</h2></tr>
+              <tr><h2 style="font-size:40px; color: #888888; font-family:'Quicksand'; position:relative;">Question {{ $question-> index }}</h2></tr>
               <tr><h3 style="font-size:15px; color: #888888; font-family:'Quicksand'; margin-top: 5%;">{{ $question-> question }}</h3></tr>
               <ul style="margin-top: 5%;">
               @foreach($quest_option as $answer)
@@ -163,7 +151,23 @@
           <input type="hidden" name="user_answer_id" id="user_answer_id" value="{{ $question->user_answer }}">
           <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
           <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()" >Prev</button>
-          <button type="submit" class="end-exam" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;" onclick="prevQuestion()" >End Exam</button>
+
+          <div id="clockdiv2" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;">
+            <div class="total-count">
+              <span class="hours"></span>
+              <div class="smalltext total-count">Hours</div>
+            </div>
+            <div class="total-count">
+              <span class="minutes"></span>
+              <div class="smalltext total-count">Minutes</div>
+            </div>
+            <div class="total-count">
+              <span class="seconds"></span>
+              <div class="smalltext total-count">Seconds</div>
+            </div>
+          </div>
+<br><br>
+          <button type="submit" class="end-exam" style="float:left; margin-left: -15%;  margin-top: 15%;" onclick="prevQuestion()" >End Exam</button>
         </form>
         @endforeach
           <tr>

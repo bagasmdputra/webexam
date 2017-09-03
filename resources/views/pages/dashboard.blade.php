@@ -14,6 +14,12 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
 </head>
+
+<script type="text/javascript">
+	function test(url_name) {
+		window.open('/exam/'+url_name+'/1','winname','directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,height='+screen.height+', width='+screen.width+')');
+	}
+</script>
 <body>
 
 <section class="cd-faq">
@@ -30,7 +36,9 @@
 
 					@foreach ($free as $free)
 						<div>
-							<a class="cd-faq-title" href="#0">{{$free->name}} <span style="padding-left: 75%; display: inline-block; ">start</span></a>
+							<a class="cd-faq-title" href="/exam/real_exam_1/">{{$free->name}}
+								<span style="padding-left: 75%; display: inline-block; ">start</span>
+							</a>
 						</div>
 					@endforeach
 
@@ -46,7 +54,9 @@
 				<div class="cd-faq-content">
 					@foreach ($paid as $paid)
 						<div>
-							<a class="cd-faq-title" href="#0">{{$paid->name}} <span style="padding-left: 75%; display: inline-block; ">start</span></a>
+							<p class="cd-faq-title" onclick="test('{{ $paid->url_name }}')">{{$paid->name}}
+								<span style="padding-left: 75%; display: inline-block; ">start</span>
+							</p>
 						</div>
 					@endforeach
 				</div> <!-- cd-faq-content -->

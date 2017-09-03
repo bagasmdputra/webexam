@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
 class PricingController extends Controller
 {
     /**
@@ -23,6 +23,8 @@ class PricingController extends Controller
      */
     public function index()
     {
-        return view('pages/pricing');
+    $prices =   DB::table('pricings')
+          ->get();
+        return view('pages/pricing')->with('prices', $prices);
     }
 }

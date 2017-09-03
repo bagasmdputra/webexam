@@ -20,10 +20,14 @@
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
-
+        
         <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
-
+        <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="VT-client-Gy9bkeD5NcpWvT22"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
         <!-- Scripts -->
         <script>
             window.Laravel = {!! json_encode([
@@ -352,6 +356,7 @@
         <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/pricing.js') }}"></script>
+
 
     </body>
 </html>

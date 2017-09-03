@@ -22,10 +22,11 @@ class CreateOnOpenedQuestions extends Migration
 
         $table->tinyInteger('user_answer')->nullable();
         $table->boolean('isMarked')->default(0);
-        
+
         $table->boolean('isAnswered')->default(0);
         $table->integer('time_taken')->default(0);
         $table->boolean('isTrue')->default(0);
+        $table->integer('number_indexing')->unsigned();
       });
     }
 
