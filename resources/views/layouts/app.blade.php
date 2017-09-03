@@ -60,7 +60,11 @@
                                 </button>
                                 <div class="menu-top-main-menu-container">
                                     <ul id="primary-menu" class="menu">
-                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">Home</a>
+                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">@if (Auth::guest())
+                                          Home
+                                        @else
+                                          Dashboard
+                                        @endif</a>
                                         </li>
                                         <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about">About Us</a>
                                         </li>
@@ -160,11 +164,6 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                      <a href="{{ route('profile') }}"
-                                          onclick="event.preventDefault();
-                                                   document.getElementById('profile-form').submit();"><i class="fa fa-btn fa-user"></i>
-                                          profile
-                                      </a>
                                       <a href="{{ route('logout') }}"
                                           onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
@@ -215,7 +214,13 @@
                                     <h2 class="widget-title">Learn More</h2>
                                     <div class="menu-learn-more-footer-container">
                                         <ul id="menu-learn-more-footer" class="menu">
-                                            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">Home</a>
+                                            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">
+                                              @if (Auth::guest())
+                                                Home
+                                              @else
+                                                Dashboard
+                                              @endif
+                                            </a>
                                             </li>
                                             <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a data-modal-id="#riyo-login-form" href="#">Log In</a>
                                             </li>

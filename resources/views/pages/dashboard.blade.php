@@ -27,21 +27,13 @@
 			<li>
 				<a class="cd-faq-trigger" href="#0">Learning Exam</a>
 				<div class="cd-faq-content">
-					<div>
-						<a class="cd-faq-title" href="#0">Learning 1 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Learning 2 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Learning 3 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Learning 4 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Learning 5 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
+
+					@foreach ($free as $free)
+						<div>
+							<a class="cd-faq-title" href="#0">{{$free->name}} <span style="padding-left: 75%; display: inline-block; ">start</span></a>
+						</div>
+					@endforeach
+
 				</div> <!-- cd-faq-content -->
 			</li>
 
@@ -52,21 +44,11 @@
 			<li>
 				<a class="cd-faq-trigger" href="#0">Real Exam</a>
 				<div class="cd-faq-content">
-					<div>
-						<a class="cd-faq-title" href="#0">Real Exam 1 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Real Exam 2 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Real Exam 3 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Real Exam 4 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
-					<div>
-						<a class="cd-faq-title" href="#0">Real Exam 5 <span style="padding-left: 75%; display: inline-block; ">last result : 22.8%</span></a>
-					</div>
+					@foreach ($paid as $paid)
+						<div>
+							<a class="cd-faq-title" href="#0">{{$paid->name}} <span style="padding-left: 75%; display: inline-block; ">start</span></a>
+						</div>
+					@endforeach
 				</div> <!-- cd-faq-content -->
 			</li>
 		</ul> <!-- cd-faq-group -->

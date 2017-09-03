@@ -1,14 +1,16 @@
 <?php
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('profile');
+Route::get('/', 'DashboardController@index')->name('profile');
 Route::get('/about', 'GeneralPagesController@about');
 Route::get('/home', function () {
     return view('welcome');
 })->name('home');
 Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::get('/send','MailCOntroller@send');
 Route::get('/pricing','PricingController@index');
-Route::get('/contact','GeneralPagesController@contact');
+Route::get('/contact','GeneralPagesController@getContact');
+Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPagesController@postContact']);
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/result/{examid}', 'ResultController@getResult');

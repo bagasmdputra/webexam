@@ -24,6 +24,7 @@ class SendVerificationEmail implements ShouldQueue
     {
         //
         $this->user = $user;
+
     }
 
     /**
@@ -33,7 +34,6 @@ class SendVerificationEmail implements ShouldQueue
      */
     public function handle()
     {
-        //
         $email = new EmailVerification($this->user);
         Mail::to($this->user->email)->send($email);
     }

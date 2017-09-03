@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Model\Examination;
+use App\Http\Requests;
+
 
 class DashboardController extends Controller
 {
@@ -23,6 +26,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $free = Examination::where('type', 0)->get();
+        $paid = Examination::where('type', 1)->get();
+        return view('pages.dashboard')->with('free', $free)->with('paid', $paid);
     }
 }
