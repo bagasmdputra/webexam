@@ -511,10 +511,21 @@
   <div class="cd-faq-score">
     <ul id="basics" class="cd-faq-group">
 			<li class="cd-faq-title"><h2>Your Score</h2></li>
-    <p>100 % </p>
-  </ul>
+    <div class="scores">
+        <p class="correctness">Correct</p>
+        <p class="score">100 %</p>
+        <p class="correctness">8 out 30</p>
 
+    </div>
+    <div class="calculate">
+
+    </div>
+
+    <p></p>
+  </ul>
   </div>
+
+
 	<a href="#0" class="cd-close-panel">Close</a>
 </section> <!-- cd-faq -->
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

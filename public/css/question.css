@@ -31,7 +31,25 @@ template {
     display: none;
 }
 
+.countdown {
+  display : inline-block;
+  text-align: right;
+}
 
+.countdown-right {
+  width : 90%;
+  margin-left: 80%;
+  color : black;
+  font-size: 1rem;
+  font-family: "futura-pt";
+}
+
+.total-count {
+  display : inline-block;
+  font-size: 1rem;
+  font-family: "futura-pt";
+  color: black;
+}
 
 abbr[title] {
     border-bottom: 1px dotted;

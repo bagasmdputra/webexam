@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Jobs\SendVerificationEmail;
 
 use Carbon\Carbon;
+use Mail;
+use App\Mail\EmailVerification;
 
 class RegisterController extends Controller
 {
@@ -92,7 +94,12 @@ class RegisterController extends Controller
     {
       $this->validator($request->all())->validate();
       event(new Registered($user = $this->create($request->all())));
-      dispatch(new SendVerificationEmail($user));
+
+      $email = new EmailVerification($user);
+      Mail::to($user->email)
+      ->send($email);
+      // dispatch(new SendVerificationEmail($user));
+
       return view('pages/verification');
     }
     /**

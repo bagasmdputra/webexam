@@ -20,10 +20,14 @@
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
-
+        
         <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
-
+        <script type="text/javascript"
+            src="https://app.sandbox.midtrans.com/snap/snap.js"
+            data-client-key="VT-client-Gy9bkeD5NcpWvT22"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </head>
         <!-- Scripts -->
         <script>
             window.Laravel = {!! json_encode([
@@ -60,7 +64,11 @@
                                 </button>
                                 <div class="menu-top-main-menu-container">
                                     <ul id="primary-menu" class="menu">
-                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">Home</a>
+                                        <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">@if (Auth::guest())
+                                          Home
+                                        @else
+                                          Dashboard
+                                        @endif</a>
                                         </li>
                                         <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about">About Us</a>
                                         </li>
@@ -160,11 +168,6 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                      <a href="{{ route('profile') }}"
-                                          onclick="event.preventDefault();
-                                                   document.getElementById('profile-form').submit();"><i class="fa fa-btn fa-user"></i>
-                                          profile
-                                      </a>
                                       <a href="{{ route('logout') }}"
                                           onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();"><i class="fa fa-btn fa-sign-out"></i>
@@ -215,7 +218,13 @@
                                     <h2 class="widget-title">Learn More</h2>
                                     <div class="menu-learn-more-footer-container">
                                         <ul id="menu-learn-more-footer" class="menu">
-                                            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">Home</a>
+                                            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">
+                                              @if (Auth::guest())
+                                                Home
+                                              @else
+                                                Dashboard
+                                              @endif
+                                            </a>
                                             </li>
                                             <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a data-modal-id="#riyo-login-form" href="#">Log In</a>
                                             </li>
@@ -347,6 +356,7 @@
         <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/pricing.js') }}"></script>
+
 
     </body>
 </html>
