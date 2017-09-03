@@ -496,7 +496,7 @@ label {
   }
 
   .dom-know{
-    font-size: 0.75rem;
+    font-size: 0.5rem;
   }
 
   .domain {
@@ -518,20 +518,44 @@ label {
   }
 
   .wrong {
-    background-color: #EE8E9A;
+    background-color: rgba(238, 142, 154, 0.7);
   }
 
   .wrong-content {
-      background-color: rgba(238, 142, 154, 0.5);
+      background-color: rgba(238, 142, 154, 0.2);
 
+  }
+
+  .scores {
+    text-align : center;
+    background-color: rgba(31, 166, 12, 0.75);
+    border-radius: 20px;
+    padding : 20px 20px 20px;
+  }
+
+  .score {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 3rem;
+    font-weight: 300px;
+    color: white;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .correctness {
+    font-size: 0.75rem;
+    color: white;
+    margin-top: 5%;
+    
   }
 
   .true {
-    background-color: #88E081;
+    background-color: rgba(136, 224, 129, 0.7);
   }
 
   .true-content{
-    background-color: rgba(136, 224, 129, 0.5);
+    background-color: rgba(136, 224, 129, 0.2);
   }
   .cd-faq-trigger::before, .cd-faq-trigger::after {
     /* arrow icon on the right */
