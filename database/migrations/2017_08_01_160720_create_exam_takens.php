@@ -23,6 +23,7 @@ class CreateExamTakens extends Migration
         $table->foreign('exam_id')->references('id')->on('examinations');
 
         $table->DateTime('taken_at');
+        $table->DateTime('closed_at');
 
         $table->boolean('isClosed');
 

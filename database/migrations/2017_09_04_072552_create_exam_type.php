@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExaminations extends Migration
+class CreateExamType extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateExaminations extends Migration
      */
     public function up()
     {
-      Schema::create('examinations', function (Blueprint $table) {
+        //
+        Schema::create('exam_type', function(Blueprint $table) {
           $table->increments('id')->unsigned();
-          $table->string('name',30);
-          $table->string('url_name');
-          $table->smallInteger('exam_type')->default(0);
-          $table->smallInteger('type')->default(0);
-      });
+          $table->string('name');
+          $table->integer('sub_type')->nullable();
+        })
     }
 
     /**
@@ -29,6 +28,7 @@ class CreateExaminations extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examinations');
+        //
+        Schema::dropIfExists('exam_type');
     }
 }

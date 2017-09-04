@@ -24,7 +24,7 @@ class CreateTrigger extends Migration
       DECLARE done INT DEFAULT FALSE;
       DECLARE number INT DEFAULT 0;
       DECLARE question_id_cur INT;
-      DECLARE cursor_question_id CURSOR FOR SELECT question_id FROM exam_questions WHERE exam_id = new.exam_id ORDER BY RAND();
+      DECLARE cursor_question_id CURSOR FOR SELECT id FROM questions ORDER BY RAND() LIMIT 200;
       DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
 
       OPEN cursor_question_id;
@@ -44,8 +44,9 @@ class CreateTrigger extends Migration
 
       CLOSE cursor_question_id;
 
-      INSERT INTO user_result_per_domain VALUES (new.id, 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP');
-
+      IF new.exam_type = 0 THEN
+        INSERT INTO user_result_per_domain VALUES (new.id, 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP');
+      ELSEIF new.exam_type = 1 THEN
     END;
 
     CREATE TRIGGER on_opened_questions_before_update
