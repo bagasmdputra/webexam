@@ -17,7 +17,8 @@ class CreateExaminations extends Migration
           $table->increments('id')->unsigned();
           $table->string('name',30);
           $table->string('url_name');
-          $table->smallInteger('exam_type')->default(0);
+          $table->integer('exam_type_id')->unsigned();
+          $table->foreign('exam_type_id')->references('id')->on('exam_type')->onDelete('cascade');
           $table->smallInteger('type')->default(0);
       });
     }

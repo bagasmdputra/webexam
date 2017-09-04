@@ -17,8 +17,9 @@ class CreateExamType extends Migration
         Schema::create('exam_type', function(Blueprint $table) {
           $table->increments('id')->unsigned();
           $table->string('name');
-          $table->integer('sub_type')->nullable();
-        })
+          $table->integer('sub_type_id')->nullable();
+          $table->integer('sub_type_id')->references('id')->on('sub_type')->onDelete('cascade');
+        });
     }
 
     /**

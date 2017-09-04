@@ -26,6 +26,7 @@ class CreateTrigger extends Migration
       DECLARE question_id_cur INT;
       DECLARE cursor_question_id CURSOR FOR SELECT id FROM questions ORDER BY RAND() LIMIT 200;
       DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+      DECLARE exam_type INT;
 
       OPEN cursor_question_id;
 
@@ -44,9 +45,13 @@ class CreateTrigger extends Migration
 
       CLOSE cursor_question_id;
 
-      IF new.exam_type = 0 THEN
+      SET exam_type = (SELECT exam_type FROM `examinations` WHERE id = new.exam_id);
+
+      IF exam_type = 0 THEN
+        INSERT INTO pmp_result VALUES (new.id, '0');
+      ELSEIF exam_type = 1 THEN
         INSERT INTO user_result_per_domain VALUES (new.id, 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP');
-      ELSEIF new.exam_type = 1 THEN
+      END IF;
     END;
 
     CREATE TRIGGER on_opened_questions_before_update
