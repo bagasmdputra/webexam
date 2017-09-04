@@ -82,39 +82,70 @@
 	<div class="cd-faq-items container" id="Container">
 		<ul id="basics" class="cd-faq-group">
 			<li class="cd-faq-title"><h2>Review Your Result</h2></li>
+			@foreach ($result as $question)
+				@if ($question->isAnswered == false)
+					<li class="not-answered">
+						<a class="cd-faq-trigger unanswered " href="#0">
+				@else
+					@if ($question->isTrue)
+						<li class="correct">
+							<a class="cd-faq-trigger true " href="#0">
+					@else
+						<li class="wrong">
+							<a class="cd-faq-trigger wrong " href="#0">
+					@endif
+				@endif
 
-			<li class="not-answered">
-				<a class="cd-faq-trigger unanswered " href="#0">
           <div class="no-quest">
-            Q1
+            Q{{$question->number_indexing}}
           </div>
 
           <div class="time-taken-wrap">
               <div class="time-taken">
-                2.25 s
+                {{$question->time_taken}} s
               </div>
 
               <div class="dom-know">
                 <div class="domain">
-                  initiating
+                  {{$question->domain}}
                 </div>
 
                 <div class="knowledge">
-                  knowledge management
+                  {{$question->name}}
                 </div>
               </div>
           </div>
         </a>
 				<div class="cd-faq-content">
           <br>
-					<div class="question"><p><span>1. </span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non, perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus, accusantium rem commodi?<p></div>
+					<div class="question"><p><span>{{$question->number_indexing}}. </span>{{$question->question}}<p></div>
             <br>
           <div class="options">
 
-            <div><p><span>A. </span> Lorem ipsum</p></div>
-            <div class="answer-right"><p><span>B. </span> Lorem ipsum</p></div>
-            <div><p><span>C. </span> Lorem ipsum</p></div>
-            <div><p><span>D. </span> Lorem ipsum</p></div>
+           @if ($question->answer == 1)
+							<div class="answer-right">
+						@else
+							<div>
+						@endif
+							<p><span>A. </span> {{$option[$question->number_indexing -1][0]['option']}}</p></div>
+							@if ($question->answer == 2)
+								 <div class="answer-right">
+							 @else
+								 <div>
+							 @endif
+							<p><span>B. </span> {{$option[$question->number_indexing -1][1]['option']}}</p></div>
+							@if ($question->answer == 3)
+ 								<div class="answer-right">
+ 							@else
+ 								<div>
+ 							@endif
+							<p><span>C. </span> {{$option[$question->number_indexing -1][2]['option']}}</p></div>
+							@if ($question->answer == 4)
+								 <div class="answer-right">
+							 @else
+								 <div>
+							 @endif
+							<p><span>D. </span> {{$option[$question->number_indexing -1][3]['option']}}</p></div>
           </p>
 
           </div>
@@ -123,19 +154,16 @@
             <div class="title-explanation">Explanation: </div>
 
             <div class="option-explanation">
-              <div><p><span>A) </span> Lorem ipsum</p></div>
-              <div class="answer-right"><p><span>B) </span> Lorem ipsum</p></div>
-              <div><span><p><span>C) </span> Lorem ipsum</p></div>
-              <div><span><p><span>D) </span> Lorem ipsum</p></div>
+              <div><p>{{$question->explanation}}</p></div>
             </div>
           </div>
           <br>
           <div class="reference">
-            <p>Reference : <span> Lorem Ipsum </span></p>
+            <p>Reference : <span> {{$question->reference}} </span></p>
           </div>
         </div> <!-- cd-faq-content -->
 			</li>
-
+			@endforeach
       <li class="wrong">
 				<a class="cd-faq-trigger wrong" href="#0">
           <div class="no-quest">
@@ -513,8 +541,8 @@
 			<li class="cd-faq-title"><h2>Your Score</h2></li>
     <div class="scores">
         <p class="correctness">Correct</p>
-        <p class="score">100 %</p>
-        <p class="correctness">8 out 30</p>
+        <p class="score">{{$score}} %</p>
+        <p class="correctness">{{$true}} out {{$total}}</p>
 
     </div>
     <div class="calculate">

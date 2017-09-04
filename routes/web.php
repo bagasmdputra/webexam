@@ -15,6 +15,7 @@ Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPaymentControll
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/result/{examid}', 'ResultController@getResult');
+Route::get('/hasil/{examid}', 'ResultController@getHasil');
 
 Route::get('/verifyemail/{token}','Auth\RegisterController@verify');
 // Route::prefix('admin')->group(function(){

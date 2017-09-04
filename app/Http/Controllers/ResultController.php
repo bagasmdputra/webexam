@@ -46,6 +46,7 @@ class ResultController extends Controller
             ->leftJoin('questions', 'on_opened_questions.question_id', '=', 'questions.id')
             ->leftJoin('domains', 'domains.id', '=', 'questions.domain_id')
             ->leftJoin('knowledge_areas', 'knowledge_areas.id', '=', 'questions.knowledge_id')
+
             ->where('exam_takens_id', $examid)
             ->get();
         return view('pages/result', ['result' => $result]);
@@ -53,6 +54,43 @@ class ResultController extends Controller
       return view('pages/result');
     }
 
+    public function getHasil($examid){
+      $cek = $this->cekExamUser($examid);
+      if ($cek){
+        $result =
+        DB::table('on_opened_questions')
+            ->leftJoin('answers', 'on_opened_questions.question_id', '=', 'answers.question_id')
+            ->leftJoin('questions', 'on_opened_questions.question_id', '=', 'questions.id')
+            ->leftJoin('domains', 'questions.domain_id',
+            '=','domains.id')
+            ->leftJoin('knowledge_areas', 'knowledge_areas.id', '=', 'questions.knowledge_id')
+            ->where('exam_takens_id', $examid)
+            ->get();
+
+            $options = [
+                      "foo" => "bar",
+                  ];
+        foreach ($result as $sresult) {
+          $option = DB::table('question_options')
+          ->where('question_id', $sresult->question_id)
+          ->get();
+
+          array_push($options,json_decode(json_encode($option), True));
+
+        }
+
+        $true = DB::table('on_opened_questions')->where('exam_takens_id', $examid)->where('isTrue',1)
+        ->count();
+        $total = DB::table('on_opened_questions')->where('exam_takens_id', $examid)
+        ->count();
+        $score = ($true / $total) * 100;
+
+        // print_r($options);
+
+        return view('pages/hasil', ['result' => $result, 'option' => $options, 'true' => $true, 'total' => $total, 'score' => $score]);
+      }
+      return view('pages/result');
+    }
     // array('question' => $result->question, 'isTrue' => $result->isTrue, 'user_answer' => $result->user_answer, 'answer' => $result->answer, 'explanation' => $result->explanation, 'reference' => $result->reference)
 
     // public lastResult(){
