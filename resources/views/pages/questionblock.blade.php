@@ -9,9 +9,6 @@
 
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
-    function backToGrid() {
-      
-    }
     function nextQuestion() {
       var pathArray = window.location.pathname.split( '/' );
       var newId = Number(pathArray[pathArray.length - 1])
@@ -119,7 +116,7 @@
       @foreach($quest_detail as $question)
       <div id="q{{ $question-> id_question }}" class="questionBlock">
         <table style="float: right; margin-right: -10%;">
-          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip" onclick="backToGrid()"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
           <tr><td><button class="answered tooltip" onclick="changeValue('isAnswered')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
 
         </table>
