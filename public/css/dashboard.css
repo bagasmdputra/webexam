@@ -306,6 +306,8 @@ font-size: 0.7rem;
     background-color: rgba(31, 166, 12, 0.8);
   }
 
+
+
 table.history {
   width: 90%;
    margin-left: 5%;
@@ -350,6 +352,80 @@ font-size: 0.8rem;
 
 .btn-review:hover{
   background-color: rgba(227, 234, 82, 0.7);
+}
+
+.title {
+  width: 100%;
+  padding: 10px 0;
+  font-family: "Raleway", sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  font-weight: bold;
+  float: left;
+  text-align: center;
+}
+
+.confirm-body{
+  margin: 0;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.notes{
+  width: 100%;
+  padding-top: 2%;
+
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  font-size: 0.8rem;
+  float: left;
+  text-align: center;
+}
+
+.start-attempt {
+
+  display: inline-block;
+
+}
+
+.btn-start-attempt{
+  padding: 8px 20px 8px;
+  background-color: rgba(31, 166, 12, 1);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.cancel{
+
+  display: inline-block;
+
+}
+
+.btn-confirmation{
+  padding-top: 2%;
+  margin: 0;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-start-attempt:hover{
+    background-color: rgba(31, 166, 12, 0.7);
+}
+
+.btn-cancel{
+  padding: 8px 20px 8px;
+  background-color: rgba(233, 29, 29, 1);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn-cancel:hover{
+  background-color: rgba(233, 29, 29, 0.7);
 }
 
 

@@ -14,6 +14,7 @@ Route::get('/contact','GeneralPagesController@getContact');
 Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPaymentController@postContact']);
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
+Route::get('/start','StartAttemptController@index');
 Route::get('/result/{examid}', 'ResultController@getResult');
 Route::get('/hasil/{examid}', 'ResultController@getHasil');
 
