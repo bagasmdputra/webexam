@@ -75,28 +75,16 @@
 <div class="history">
 <table class="history">
   <tr>
-    <th>Name</th>
-    <th>Correct</th>
-    <th>Wrong</th>
-    <th>Time Taken</th>
+    <th>State</th>
+    <th>Marks/200.00</th>
+    <th>Grade/10.00</th>
+    <th>Review</th>
   </tr>
   <tr>
-    <td>Package 1</td>
-    <td>20</td>
-    <td>30</td>
-    <td>75 s</td>
-  </tr>
-  <tr>
-   <td>Package 2</td>
-    <td>20</td>
-    <td>30</td>
-    <td>75 s</td>
-  </tr>
-  <tr>
-    <td>Package 3</td>
-    <td>20</td>
-    <td>30</td>
-    <td>75 s</td>
+    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
+    <td>200.00</td>
+    <td>10.00</td>
+    <td><a href="/result" class="btn-review">Review</a></td>
   </tr>
 
 </table>

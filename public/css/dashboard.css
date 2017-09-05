@@ -252,17 +252,15 @@
 
 #title {
 
-
-
  font-family: 'Open Sans', sans-serif;
 
-  font-size: 1.5rem;
+  font-size: 1.275rem;
   font-weight: 2;
 
   }
 
   #expired{
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 100;
     font-family: 'Open Sans', sans-serif;
 
@@ -320,13 +318,13 @@ font-size: 0.7rem;
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #f9f9f9;
     text-align: left;
     padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #f7f7f7;
 }
 
 footer {
@@ -340,6 +338,18 @@ font-family: 'Open Sans', sans-serif;
 font-size: 0.8rem;
     text-align: center;
     background-color: #f9f9f9;
+}
+
+.btn-review{
+  padding: 8px 20px 8px;
+  background-color: rgba(227, 234, 82, 1);
+  color: black;
+  border-radius: 10px;
+
+}
+
+.btn-review:hover{
+  background-color: rgba(227, 234, 82, 0.7);
 }
 
 
@@ -468,6 +478,8 @@ font-size: 0.8rem;
     right: 20px;
     top: 26px;
   }
+
+
 
   .start, .not-taken, .history{
     margin-top: 5%;
