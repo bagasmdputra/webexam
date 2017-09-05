@@ -16,6 +16,23 @@ a, a:hover, a:focus {
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
 
+a.login {
+  font-size: 1.15rem;
+  color: black;
+}
+
+a.login:hover{
+  color : #19b9e7;
+  pointer : cursor;
+
+
+}
+
+footer{
+  bottom: 0px;
+  position: fixed;
+}
+
 h1, h2 {
 	margin-top: 10px;
 	font-size: 38px;
@@ -91,7 +108,7 @@ h3 {
 	border: 0;
 	-o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
-.navbar.navbar-no-bg { }
+.navbar.navbar-no-bg {background: none;}
 
 ul.navbar-nav {
 	font-size: 16px;
@@ -140,7 +157,7 @@ ul.navbar-nav {
 }
 
 .top-content {
-	margin-top: -5%;
+	margin-top: 0%;
 }
 
 .top-content .description p { opacity: 0.8; }
@@ -203,11 +220,9 @@ footer {
 
 }
 
-
-
 /***** Media queries *****/
 
-@media (min-width: 992px) and (min-width: 1600px) {
+@media (min-width: 1000px) and (min-width: 1600px) and (min-width: 3200px) {
 	.header {
     padding: 90% 0 90% 0;
 }
@@ -223,8 +238,13 @@ footer {
 	margin: 20px 0 10px 0;
 }
 
+footer{
+  bottom: 0px;
+  position: fixed;
+}
+
 .top-content {
-	margin-top: 8%;
+	margin-top: 10%;
 }
 
 .top-content .description p { opacity: 0.8; }

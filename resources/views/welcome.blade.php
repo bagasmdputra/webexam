@@ -28,35 +28,7 @@
 <body class="blue header">
 
 		<!-- Top menu -->
-		<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.html"></a>
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="top-navbar-1">
-					<ul class="nav navbar-nav navbar-right">
 
-						<li>
-                            <form class="login blue">
-                                <input type="text" name="username" class="span2" placeholder="Username">
-                                <input type="password" name="password" class="span2" placeholder="Password">
-                                <input type="submit" value="Sign In" class="btn"/>
-                                <a class="forgot" style="color: #19b9e7;" >Forgot password?</a>
-                            </form>
-
-						</li>
-
-					</ul>
-				</div>
-			</div>
-		</nav>
 
         <!-- Top content -->
         <div class="top-content">
@@ -106,7 +78,8 @@
                                     </div>
 
 
-			                             <button type="submit" class="btn btn-link-1" style="">Sign Up</button>
+			                             <button type="submit" class="btn btn-link-1" style="">Sign Up</button><br>
+                                   <a href="webexam/public/login/" class="login">Already have an account? Log In</a>
 
 			                    </form>
 		                    </div>
@@ -129,15 +102,15 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
-        <ul class="footer">
-        <li style="color: white;">
+
+        <p class="footer" style="color: white;">
 
                             <span class="li-text">
                                 Copyrigt
                             </span>
-                            <a href="#" style="color: white;"><strong>Sertify</strong></a>
+                            <a href="#" style="color: white;"><strong>Certife</strong></a>
                             <span class="li-text">
-                                2017
+                                2017 &copy;
                             </span>
                             <br>
                             <span class="li-social" >
@@ -147,7 +120,7 @@
                                 <a href="#" style="color: white;"><i class="fa fa-skype"></i></a>
                             </span>
 
-                        </li></ul>
+                        </p>
 
     </body>
 @endsection
