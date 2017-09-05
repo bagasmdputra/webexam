@@ -25,14 +25,14 @@
 <div id='cssmenu'>
 <ul>
    <li><a href='#'><span>About</span></a></li>
-   <li class='active has-sub'><a href='#'><span>Features</span></a>
+   <!-- <li class='active has-sub'><a href='#'><span>Features</span></a>
       <ul>
          <li><a href='#'><span>History</span></a>
          </li>
          <li><a href='#'><span>Review</span></a>
          </li>
       </ul>
-   </li>
+   </li> -->
    <li><a href='#'><span>Contact</span></a></li>
    <li class='last'>
 		 <a href="{{ route('logout') }}"
