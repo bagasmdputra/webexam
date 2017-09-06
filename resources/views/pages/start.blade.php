@@ -50,52 +50,25 @@
 </ul>
 </div>
 
-<div class="top">
-   <h2 id="title">Welcome, {{ Auth::user()->name }}</h2>
-   <h3 id="expired">Your expiration date is on <strong>{{ Auth::user()->expired_at }}</strong></h3>
-
-
+<div class="confirm-body">
+  <p class="title">Start Attempt</p>
+  <p class="notes">The exam has a time limit of 1 hour. Time will countdown from the moment you start your attempt and you must submit before it expires.
+  <br>Are you sure that you wish to start now?</p>
+  <div class="btn-confirmation">
+    <div class="start-attempt">
+      <a href="webexam/public/exam/real_exam_1/" class="btn-start-attempt">Start Attempt</a>
+      </div>
+      <div class="cancel">
+      <a href="webexam/public/dashboard/" class="btn-cancel">Cancel</a>
+      </div>
+</div>
 </div>
 
 
- <div class="not-taken">
 
-<!-- ini kalo belom ambil exam, tampilin ini doang -->
-   <p>You have not taken any exam yet.</p>
-
-
-</div>
-
-<div class="start">
-<a href="webexam/public/start/" class="btn-start">Start Exam</a>
-
-</div>
 <!-- kalo udah ngambil exam, tulisan diatas di ganti sama tabel history ini -->
 
-<div class="history">
-<table class="history">
-  <tr>
-    <th>State</th>
-    <th>Marks/200.00</th>
-    <th>Grade/10.00</th>
-    <th>Review</th>
-  </tr>
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>200.00</td>
-    <td>10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>200.00</td>
-    <td>10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
 
-</table>
-
-</div>
 
 </body>
 
