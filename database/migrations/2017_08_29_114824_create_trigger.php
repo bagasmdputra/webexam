@@ -24,9 +24,9 @@ class CreateTrigger extends Migration
       DECLARE done INT DEFAULT FALSE;
       DECLARE number INT DEFAULT 0;
       DECLARE question_id_cur INT;
+      DECLARE exam_type INT;
       DECLARE cursor_question_id CURSOR FOR SELECT id FROM questions ORDER BY RAND() LIMIT 200;
       DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
-      DECLARE exam_type INT;
 
       OPEN cursor_question_id;
 

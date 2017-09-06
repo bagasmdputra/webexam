@@ -26,7 +26,7 @@ class CreateOnOpenedQuestions extends Migration
         $table->boolean('isAnswered')->default(0);
         $table->integer('time_taken')->default(0);
         $table->boolean('isTrue')->default(0);
-        $table->integer('number_indexing')->unsigned();
+        $table->integer('number_indexing');
       });
     }
 

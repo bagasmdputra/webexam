@@ -1,3 +1,4 @@
+tan
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -13,12 +14,11 @@ class CreateExaminations extends Migration
      */
     public function up()
     {
+      Schema::dropIfExists('examinations');
       Schema::create('examinations', function (Blueprint $table) {
-          $table->increments('id')->unsigned();
+          $table->increments('id');
           $table->string('name',30);
           $table->string('url_name');
-          $table->integer('exam_type_id')->unsigned();
-          $table->foreign('exam_type_id')->references('id')->on('exam_type')->onDelete('cascade');
           $table->smallInteger('type')->default(0);
       });
     }

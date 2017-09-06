@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubType extends Migration
+class CreateForeignKeyExaminations extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateSubType extends Migration
      */
     public function up()
     {
-        Schema::create('sub_type', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
+        //
+        Schema::table('examinations', function (Blueprint $table) {
             $table->integer('exam_type_id')->unsigned();
-            $table->foreign('exam_type_id')->references('id')->on('sub_type')->onDelete('cascade');
+            $table->foreign('exam_type_id')->references('id')->on('exam_type')->onDelete('cascade');
         });
     }
 
@@ -28,6 +27,9 @@ class CreateSubType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_type');
+        //
+        Schema::table('examinations', function (Blueprint $table) {
+          $table->dropForeign(['exam_type_id']);
+        });
     }
 }
