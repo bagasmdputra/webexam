@@ -59,27 +59,42 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
-			                    	<div class="form-group">
+			                    <form action="{{ route('register') }}" method="post" class="registration-form">
+                              {{ csrf_field() }}
+			                    	<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 			                    		<label class="sr-only" for="form-name">Name</label>
-			                        	<input type="text" name="form-name" placeholder="Name" class="regist-form form-control" id="form-name">
+			                        	<input type="text" name="name" placeholder="Name" class="regist-form form-control" id="name"  value="{{ old('name') }}" required autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
 			                        </div>
-			                        <div class="form-group">
+			                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 			                        	<label class="sr-only" for="form-email">Email</label>
-			                        	<input type="email" name="form-email" placeholder="Email Address" class="regist-form form-control" id="form-email">
+			                        	<input type="email" name="email" placeholder="Email Address" class="regist-form form-control" id="email" value="{{ old('email') }}" required>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
 			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="form-password" placeholder="Password" class="regist-form form-control" id="form-password">
+			                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+			                        	<input id="password" type="password" class="regist-form form-control" placeholder="Password" name="password" required>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
 			                        </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Confirm Password</label>
-                                        <input type="password" name="form-password" placeholder="Confirm Password" class="regist-form form-control" id="form-confirm-password">
+                                        <input id="password-confirm" type="password" class="regist-form form-control" name="password_confirmation" placeholder="Confirm password" required>
                                     </div>
 
 
 			                             <button type="submit" class="btn btn-link-1" style="">Sign Up</button><br>
-                                   <a href="webexam/public/login/" class="login">Already have an account? Log In</a>
+                                   <a href="{{url('/login')}}" class="login">Already have an account? Log In</a>
 
 			                    </form>
 		                    </div>

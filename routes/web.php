@@ -1,8 +1,9 @@
 <?php
 
 Auth::routes();
+
 Route::get('/', 'DashboardController@index')->name('profile');
-Route::get('/about', 'GeneralPaymentController@about');
+Route::get('/about', 'GeneralPagesController@about');
 Route::get('/home', function () {
     return view('welcome');
 })->name('home');
@@ -11,7 +12,7 @@ Route::get('/send','MailCOntroller@send');
 Route::get('/pricing','PricingController@index');
 Route::get('/hasil','HasilController@index');
 Route::get('/contact','GeneralPagesController@getContact');
-Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPaymentController@postContact']);
+Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPagesController@postContact']);
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/start','StartAttemptController@index');
