@@ -37,7 +37,7 @@ class ExamController extends Controller
       $this->validate($request, [
         'exam_takens_id' => 'required',
         'question_id' => 'required',
-        'next_id' => 'required',
+        'next_id' => 'nullable',
         'url_name' => 'required',
         'user_answer' => 'nullable',
         'isAnswered' => 'nullable',
@@ -45,6 +45,15 @@ class ExamController extends Controller
         'time_taken' => 'nullable',
         'is_closed' => 'nullable',
       ]);
+
+      if ($request->is_closed == 1) {
+        DB::table('exam_takens')
+            ->where('id', $request->exam_takens_id)
+            ->update(['isClosed' => 1]);
+        
+            return redirect('hasil/' . $request->exam_takens_id);
+      }
+
       $next_id = $request->next_id;
       $url_name = $request->url_name;
       $exam_takens_id = $request->exam_takens_id;
@@ -72,6 +81,7 @@ class ExamController extends Controller
   }
   public function getQuest(Request $request, $url, $id) {
     $user_id = Auth::id();
+
     $quest_detail = DB::table('on_opened_questions')
     ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
@@ -81,9 +91,11 @@ class ExamController extends Controller
               'on_opened_questions.isMarked as isMarked', 'on_opened_questions.isAnswered as isAnswered',
               'on_opened_questions.time_taken as time_taken', 'on_opened_questions.time_taken as time_taken',
               'on_opened_questions.number_indexing as index', 'examinations.name as name', 'examinations.url_name as url_name',
-              'exam_takens.taken_at as taken_at', 'exam_takens.id as exam_takens_id', 'questions.question as question')
+              'exam_takens.taken_at as taken_at', 'exam_takens.id as exam_takens_id', 'questions.question as question',
+              'exam_takens.isClosed as is_closed')
     ->where('examinations.url_name', '=', $url)
     ->where('exam_takens.user_id', '=', $user_id)
+    ->where('exam_takens.isClosed', '=', 0)
     ->where('on_opened_questions.number_indexing', '=', $id )
     ->get();
     

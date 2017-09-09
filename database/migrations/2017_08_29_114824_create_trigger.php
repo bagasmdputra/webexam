@@ -88,6 +88,8 @@ class CreateTrigger extends Migration
       IF new.isClosed = 1 THEN
         SET count_true = (SELECT COUNT(question_id) FROM on_opened_questions WHERE exam_takens_id	= new.id AND isTrue = 1);
         SET score_new = (count_true / 200);
+        SET new.taken_at = (SELECT NOW());
+        SET new.closed_at = (SELECT DATE_ADD(NOW(), INTERVAL 3 HOUR));
         UPDATE pmp_result SET ,`total_true`=count_true,`score`=score_new WHERE `exam_takens_id`= new.id;
       END IF;
     END;

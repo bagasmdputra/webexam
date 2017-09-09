@@ -19,6 +19,9 @@
       var newId = Number(pathArray[pathArray.length - 1]);
       document.getElementById('next_id').value = Number(newId - 1);
     }
+    function endExam() {
+        document.getElementById('is_closed').value = 1;
+    }
     function changeValue(buttonID) {
       if (buttonID === 'isMarked') {
         if (document.getElementById("isMarked").value == 1) {
@@ -65,9 +68,6 @@
         $('input:radio[name=user_answer]:nth(' + (temp - 1) + ')').attr('checked',true);
       }
       document.addEventListener('contextmenu', event => event.preventDefault());
-      var examTakensId = document.getElementById('exam_takens_id').value;
-      var isClosed = document.getElementById('is_closed').value;
-      if (isClosed) window.location = 'http://localhost:8000/hasil/' + examTakensId;
     }
 
     jQuery(document).bind('keydown', function(e) {
@@ -152,7 +152,8 @@
           <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
           <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
           <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()" >Prev</button>
-
+          <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
+          
           <div id="clockdiv2" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;">
             <div class="total-count">
               <span class="hours"></span>
@@ -168,7 +169,6 @@
             </div>
           </div>
 <br><br>
-          <a type="submit" class="end-exam" style="float:left; margin-left: -15%;  margin-top: 15%;" href="webexam/public/end/" >End Exam</a>
         </form>
         @endforeach
           <tr>
