@@ -84,8 +84,8 @@
     @foreach (Session::get('history') as $his)
       <tr>
         <td>Finished<br>{{$his->closed_at}}</td>
-        <td>$his->total_true</td>
-        <td>$his->score</td>
+        <td>{{$his->total_true}}</td>
+        <td>{{$his->score}}</td>
         <td><a href="/result" class="btn-review">Review</a></td>
       </tr>
 
