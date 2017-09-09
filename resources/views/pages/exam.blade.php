@@ -11,7 +11,9 @@
   <script src="{{asset('js/jquery.js')}}"></script>
   <script type="text/javascript">
     function showQuestion(id) {
-      window.location = 'http://localhost:8000/exam/real_exam_1/' + id;
+      var pathArray = window.location.pathname.split( '/' );
+      var url = pathArray[pathArray.length - 1];
+      window.location = 'http://localhost:8000/exam/' + url + '/' + id;
     }
   </script>
 

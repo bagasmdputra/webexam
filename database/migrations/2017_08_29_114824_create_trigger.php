@@ -45,12 +45,10 @@ class CreateTrigger extends Migration
 
       CLOSE cursor_question_id;
 
-      SET exam_type = (SELECT exam_type FROM `examinations` WHERE id = new.exam_id);
+      SET exam_type = (SELECT exam_type_id FROM `examinations` WHERE id = new.exam_id);
 
       IF exam_type = 0 THEN
-        INSERT INTO pmp_result VALUES (new.id, '0');
-      ELSEIF exam_type = 1 THEN
-        INSERT INTO user_result_per_domain VALUES (new.id, 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP', 0, 'BP');
+        INSERT INTO pmp_result VALUES (new.id, '0', '0');
       END IF;
     END;
 
@@ -63,7 +61,7 @@ class CreateTrigger extends Migration
       DECLARE true_answer INT DEFAULT 0;
       DECLARE isClosed BOOLEAN DEFAULT FALSE;
 
-      SET isClosed = (SELECT (TIMEDIFF(NOW(), (SELECT taken_at FROM exam_takens WHERE id = new.exam_takens_id))) > '3:00:00');
+      SET isClosed = (SELECT (TIMEDIFF(NOW(), (SELECT closed_at FROM exam_takens WHERE id = new.exam_takens_id))) = '00:00:00');
       SET true_answer = (SELECT COUNT(question_id) FROM answers WHERE question_id = new.question_id AND answer = new.user_answer);
 
       IF isClosed THEN
@@ -84,91 +82,13 @@ class CreateTrigger extends Migration
       ON exam_takens FOR EACH ROW
     BEGIN
 
-      DECLARE initiation_score INT DEFAULT 0;
-      DECLARE planning_score INT DEFAULT 0;
-      DECLARE excecuting_score INT DEFAULT 0;
-      DECLARE monitoring_and_controlling_score INT DEFAULT 0;
-      DECLARE closing_score INT DEFAULT 0;
-      DECLARE initiation VARCHAR(191);
-      DECLARE planning VARCHAR(191);
-      DECLARE excecuting VARCHAR(191);
-      DECLARE monitoring_and_controlling VARCHAR(191);
-      DECLARE closing VARCHAR(191);
-      DECLARE isPassed BOOLEAN DEFAULT FALSE;
-      DECLARE isClosed BOOLEAN DEFAULT FALSE;
-
-      SET initiation_score = (SELECT COUNT(t1.exam_takens_id) FROM on_opened_questions AS t1
-                                JOIN questions AS t2 ON t1.question_id = t2.id
-                                WHERE t2.domain_id = 1 AND t1.isTrue = TRUE);
-
-      SET planning_score = (SELECT COUNT(t1.exam_takens_id) FROM on_opened_questions AS t1
-                                JOIN questions AS t2 ON t1.question_id = t2.id
-                                WHERE t2.domain_id = 2 AND t1.isTrue = TRUE);
-
-      SET excecuting_score = (SELECT COUNT(t1.exam_takens_id) FROM on_opened_questions AS t1
-                                JOIN questions AS t2 ON t1.question_id = t2.id
-                                WHERE t2.domain_id = 3 AND t1.isTrue = TRUE);
-
-      SET monitoring_and_controlling_score = (SELECT COUNT(t1.exam_takens_id) FROM on_opened_questions AS t1
-                                JOIN questions AS t2 ON t1.question_id = t2.id
-                                WHERE t2.domain_id = 4 AND t1.isTrue = TRUE);
-
-      SET closing_score = (SELECT COUNT(t1.exam_takens_id) FROM on_opened_questions AS t1
-                                JOIN questions AS t2 ON t1.question_id = t2.id
-                                WHERE t2.domain_id = 5 AND t1.isTrue = TRUE);
-
-      IF initiation_score <= 13 THEN
-        SET initiation = 'BP';
-      ELSEIF initiation_score > 13 AND initiation_score <= 18 THEN
-        SET initiation = 'MP';
-      ELSEIF initiation_score > 18 AND initiation_score <= 23 THEN
-        SET initiation = 'P';
-      END IF;
-
-      IF planning_score <= 25 THEN
-        SET planning = 'BP';
-      ELSEIF planning_score > 25 AND planning_score <= 34 THEN
-        SET planning = 'MP';
-      ELSEIF planning_score > 34 AND planning_score <= 42 THEN
-        SET planning = 'P';
-      END IF;
-
-      IF excecuting_score <= 32 THEN
-        SET excecuting = 'BP';
-      ELSEIF excecuting_score > 32 AND excecuting_score <= 43 THEN
-        SET excecuting = 'MP';
-      ELSEIF excecuting_score > 43 AND excecuting_score <= 54 THEN
-        SET excecuting = 'P';
-      END IF;
-
-      IF monitoring_and_controlling_score <= 26 THEN
-        SET monitoring_and_controlling = 'BP';
-      ELSEIF monitoring_and_controlling_score > 26 AND monitoring_and_controlling_score <= 35 THEN
-        SET monitoring_and_controlling = 'MP';
-      ELSEIF monitoring_and_controlling_score > 35 AND monitoring_and_controlling_score <= 44 THEN
-        SET monitoring_and_controlling = 'P';
-      END IF;
-
-      IF closing_score <= 7 THEN
-        SET closing = 'BP';
-      ELSEIF closing_score > 7 AND closing_score <= 10 THEN
-        SET closing = 'MP';
-      ELSEIF closing_score > 10 AND closing_score <= 12 THEN
-        SET closing = 'P';
-      END IF;
-
-      UPDATE user_result_per_domain
-      SET initiation_score = initiation_score, initiation = initiation,
-      planning_score = planning_score, planning = planning,
-      excecuting_score = excecuting_score, excecuting = excecuting,
-      monitoring_and_controlling_score = monitoring_and_controlling_score, monitoring_and_controlling = monitoring_and_controlling,
-      closing_score = closing_score, closing = closing
-      WHERE exam_takens_id = new.id;
+      DECLARE count_true INT;
+      DECLARE score FLOAT;
 
       IF new.isClosed = 1 THEN
-        SET isPassed = (SELECT `isSuccess` FROM `domain_test_exam`
-          WHERE `initiation` = initiation AND `planning` = planning AND `excecuting` = excecuting
-          AND `monitoring_and_controlling` = monitoring_and_controlling AND `closing` = closing);
+        SET count_true = (SELECT COUNT(question_id) FROM on_opened_questions WHERE exam_takens_id	= new.id AND isTrue = 1);
+        SET score_new = (count_true / 200);
+        UPDATE pmp_result SET ,`total_true`=count_true,`score`=score_new WHERE `exam_takens_id`= new.id;
       END IF;
     END;
 
