@@ -11,7 +11,7 @@
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="{{asset('js/dashboard.js')}}"></script>
-   <title>Certife - History</title>
+   <title>Certife - Start Confirmation</title>
 </head>
 
 <script type="text/javascript">
@@ -50,9 +50,9 @@
 </ul>
 </div>
 
-<div class="confirm-body">
+<div id="confirm-body">
   <p class="title">Start Attempt</p>
-  <p class="notes">The exam has a time limit of 1 hour. Time will countdown from the moment you start your attempt and you must submit before it expires.
+  <p class="notes">The exam has a time limit of 1 hour. <br>Time will countdown from the moment you start your attempt and you must submit before it expires.
   <br>Are you sure that you wish to start now?</p>
   <div class="btn-confirmation">
     <div class="start-attempt">

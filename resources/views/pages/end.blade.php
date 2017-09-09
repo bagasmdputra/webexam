@@ -11,7 +11,7 @@
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="{{asset('js/dashboard.js')}}"></script>
-   <title>Certife - Dashboard</title>
+   <title>Certife - Finish Confirmation</title>
 </head>
 
 <script type="text/javascript">
@@ -50,55 +50,25 @@
 </ul>
 </div>
 
-<div id="content-dashboard">
-
-<div class="top">
-   <h2 id="title">Welcome, {{ Auth::user()->name }}</h2>
-   <h3 id="expired">Your expiration date is on <strong>{{ Auth::user()->expired_at }}</strong></h3>
-
-
+<div id="confirm-body">
+  <p class="title">Confirmation</p>
+  <p class="notes">Once you submit, you will no longer be able to change your answers for this attempt.
+    <br>Are you sure to want to end the exam?</p>
+  <div class="btn-confirmation">
+    <div class="start-attempt">
+      <a href="webexam/public/exam/real_exam_1/" class="btn-start-attempt">Submit all and finish</a>
+      </div>
+      <div class="cancel">
+      <a href="webexam/public/dashboard/" class="btn-cancel">Cancel</a>
+      </div>
+</div>
 </div>
 
 
- <div class="not-taken">
 
-<!-- ini kalo belom ambil exam, tampilin ini doang -->
-   <p>You have not taken any exam yet.</p>
-
-
-</div>
-
-<div class="start">
-<a href="webexam/public/start/" class="btn-start">Start Exam</a>
-
-</div>
 <!-- kalo udah ngambil exam, tulisan diatas di ganti sama tabel history ini -->
 
-<div class="history">
-<table class="history">
-  <tr>
-    <th>State</th>
-    <th>Marks/200</th>
-    <th>Grade/10.00</th>
-    <th>Review</th>
-  </tr>
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>198/200</td>
-    <td>9.80/10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>100/200</td>
-    <td>5.00/10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
 
-</table>
-
-</div>
-</div>
 
 </body>
 

@@ -28,10 +28,8 @@ a.login:hover{
 
 }
 
-footer{
-  bottom: 0px;
-  position: fixed;
-}
+
+
 
 h1, h2 {
 	margin-top: 10px;
@@ -56,6 +54,14 @@ h3 {
 
 }
 
+.header-reset { width: 100%;
+	background: url("../img/2.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
 
 .medium-paragraph {
 	font-size: 18px;
@@ -67,7 +73,25 @@ h3 {
 ::-moz-selection { background: #19b9e7; color: #fff; text-shadow: none; }
 ::selection { background: #19b9e7; color: #fff; text-shadow: none; }
 
+.help-block{
+  font-size: 1rem;
+  float: left;
+  
+}
+.btn-reset {
 
+  	display: inline-block;
+  	height: 50px;
+  	margin: 0 5px;
+  	padding: 8px 10px 0;
+  	background: #19b9e7;
+  	font-size: 0.75rem;
+      font-weight: 300;
+      line-height: 16px;
+      color: #fff;
+      -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+
+}
 .btn-link-1 {
 	display: inline-block;
 	height: 50px;
@@ -160,6 +184,14 @@ ul.navbar-nav {
 	margin-top: 0%;
 }
 
+.remember-me{
+  font-size: 1.275rem;
+}
+
+a.forgot:hover{
+  color: #19b9e7;
+}
+
 .top-content .description p { opacity: 0.8; }
 
 .top-content .description a {
@@ -214,11 +246,7 @@ ul.navbar-nav {
 }
 
 
-footer {
-	background-color: #7E8085;
 
-
-}
 
 /***** Media queries *****/
 
@@ -239,8 +267,11 @@ footer {
 }
 
 footer{
-  bottom: 0px;
-  position: fixed;
+  position:absolute;
+   left:0px;
+   bottom:0px;
+   width:100%;
+
 }
 
 .top-content {
