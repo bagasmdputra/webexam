@@ -16,6 +16,7 @@ Route::post('/contact', ['as'=>'contactus.store','uses'=>'GeneralPagesController
 Route::get('/exam','ExamController@index');
 Route::get('/dashboard','DashboardController@index');
 Route::get('/start','StartAttemptController@index');
+Route::get('/end','EndAttemptController@index');
 Route::get('/result/{examid}', 'ResultController@getResult');
 Route::get('/hasil/{examid}', 'ResultController@getHasil');
 

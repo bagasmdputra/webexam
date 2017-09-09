@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 #cssmenu {
   background: white;
-  margin: 0;
+
   width: auto;
   padding: 0;
   line-height: 1;
@@ -9,7 +9,7 @@
   position: relative;
   font-family: 'Open Sans', sans-serif;
   float: right;
-  margin-right: 5%;
+
   margin-bottom: 2%;
 }
 #cssmenu ul {
@@ -240,9 +240,110 @@
   display: block;
 }
 
+#content-dashboard {
+    text-align: center;
+    float: left;
+position: absolute;
+    top: 20%;
+
+    margin-top: -50px;
+
+}
+
+@media only screen and (max-width: 699px) {
+    #content-dashboard {
+        width: 95%;
+        text-align: center;
+        left : 2.5%;
+
+
+    }
+
+    #confirm-body{
+      width: 95%;
+      left: 2.5%;
+      text-align: center;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+    #content-dashboard {
+        width: 85%;
+        text-align: center;
+        left: 7.5%;
+
+    }
+
+    #confirm-body{
+      width: 85%;
+        left: 7.5%;
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1396px) {
+    #content-dashboard {
+        width: 70%;
+        text-align: center;
+        left: 15%;
+
+    }
+
+    #confirm-body{
+      width: 70%;
+      left: 15%;
+      text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1397px) and (max-width: 1600px) {
+    #content-dashboard {
+        width: 65%;
+        text-align: center;
+        left: 17.5%;
+
+    }
+
+    #confirm-body{
+      width: 65%;
+      left: 17.5%;
+      text-align: center;
+    }
+}
+
+@media only screen and (min-width: 1601px){
+    #content-dashboard {
+        width: 50%;
+        text-align: center;
+        left: 25%;
+
+    }
+
+    #confirm-body{
+      width: 50%;
+        left: 25%;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    #content-dashboard {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    #confirm-body{
+      width: 100%;
+      text-align: center;
+    }
+
+
+}
+
 .top{
-   width: 90%;
-   margin-left: 5%;
+   width: 100%;
+
   float: left;
     padding-top: 2%;
 
@@ -267,8 +368,8 @@
   }
 
   .not-taken {
-    width: 90%;
-   margin-left: 5%;
+    width: 100%;
+
   float: left;
     margin-top: 2%;
     text-align: center;
@@ -284,8 +385,8 @@
 
   .start {
 
-width: 90%;
-   margin-left: 5%;
+width: 100%;
+
   float: left;
     padding-top: 2%;
 font-family: 'Open Sans', sans-serif;
@@ -309,14 +410,14 @@ font-size: 0.7rem;
 
 
 table.history {
-  width: 90%;
-   margin-left: 5%;
+  width: 100%;
+
   float: left;
     padding-top: 2%;
 font-family: 'Open Sans', sans-serif;
 font-size: 0.7rem;
     text-align: center;
-    border-collapse: collapse;
+    border-collapse:collapse;
 }
 
 td, th {
@@ -326,7 +427,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-    background-color: #f7f7f7;
+    background-color: #E5E5E5  ;
 }
 
 footer {
@@ -365,10 +466,13 @@ font-size: 0.8rem;
   text-align: center;
 }
 
-.confirm-body{
-  margin: 0;
-  vertical-align: middle;
-  height: 100%;
+#confirm-body{
+  text-align: center;
+  float: left;
+position: absolute;
+  top: 20%;
+
+  margin-top: -50px;
 }
 
 .notes{
@@ -385,6 +489,7 @@ font-size: 0.8rem;
 .start-attempt {
 
   display: inline-block;
+  padding-top: 3%;
 
 }
 
@@ -400,7 +505,7 @@ font-size: 0.8rem;
 .cancel{
 
   display: inline-block;
-
+padding-top: 3%;
 }
 
 .btn-confirmation{
@@ -429,10 +534,26 @@ font-size: 0.8rem;
 }
 
 
-@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+
+
+
+@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2)
+and (max-width: 900px), only screen and (min--moz-device-pixel-ratio: 2)
+and (max-width: 900px), only screen and (-o-min-device-pixel-ratio: 2/1)
+and (max-width: 900px), only screen and (min-device-pixel-ratio: 2)
+and (max-width: 900px), only screen and (min-resolution: 192dpi)
+and (max-width: 900px), only screen and (min-resolution: 2dppx)
+and (max-width: 900px) {
+  #cssmenu{
+    float: right;
+    position: absolute;
+    display: block;
+  }
+
   #cssmenu > ul {
     max-height: 0;
     overflow: hidden;
+    background-color: #f7f7f7;
     -webkit-transition: max-height 0.35s ease-out;
     -moz-transition: max-height 0.35s ease-out;
     -ms-transition: max-height 0.35s ease-out;
@@ -442,6 +563,8 @@ font-size: 0.8rem;
   #cssmenu > ul > li > ul {
     width: 100%;
     display: block;
+    background-color: #f7f7f7;
+
   }
   #cssmenu.align-right ul li a {
     text-align: left;
@@ -449,33 +572,42 @@ font-size: 0.8rem;
   #cssmenu > ul > li > ul > li {
     width: 100%;
     display: block;
+    background-color: #f7f7f7;
   }
   #cssmenu.align-right ul ul li a {
     text-align: left;
+    background-color: #f7f7f7;
   }
   #cssmenu > ul > li > ul > li > a {
     width: 100%;
     display: block;
+    background-color: #f7f7f7;
   }
   #cssmenu ul li ul li a {
     width: 100%;
   }
   #cssmenu.align-center > ul {
     text-align: left;
+    background-color: #f7f7f7;
   }
   #cssmenu.align-center > ul > li {
     display: block;
+    background-color: #f7f7f7;
   }
   #cssmenu > ul.open {
     max-height: 1000px;
     border-top: 1px solid rgba(110, 110, 110, 0.25);
+
+background-color: #f7f7f7;
   }
   #cssmenu ul {
     width: 100%;
+    background-color: #f7f7f7;
   }
   #cssmenu ul > li {
     float: none;
     width: 100%;
+    background-color: #f7f7f7;
   }
   #cssmenu ul li a {
     -webkit-box-sizing: border-box;
@@ -507,7 +639,7 @@ font-size: 0.8rem;
   #cssmenu ul li:hover > ul > li {
     max-height: 999px;
     position: relative;
-    background: none;
+
   }
   #cssmenu ul li ul li a {
     padding: 8px 20px 8px 35px;
@@ -543,6 +675,7 @@ font-size: 0.8rem;
     border-bottom: 2px solid #ffffff;
     right: 20px;
     top: 16px;
+
   }
   #cssmenu #menu-button:before {
     display: block;
@@ -554,6 +687,8 @@ font-size: 0.8rem;
     right: 20px;
     top: 26px;
   }
+
+
 
 
 

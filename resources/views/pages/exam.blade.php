@@ -72,7 +72,8 @@
 
               </div>
             </div>
-            <div class="row"><button class="end-exam" style="float:right; display: inline-block; margin-left: 2%; margin-top: 150%;" onclick="prevQuestion()">End Exam</button>
+            <div class="row">
+              <button class="end-exam" style="float:right; display: inline-block; margin-left: 2%; margin-top: 150%;" href="webexam/public/end/">End Exam</button>
             </div>
           </div>
         </div> <!-- end of row -->
