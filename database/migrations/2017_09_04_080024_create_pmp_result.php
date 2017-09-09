@@ -16,6 +16,8 @@ class CreatePmpResult extends Migration
         Schema::create('pmp_result', function (Blueprint $table) {
             $table->integer('exam_takens_id')->unsigned();
             $table->foreign('exam_takens_id')->references('id')->on('exam_takens')->onDelete('cascade');
+            $table->integer('total_true')->default(0);
+
             $table->integer('score')->default(0);
         });
     }

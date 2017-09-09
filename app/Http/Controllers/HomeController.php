@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 
 use App\Pricing;
+use DB;
+use App\Quotation;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,10 @@ class HomeController extends Controller
      */
      public function index()
      {
+          $result DB::table('pmp_result');
+          session(['history' => $result]);
+          print_r($result);
+          die('hai');
          return view('pages/dashboard');
      }
 }
