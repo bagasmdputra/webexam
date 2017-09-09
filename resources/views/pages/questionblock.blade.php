@@ -168,7 +168,7 @@
             </div>
           </div>
 <br><br>
-          <button type="submit" class="end-exam" style="float:left; margin-left: -15%;  margin-top: 15%;" onclick="prevQuestion()" >End Exam</button>
+          <a type="submit" class="end-exam" style="float:left; margin-left: -15%;  margin-top: 15%;" href="webexam/public/end/" >End Exam</a>
         </form>
         @endforeach
           <tr>

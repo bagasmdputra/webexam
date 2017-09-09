@@ -11,7 +11,7 @@
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="{{asset('js/dashboard.js')}}"></script>
-   <title>Certife - Start Confirmation</title>
+   <title>Certife - Finish Confirmation</title>
 </head>
 
 <script type="text/javascript">
@@ -51,12 +51,12 @@
 </div>
 
 <div id="confirm-body">
-  <p class="title">Start Attempt</p>
-  <p class="notes">The exam has a time limit of 1 hour. <br>Time will countdown from the moment you start your attempt and you must submit before it expires.
-  <br>Are you sure that you wish to start now?</p>
+  <p class="title">Confirmation</p>
+  <p class="notes">Once you submit, you will no longer be able to change your answers for this attempt.
+    <br>Are you sure to want to end the exam?</p>
   <div class="btn-confirmation">
     <div class="start-attempt">
-      <a href="webexam/public/exam/real_exam_1/" class="btn-start-attempt">Start Attempt</a>
+      <a href="webexam/public/exam/real_exam_1/" class="btn-start-attempt">Submit all and finish</a>
       </div>
       <div class="cancel">
       <a href="webexam/public/dashboard/" class="btn-cancel">Cancel</a>

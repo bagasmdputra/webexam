@@ -11,7 +11,7 @@
 
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="{{asset('js/dashboard.js')}}"></script>
-   <title>Certife - History</title>
+   <title>Certife - Dashboard</title>
 </head>
 
 <script type="text/javascript">
@@ -50,6 +50,8 @@
 </ul>
 </div>
 
+<div id="content-dashboard">
+
 <div class="top">
    <h2 id="title">Welcome, {{ Auth::user()->name }}</h2>
    <h3 id="expired">Your expiration date is on <strong>{{ Auth::user()->expired_at }}</strong></h3>
@@ -77,24 +79,44 @@
 <table class="history">
   <tr>
     <th>State</th>
-    <th>Marks/200.00</th>
+    <th>Marks/200</th>
     <th>Grade/10.00</th>
     <th>Review</th>
   </tr>
+<<<<<<< HEAD
+  <tr>
+    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
+    <td>198/200</td>
+    <td>9.80/10.00</td>
+    <td><a href="/result" class="btn-review">Review</a></td>
+  </tr>
+  <tr>
+    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
+    <td>100/200</td>
+    <td>5.00/10.00</td>
+    <td><a href="/result" class="btn-review">Review</a></td>
+  </tr>
+=======
     @foreach (Session::get('history') as $his)
       <tr>
         <td>Finished<br>{{$his->closed_at}}</td>
-        <td>$his->total_true</td>
-        <td>$his->score</td>
+        <td>{{$his->total_true}}</td>
+        <td>{{$his->score}}</td>
         <td><a href="/result" class="btn-review">Review</a></td>
       </tr>
+>>>>>>> 60d13bf777345fe16b2f4f8a87c4e199217cea39
 
 
+<<<<<<< HEAD
+</div>
+</div>
+=======
     @endforeach
   </table>
 
   </div>
 @endif
+>>>>>>> 60d13bf777345fe16b2f4f8a87c4e199217cea39
 
 </body>
 
