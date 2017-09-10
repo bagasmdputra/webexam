@@ -23,8 +23,6 @@ class CreateTranslationsTable extends Migration
 
             $table->text('value');
 
-            $table->unique(['table_name', 'column_name', 'foreign_key', 'locale']);
-
             $table->timestamps();
         });
     }
