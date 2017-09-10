@@ -56,3 +56,6 @@ Route::post('/vt_notif', 'PaymentController@notification');
 Route::get('/snap', 'SnapController@snap');
 Route::get('/snaptoken', 'SnapController@token');
 Route::post('/snapfinish', 'SnapController@finish');
+
+Route::post('/takenexam', 'ExamController@takenExam'); 
+
