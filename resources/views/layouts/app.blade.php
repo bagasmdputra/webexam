@@ -12,6 +12,7 @@
         <!-- This site is optimized with the Yoast SEO plugin v4.9 - https://yoast.com/wordpress/plugins/seo/ -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+        @yield('css')
         <!-- <link rel='dns-prefetch' href='//s.w.org' />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" /> -->
