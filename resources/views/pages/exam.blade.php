@@ -13,7 +13,7 @@
     function showQuestion(id) {
       var pathArray = window.location.pathname.split( '/' );
       var url = pathArray[pathArray.length - 1];
-      window.location = 'exam/' + url + '/' + id;
+      window.location = '/exam/' + url + '/' + id;
     }
     function endExam() {
         document.getElementById('is_closed').value = 1;

@@ -64,5 +64,7 @@ class LoginController extends Controller
 
         return $this->authenticated($request, $this->guard()->user())
                 ?: redirect()->intended($this->redirectPath());
+                
+        \Session::flush();
     }
 }
