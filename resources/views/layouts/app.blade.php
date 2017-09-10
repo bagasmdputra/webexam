@@ -21,6 +21,7 @@
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/dashboard.css')}}" rel="stylesheet" />
 
         <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>

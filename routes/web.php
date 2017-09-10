@@ -5,6 +5,7 @@ Auth::routes();
 Route::get('/', 'DashboardController@index')->name('profile');
 Route::get('/about', 'GeneralPagesController@about');
 Route::get('/pagenotfound', 'NotFoundController@index');
+Route::get('/resume', 'ResumeController@index');
 Route::get('/home', function () {
     return view('welcome');
 })->name('home');
