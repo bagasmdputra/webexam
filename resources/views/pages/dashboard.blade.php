@@ -88,10 +88,20 @@
 
     @foreach (Session::get('history') as $his)
       <tr>
-        <td>Finished<br>{{$his->closed_at}}</td>
-        <td>{{$his->total_true}}</td>
-        <td>{{$his->score}}</td>
-        <td><a href="/hasil/{{$his->exam_takens_id}}" class="btn-review">Review</a></td>
+
+        @if(($his->isClosed) == 1)
+          <td>Finished<br>{{$his->closed_at}}</td>
+          <td>{{$his->total_true}}</td>
+          <td>{{$his->score}}</td>
+          <td><a href="/hasil/{{$his->exam_takens_id}}" class="btn-review">Review</a></td>
+        @endif
+
+        @if(($his->isClosed) == 0)
+          <td>Ongoing</td>
+          <td>Ongoing</td>
+          <td>Ongoing</td>
+          <td><a href="exam/real_exam_1/1" class="btn-review">Resume</a></td>
+        @endif
       </tr>
 
 </div>

@@ -92,8 +92,11 @@ class ExamController extends Controller
     
     $quest_option = DB::table('question_options')
     ->join('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
+    ->join('exam_takens', 'exam_takens.exam_id', '=', 'on_opened_questions.exam_takens_id')
     ->select('question_options.option_id as option_number', 'question_options.option as option')
-    ->where('on_opened_questions.question_id', '=', $id)
+    ->where('exam_takens.user_id', '=', $user_id)
+    ->where('exam_takens.isClosed', '=', 0)
+    ->where('on_opened_questions.number_indexing', '=', $id )    
     ->limit(4)
     ->get();
     // return response()->json(['question' => $quest_detail, 'quest_option' => $quest_option]);
