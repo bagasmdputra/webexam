@@ -13,7 +13,7 @@
     function showQuestion(id) {
       var pathArray = window.location.pathname.split( '/' );
       var url = pathArray[pathArray.length - 1];
-      window.location = 'exam/' + url + '/' + id;
+      window.location = '/exam/' + url + '/' + id;
     }
     function endExam() {
         document.getElementById('is_closed').value = 1;
@@ -78,12 +78,15 @@
               </div>
             </div>
             <div class="row">
+            @foreach($exam_question as $question_id)
               <form action="/closeexam" method="post">
               {{ csrf_field() }}
               <input type="hidden" name="is_closed" id="is_closed" value="{{ $question_id->is_closed }}">
               <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question_id->exam_takens_id }}">
               <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
               </form>
+              @break
+            @endforeach
             </div>
           </div>
         </div> <!-- end of row -->
