@@ -74,7 +74,7 @@ class ResultController extends Controller
           $option = DB::table('question_options')
           ->where('question_id', $sresult->question_id)
           ->get();
-
+          
           array_push($options,json_decode(json_encode($option), True));
 
         }

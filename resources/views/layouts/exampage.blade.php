@@ -14,7 +14,7 @@
         <!-- <link rel='dns-prefetch' href='//s.w.org' /> -->
         <!-- <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Feed" href="http://www.riyo.io/feed/" />
         <link rel="alternate" type="application/rss+xml" title="Riyo &raquo; Comments Feed" href="http://www.riyo.io/comments/feed/" /> -->
-        <link href="{{asset('css/question.css')}}" rel="stylesheet" />
+        <!--<link href="{{asset('css/question.css')}}" rel="stylesheet" />-->
 
 
 
@@ -26,21 +26,7 @@
     </head>
     <body class="home page-template-default page page-id-50 group-blog">
       <div id="page" class="site">
-          <header id="masthead" class="site-header" role="banner">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
-                          <div class="site-branding">
-                              <a id="logo" href="index.html">
-                              <img src="{{asset('img/logo.png')}}" width="132" height="24" >
-                              </a>
-                          </div>
-                          <!-- .site-branding -->
-                      </div>
-                  </div>
-              </div>
-          </header>
-          <!-- #masthead -->
+          
 
           @yield('content')
 
