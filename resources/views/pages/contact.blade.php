@@ -26,7 +26,7 @@
 
                                                     <div class="row">
                                                       <div class="col-sm-6">
-                                                        <h2 class="block-title-red" style="font-size:60px;">Send Us Your Feedback</h2>
+                                                        <h2 class="block-title-red" style="font-size:4rem;">Send Us Your Feedback</h2>
                                                         <p>We want you and your business to feel empowered to offer your customers exactly what they need, whenever they want it. We want you to run scheduled bookings right alongside on-demand, adapting to changes and trends in the market. Perhaps most of all, we want you to maximise your income by making the most of available resources and reap the benefits a truly effective BDP system can offer your business. </p>
                                                       </div>
 

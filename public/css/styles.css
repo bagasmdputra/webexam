@@ -100,7 +100,7 @@ h3{
 h1,
 h2,
 h4 {
-    color: #49525c;
+    color: #19b9e7;
     font-family: 'Roboto Slab', serif;
     font-weight: 300;
 }
@@ -1563,7 +1563,7 @@ input[type="submit"] {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     height: 50px;
-    background: #E45043;
+    background: #19b9e7;
     border: none;
     padding: 16px 33px;
     border-radius: 50px;
@@ -1637,7 +1637,7 @@ a#logo img {
 .main-navigation .current_page_ancestor > a,
 .main-navigation .current-menu-ancestor > a,
 .main-navigation a:hover {
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .top-login {
@@ -1783,7 +1783,7 @@ figure.graphic {
     margin-top: 15px;
 }
 .block.before-after .after.col h4 {
-    color: #e2483b;
+    color: #19b9e7;
 }
 .block.before-after .col ul {
     padding: 53px 0 0 19px;
@@ -1816,7 +1816,7 @@ figure.graphic {
 
 .block.before-after .col ul.new li span {
     font-weight: 400;
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .before.col {
@@ -2151,7 +2151,7 @@ div#text-3 .widget-title {
 }
 .banner-title {
     font-size: 30px;
-    color: #e2483b;
+    color: #19b9e7;
     margin: 11px 0 19px;
 }
 
@@ -2224,7 +2224,7 @@ ul.tabs {
 .tabs li a:hover,
 .tabs li.active a,
 .tabs li a:focus {
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .tabs li a {
@@ -2321,7 +2321,7 @@ ul.tabs {
 }
 
 .block-title-red {
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .block-head {
@@ -2400,7 +2400,7 @@ a.card-head {
 }
 
 /*a.card-head:hover {*/
-    /*color: #e2483b;*/
+    /*color: #19b9e7;*/
 /*}*/
 
 .platform-cards-wrap .match-height {
@@ -2479,7 +2479,7 @@ figure.browser {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     font-size: 14px;
-    color: #e2483b;
+    color: #19b9e7;
     display: block;
 }
 ul.connect-us {
@@ -2530,7 +2530,7 @@ section.two-col-layout {
 
 .style-secondary .quote-title {
     font-size: 25px;
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .style-secondary .testimonial-slider blockquote {
@@ -2578,7 +2578,7 @@ a.support-card span {
 }
 
 a.support-card:hover span {
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .page-template-tpl-support .block.block.normal-content {
@@ -2595,7 +2595,7 @@ a.support-card:hover span {
 label {
     font-size: 15px;
     font-weight: 400;
-    color: #E1483B;
+    color: #19b9e7;
     font-family: 'Roboto Slab', serif;
     display: inline-block;
 }
@@ -2897,7 +2897,7 @@ h2.entry-title a {
 }
 
 h2.entry-title a:hover {
-    color: #e2483b;
+    color: #19b9e7;
 }
 
 .blog .entry-content, .archive .entry-content, .search .entry-content {
@@ -3163,7 +3163,7 @@ img.ajax-loader {
 .page h1.entry-title {
     text-align: center;
     font-size: 25px;
-    color: #e2483b;
+    color: #19b9e7;
     margin-top: 50px;
 }
 .author h1.page-title,
@@ -3172,7 +3172,7 @@ img.ajax-loader {
     margin-top: 0;
 }
 .page .entry-content a{
-    color: #e2483b;
+    color: #19b9e7;
 }
 /* Change the white to any color ;) */
 input:-webkit-autofill {
@@ -3528,7 +3528,7 @@ div.wpcf7-mail-sent-ok{
     .menu-toggle {
         box-shadow: none;
         background: none;
-        color: #E45043;
+        color: #19b9e7;
         font-size: 50px;
         padding: 0;
         right: 15px;

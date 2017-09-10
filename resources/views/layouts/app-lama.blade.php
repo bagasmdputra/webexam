@@ -20,7 +20,7 @@
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
-
+        
         <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
         <script type="text/javascript"
@@ -47,7 +47,7 @@
                         <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
                             <div class="site-branding">
                                 <a id="logo" href="{{URL::route('profile') }}">
-
+                                <img src="{{asset('img/logo.png')}}" width="132" height="24" alt="Riyo">
                                 </a>
                             </div>
                             <!-- .site-branding -->
@@ -62,12 +62,8 @@
                                 <span></span>
                                 </span>
                                 </button>
-                                <div class="menu-top-main-menu-container" style="text-align: center;">
+                                <div class="menu-top-main-menu-container">
                                     <ul id="primary-menu" class="menu">
-                                      <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about"></a>
-                                      </li>
-                                      <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about"></a>
-                                      </li>
                                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="{{URL::route('profile') }}">@if (Auth::guest())
                                           Home
                                         @else
@@ -76,9 +72,12 @@
                                         </li>
                                         <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="about">About Us</a>
                                         </li>
+                                        <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="pricing">Pricing</a>
+                                        </li>
                                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="contact">Contact</a>
                                         </li>
-                                        </ul>
+                                        <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"><a href="#" class="but-free-exam" style="color: #d15443;">FREE EXAM</a>
+                                    </ul>
                                 </div>
                             </nav>
                             <!-- #site-navigation -->
@@ -131,7 +130,7 @@
                                 @endif
 
                         @if (Auth::guest())
-                              <a class="btn" href="{{url('/')}}">Sign Up</a>
+                              <a class="btn" href="{{url('/register')}}">Sign Up</a>
 
                             <div id="riyo-active-form" class="hidden" style="display: none;">
                                 <!-- HTML for signup form -->
@@ -198,7 +197,93 @@
 
             @yield('content')
             <footer id="colophon" class="site-footer" role="contentinfo">
-                
+                <div class="top-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                                <div id="text-2" class="widget widget_text">
+                                    <div class="textwidget">
+                                        <div class="footer-address">
+                                            <a href="index.html"><img src="{{asset('img/logo.png')}}" alt="" />
+                                            </a>
+                                            <address>Kalibata City, <br> Tower Borneo, Jakarta Selatan 4192  </address>
+                                            <a class="phone" href="tel:(02) 8765 4321"><span>P: </span>(02) 8765 4321</a>
+                                            <span class="email">E: <a href="mailto:team@webexam.co.id"> team@webexam.co.id</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                <div id="nav_menu-5" class="widget widget_nav_menu">
+                                    <h2 class="widget-title">Learn More</h2>
+                                    <div class="menu-learn-more-footer-container">
+                                        <ul id="menu-learn-more-footer" class="menu">
+                                            <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="index.html">
+                                              @if (Auth::guest())
+                                                Home
+                                              @else
+                                                Dashboard
+                                              @endif
+                                            </a>
+                                            </li>
+                                            <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a data-modal-id="#riyo-login-form" href="#">Log In</a>
+                                            </li>
+                                            <li id="menu-item-26" class="sign-up menu-item menu-item-type-custom menu-item-object-custom menu-item-26"><a data-modal-id="#riyo-signup-form" href="#">Sign Up</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                <div id="nav_menu-6" class="widget widget_nav_menu">
+                                    <h2 class="widget-title">Support</h2>
+                                    <div class="menu-support-footer-container">
+                                        <ul id="menu-support-footer" class="menu">
+                                            <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="contact.html">Exam FAQ</a>
+                                            </li>
+                                            <li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="contact.html">Contact Us</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                <div id="nav_menu-7" class="widget widget_nav_menu">
+                                    <h2 class="widget-title">About Us</h2>
+                                    <div class="menu-about-us-footer-container">
+                                        <ul id="menu-about-us-footer" class="menu">
+                                            <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="about.html">Our Story</a>
+                                            </li>
+                                            <li id="menu-item-366" class="scroll-to menu-item menu-item-type-custom menu-item-object-custom menu-item-366"><a href="about.html">Team</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 last">
+                                <div id="text-3" class="widget widget_text">
+                                    <h2 class="widget-title">Connect With Us</h2>
+                                    <div class="textwidget">
+                                        <ul class="get-social">
+                                            <li>
+                                                <a class="icon-facebook"  target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a class="icon-twitter"  target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a class="icon-linkedin2"  target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a class="icon-instagram"  target="_blank"></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="site-info">
                     <div class="container">
                         <div class="row">
