@@ -95,8 +95,8 @@
         @endif
 
         @if(($his->isClosed) == 0)
-          <td>This exam is ongoing</td>
-          <td>This exam is ongoing</td>
+          <td>Ongoing</td>
+          <td>Ongoing</td>
           <td><a href="exam/real_exam_1/1" class="btn-review">Resume</a></td>
         @endif
       </tr>
