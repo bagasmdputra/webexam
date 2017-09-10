@@ -25,7 +25,7 @@
     function back() {
       var pathArray = window.location.pathname.split( '/' );
       var url = pathArray[pathArray.length - 2];
-      window.location = 'http://localhost:8000/exam/' + url;
+      window.location = '/exam/' + url;
     }
     function changeValue(buttonID) {
       if (buttonID === 'isMarked') {
