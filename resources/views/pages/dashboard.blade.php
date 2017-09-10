@@ -24,8 +24,8 @@
 
 <div id='cssmenu'>
 <ul>
-   <li><a href='#'><span>About</span></a></li>
-   <!-- <li class='active has-sub'><a href='#'><span>Features</span></a>
+   <li><a href='{{url('/about')}}'><span>About</span></a></li>
+   <!-- <li class='active has-sub'><a href=''><span>Features</span></a>
       <ul>
          <li><a href='#'><span>History</span></a>
          </li>
@@ -33,7 +33,7 @@
          </li>
       </ul>
    </li> -->
-   <li><a href='#'><span>Contact</span></a></li>
+   <li><a href='{{url('/contact')}}'><span>Contact</span></a></li>
    <li class='last'>
 		 <a href="{{ route('logout') }}"
 				 onclick="event.preventDefault();
@@ -42,7 +42,9 @@
 		 </a>
 			 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 					 {{ csrf_field() }}
+					
 			 </form>
+			 
 			 <form id="profile-form" action="{{ route('profile') }}" method="GET" style="display: none;">
 					 {{ csrf_field() }}
 			 </form>
