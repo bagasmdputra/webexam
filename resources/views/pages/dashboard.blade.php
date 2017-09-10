@@ -60,14 +60,16 @@
 </div>
 
 
- <div class="not-taken">
+
 
 <!-- ini kalo belom ambil exam, tampilin ini doang -->
 @if (!Session::has('history'))
+ <div class="not-taken">
    <p>You have not taken any exam yet.</p>
+</div>
 @endif
 
-</div>
+
 
 <div class="start">
 <a href="{{url('/start')}}" class="btn-start">Start Exam</a>
@@ -83,40 +85,23 @@
     <th>Grade/10.00</th>
     <th>Review</th>
   </tr>
-<<<<<<< HEAD
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>198/200</td>
-    <td>9.80/10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
-  <tr>
-    <td>Finished<br>Submitted Tuesday, 5 September 2017, 10.00 PM</td>
-    <td>100/200</td>
-    <td>5.00/10.00</td>
-    <td><a href="/result" class="btn-review">Review</a></td>
-  </tr>
-=======
+
     @foreach (Session::get('history') as $his)
       <tr>
         <td>Finished<br>{{$his->closed_at}}</td>
-        <td>$his->total_true</td>
-        <td>$his->score</td>
+        <td>{{$his->total_true}}</td>
+        <td>{{$his->score}}</td>
         <td><a href="/result" class="btn-review">Review</a></td>
       </tr>
->>>>>>> 60d13bf777345fe16b2f4f8a87c4e199217cea39
 
-
-<<<<<<< HEAD
 </div>
 </div>
-=======
     @endforeach
   </table>
 
   </div>
 @endif
->>>>>>> 60d13bf777345fe16b2f4f8a87c4e199217cea39
+
 
 </body>
 

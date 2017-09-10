@@ -37,13 +37,23 @@ class ExamController extends Controller
       $this->validate($request, [
         'exam_takens_id' => 'required',
         'question_id' => 'required',
-        'next_id' => 'required',
+        'next_id' => 'nullable',
         'url_name' => 'required',
         'user_answer' => 'nullable',
         'isAnswered' => 'nullable',
         'isMarked' => 'nullable',
         'time_taken' => 'nullable',
+        'is_closed' => 'nullable',
       ]);
+
+      if ($request->is_closed == 1) {
+        DB::table('exam_takens')
+            ->where('id', $request->exam_takens_id)
+            ->update(['isClosed' => 1]);
+        
+            return redirect('hasil/' . $request->exam_takens_id);
+      }
+
       $next_id = $request->next_id;
       $url_name = $request->url_name;
       $exam_takens_id = $request->exam_takens_id;
@@ -55,6 +65,8 @@ class ExamController extends Controller
       $on_opened_question = On_opened_question::where('exam_takens_id', $exam_takens_id)
                                                 ->where('question_id', $question_id)
                                                 ->update(['user_answer' => $user_answer, 'isMarked' => $isMarked, 'time_taken' => $time_taken, 'isAnswered' => $isAnswered]);
+      
+      if ($next_id == 0 || $next_id == 201) return redirect('exam/' . $url_name);
       $next_url = 'exam/' . $url_name . '/' . $next_id;
       return redirect($next_url);
   }
@@ -69,6 +81,7 @@ class ExamController extends Controller
   }
   public function getQuest(Request $request, $url, $id) {
     $user_id = Auth::id();
+
     $quest_detail = DB::table('on_opened_questions')
     ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
@@ -77,18 +90,15 @@ class ExamController extends Controller
     ->select( 'on_opened_questions.question_id as id_question', 'on_opened_questions.user_answer as user_answer',
               'on_opened_questions.isMarked as isMarked', 'on_opened_questions.isAnswered as isAnswered',
               'on_opened_questions.time_taken as time_taken', 'on_opened_questions.time_taken as time_taken',
-              'examinations.name as name', 'exam_takens.taken_at as taken_at', 'exam_takens.id as exam_takens_id',
-              'questions.question as question', 'examinations.url_name as url_name', 'on_opened_questions.number_indexing as index')
-    // ->select('examinations.name as name', 'on_opened_questions.question_id as id_question', 'on_opened_questions.user_answer as user_answer',
-    //           'on_opened_questions.isMarked as isMarked', 'on_opened_questions.isAnswered as isAnswered',
-    //           'on_opened_questions.time_taken as time_taken', 'questions.question as question',
-    //           'domains.domain as domain', 'exam_takens.id as exam_takens_id',
-    //           'on_opened_questions.time_taken as time_taken', 'exam_takens.taken_at as taken_at')
+              'on_opened_questions.number_indexing as index', 'examinations.name as name', 'examinations.url_name as url_name',
+              'exam_takens.taken_at as taken_at', 'exam_takens.id as exam_takens_id', 'questions.question as question',
+              'exam_takens.isClosed as is_closed')
     ->where('examinations.url_name', '=', $url)
-    ->where('exam_takens.user_id', '=', 1)
-    ->skip(($id - 1))
-    ->take(1)
+    ->where('exam_takens.user_id', '=', $user_id)
+    ->where('exam_takens.isClosed', '=', 0)
+    ->where('on_opened_questions.number_indexing', '=', $id )
     ->get();
+    
     $quest_option = DB::table('question_options')
     ->join('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
     ->select('question_options.option_id as option_number', 'question_options.option as option')

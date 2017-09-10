@@ -11,13 +11,16 @@
   <script type="text/javascript">
     function nextQuestion() {
       var pathArray = window.location.pathname.split( '/' );
-      var newId = Number(pathArray[pathArray.length - 1])
+      var newId = Number(pathArray[pathArray.length - 1]);
       document.getElementById('next_id').value = Number(newId + 1);
     }
     function prevQuestion() {
       var pathArray = window.location.pathname.split( '/' );
-      var newId = Number(pathArray[pathArray.length - 1])
+      var newId = Number(pathArray[pathArray.length - 1]);
       document.getElementById('next_id').value = Number(newId - 1);
+    }
+    function endExam() {
+        document.getElementById('is_closed').value = 1;
     }
     function changeValue(buttonID) {
       if (buttonID === 'isMarked') {
@@ -138,7 +141,7 @@
           </table>
 
           <input type="hidden" name="question_id" value="{{ $question->id_question }}">
-          <input type="hidden" name="exam_takens_id" value="{{ $question->exam_takens_id }}">
+          <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question->exam_takens_id }}">
           <input type="hidden" name="isMarked" id="isMarked" value="1">
           <input type="hidden" name="isAnswered" id="isAnswered" value="1">
           <input type="hidden" name="taken_at" id="taken_at" value="{{ $question->taken_at }}">
@@ -146,9 +149,11 @@
           <input type="hidden" name="url_name" value="{{ $question->url_name }}">
           <input type="hidden" name="next_id" id="next_id" value="">
           <input type="hidden" name="user_answer_id" id="user_answer_id" value="{{ $question->user_answer }}">
+          <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
           <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
           <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()" >Prev</button>
-
+          <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
+          
           <div id="clockdiv2" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;">
             <div class="total-count">
               <span class="hours"></span>
@@ -164,7 +169,6 @@
             </div>
           </div>
 <br><br>
-          <a type="submit" class="end-exam" style="float:left; margin-left: -15%;  margin-top: 15%;" href="webexam/public/end/" >End Exam</a>
         </form>
         @endforeach
           <tr>
