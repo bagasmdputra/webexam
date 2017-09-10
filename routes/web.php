@@ -4,6 +4,7 @@ Auth::routes();
 
 Route::get('/', 'DashboardController@index')->name('profile');
 Route::get('/about', 'GeneralPagesController@about');
+Route::get('/pagenotfound', 'NotFoundController@index');
 Route::get('/home', function () {
     return view('welcome');
 })->name('home');
@@ -57,5 +58,5 @@ Route::get('/snap', 'SnapController@snap');
 Route::get('/snaptoken', 'SnapController@token');
 Route::post('/snapfinish', 'SnapController@finish');
 
-Route::post('/takenexam', 'ExamController@takenExam'); 
-Route::post('/closeexam', 'ExamController@closeExam'); 
+Route::post('/takenexam', 'ExamController@takenExam');
+Route::post('/closeexam', 'ExamController@closeExam');
