@@ -43,16 +43,7 @@ class ExamController extends Controller
         'isAnswered' => 'nullable',
         'isMarked' => 'nullable',
         'time_taken' => 'nullable',
-        'is_closed' => 'nullable',
       ]);
-
-      if ($request->is_closed == 1) {
-        DB::table('exam_takens')
-            ->where('id', $request->exam_takens_id)
-            ->update(['isClosed' => 1]);
-        
-            return redirect('hasil/' . $request->exam_takens_id);
-      }
 
       $next_id = $request->next_id;
       $url_name = $request->url_name;
@@ -113,9 +104,10 @@ class ExamController extends Controller
     $exam_question = DB::table('on_opened_questions')
     ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
-    ->select('on_opened_questions.question_id as questions', 'on_opened_questions.number_indexing as index')
+    ->select('on_opened_questions.question_id as questions', 'on_opened_questions.number_indexing as index',
+              'exam_takens.isClosed as is_closed', 'exam_takens.exam_id as exam_takens_id')
     ->where('examinations.url_name', '=', $url)
-    ->where('exam_takens.user_id', '=', 1)
+    ->where('exam_takens.user_id', '=', $user_id)
     ->get();
     return view('pages/exam', ['exam_question' => $exam_question]);
     // return response()->json(['questions' => $exam_question]);
@@ -138,4 +130,20 @@ class ExamController extends Controller
               ->first();
     return redirect('exam/' . $url->url . '/1');
     } 
+
+    public function closeExam(Request $request) {
+      $this->validate($request, [ 
+        'is_closed' => 'required',
+        'exam_takens_id' => 'required']);
+
+      $id = Auth::user()->id; 
+
+      if ($request->is_closed == 1) {
+        DB::table('exam_takens')
+          ->where('id', $request->exam_takens_id)
+          ->update(['isClosed' => 1]);
+        
+          return redirect('hasil/' . $request->exam_takens_id);
+      }
+    }
 }
