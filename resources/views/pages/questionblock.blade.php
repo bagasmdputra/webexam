@@ -22,6 +22,11 @@
     function endExam() {
         document.getElementById('is_closed').value = 1;
     }
+    function back() {
+      var pathArray = window.location.pathname.split( '/' );
+      var url = pathArray[pathArray.length - 2];
+      window.location = 'http://localhost:8000/exam/' + url;
+    }
     function changeValue(buttonID) {
       if (buttonID === 'isMarked') {
         if (document.getElementById("isMarked").value == 1) {
@@ -120,8 +125,8 @@
       @foreach($quest_detail as $question)
       <div id="q{{ $question-> id_question }}" class="questionBlock">
         <table style="float: right; margin-right: -10%;">
-          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
-          <tr><td><button class="answered tooltip" onclick="changeValue('isAnswered')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+          <tr><td><button class="marked tooltip" onclick="changeValue('isMarked')"><p class="tooltiptext">Marked</p></button></td><td><button class="back-to-grid tooltip" onclick="back()"><p class="tooltiptext">Back to Grid</p></button></td></tr>
+          <tr><td><button class="answered tooltip" onclick="changeValue('isAnswered')"><p class="tooltiptext">Answered</p></button></td><td><button class="back-to-grid tooltip" onclick="back()"><p class="tooltiptext">Back to Grid</p></button></td></tr>
 
         </table>
 
