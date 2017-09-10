@@ -58,9 +58,6 @@
     <div class="start-attempt">
       <a href="webexam/public/exam/real_exam_1/" class="btn-start-attempt">Start Attempt</a>
       </div>
-      <div class="cancel">
-      <a href="webexam/public/dashboard/" class="btn-cancel">Cancel</a>
-      </div>
 </div>
 </div>
 
