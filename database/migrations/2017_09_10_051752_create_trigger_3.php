@@ -39,7 +39,9 @@ class CreateTrigger3 extends Migration
      * @return void
      */
     public function down()
-    {
-        //
+    {        
+      DB::unprepared('
+          DROP TRIGGER `exam_takens_before_insert`;
+      ');
     }
 }
