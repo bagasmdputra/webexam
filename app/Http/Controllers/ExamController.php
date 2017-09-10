@@ -91,19 +91,18 @@ class ExamController extends Controller
     ->get();
     
     $quest_option = DB::table('question_options')
-    ->join('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
-    ->join('exam_takens', 'exam_takens.exam_id', '=', 'on_opened_questions.exam_takens_id')
+    ->leftJoin('on_opened_questions', 'on_opened_questions.question_id', '=', 'question_options.question_id')
+    ->leftJoin('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')    
     ->select('question_options.option_id as option_number', 'question_options.option as option')
-    ->where('exam_takens.user_id', '=', $user_id)
+    ->where('on_opened_questions.number_indexing', '=', $id )
     ->where('exam_takens.isClosed', '=', 0)
-    ->where('on_opened_questions.number_indexing', '=', $id )    
-    ->limit(4)
+    ->where('exam_takens.user_id', '=', $user_id)    
     ->get();
     // return response()->json(['question' => $quest_detail, 'quest_option' => $quest_option]);
     return view('pages/questionblock', ['quest_detail' => $quest_detail, 'quest_option' => $quest_option]);
   }
   public function getExam(Request $request, $url) {
-    $user_id = Auth::id();
+    $user_id = Auth::user()->id;
     $exam_question = DB::table('on_opened_questions')
     ->join('exam_takens', 'exam_takens.id', '=', 'on_opened_questions.exam_takens_id')
     ->join('examinations', 'examinations.id', '=', 'exam_takens.exam_id')
