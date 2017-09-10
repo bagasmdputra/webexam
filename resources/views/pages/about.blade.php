@@ -4,11 +4,6 @@
 <div class="top-gap"></div>
 
                             <div id="content" class="site-content">
-
-
-
-
-
                                 <div class="hero">
                                     <div class="container">
                                         <div class="row">

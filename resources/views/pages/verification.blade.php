@@ -1,15 +1,14 @@
 @extends('layouts.app')
+
+@section('css')
+      <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-heading">Registration</div>
-        <div class="panel-body">
-          You have successfully registered. An email is sent to you for verification.
-        </div>
-      </div>
-    </div>
-  </div>
+<div id="confirm-body"><br><br>
+  <p class="title"><strong>Registration</strong></p>
+  <p class="notes" style="font-size: 1rem;">You have successfully registered. An email is sent to you for verification.</p>
+
 </div>
+
 @endsection
