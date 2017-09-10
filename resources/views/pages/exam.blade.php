@@ -15,6 +15,9 @@
       var url = pathArray[pathArray.length - 1];
       window.location = 'http://localhost:8000/exam/' + url + '/' + id;
     }
+    function endExam() {
+        document.getElementById('is_closed').value = 1;
+    }
   </script>
 
 </head>
@@ -75,7 +78,12 @@
               </div>
             </div>
             <div class="row">
-              <button class="end-exam" style="float:right; display: inline-block; margin-left: 2%; margin-top: 150%;" href="webexam/public/end/">End Exam</button>
+              <form action="/closeexam" method="post">
+              {{ csrf_field() }}
+              <input type="hidden" name="is_closed" id="is_closed" value="{{ $question_id->is_closed }}">
+              <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question_id->exam_takens_id }}">
+              <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
+              </form>
             </div>
           </div>
         </div> <!-- end of row -->

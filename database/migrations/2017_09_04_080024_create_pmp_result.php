@@ -18,7 +18,7 @@ class CreatePmpResult extends Migration
             $table->foreign('exam_takens_id')->references('id')->on('exam_takens')->onDelete('cascade');
             $table->integer('total_true')->default(0);
 
-            $table->integer('score')->default(0);
+            $table->float('score',3,2)->default(0.00);
         });
     }
 

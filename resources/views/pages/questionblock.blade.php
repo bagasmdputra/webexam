@@ -77,6 +77,7 @@
       }
     });
 
+  
     function initializeClock(id, endtime, isMaju) {
       var clock = document.getElementById(id);
       var hoursSpan = clock.querySelector('.hours');
@@ -149,11 +150,9 @@
           <input type="hidden" name="url_name" value="{{ $question->url_name }}">
           <input type="hidden" name="next_id" id="next_id" value="">
           <input type="hidden" name="user_answer_id" id="user_answer_id" value="{{ $question->user_answer }}">
-          <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
           <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
           <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()" >Prev</button>
-          <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
-          
+
           <div id="clockdiv2" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;">
             <div class="total-count">
               <span class="hours"></span>
@@ -170,6 +169,14 @@
           </div>
 <br><br>
         </form>
+
+        <form action="/closeexam" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
+            <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question->exam_takens_id }}">
+            <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
+        </form>
+        
         @endforeach
           <tr>
           </tr>

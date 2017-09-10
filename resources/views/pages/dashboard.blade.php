@@ -66,8 +66,6 @@
 </div>
 @endif
 
-
-
 <div class="start">
 <form method="POST" action="/takenexam"> 
   {{ csrf_field() }} 

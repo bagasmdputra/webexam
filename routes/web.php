@@ -58,4 +58,4 @@ Route::get('/snaptoken', 'SnapController@token');
 Route::post('/snapfinish', 'SnapController@finish');
 
 Route::post('/takenexam', 'ExamController@takenExam'); 
-
+Route::post('/closeexam', 'ExamController@closeExam'); 
