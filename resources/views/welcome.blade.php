@@ -28,7 +28,12 @@
 <body class="blue header">
 
 		<!-- Top menu -->
+    <div >
+      <a href="{{URL::route('profile') }}">
+        <img src="{{asset('img/logo putih.png')}}" class="logo-brand" alt="Certife">
+      </a>
 
+    </div>
 
         <!-- Top content -->
         <div class="top-content">

@@ -8,6 +8,15 @@ body {
     text-align: center;
 }
 
+.logo-brand{
+position: fixed;
+  float: left;
+  width: 10%;
+  height: auto;
+  padding-top: 2%;
+  left: 2%;
+}
+
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {
@@ -76,7 +85,7 @@ h3 {
 .help-block{
   font-size: 1rem;
   float: left;
-  
+
 }
 .btn-reset {
 

@@ -47,7 +47,7 @@
                         <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
                             <div class="site-branding">
                                 <a id="logo" href="{{URL::route('profile') }}">
-
+                                  <img src="{{asset('img/logo hitam.png')}}" width="85px" height="10px" alt="Certife">
                                 </a>
                             </div>
                             <!-- .site-branding -->
@@ -198,7 +198,7 @@
 
             @yield('content')
             <footer id="colophon" class="site-footer" role="contentinfo">
-                
+
                 <div class="site-info">
                     <div class="container">
                         <div class="row">
