@@ -59,9 +59,6 @@
 
 </div>
 
-
-
-
 <!-- ini kalo belom ambil exam, tampilin ini doang -->
 @if (!Session::has('history'))
  <div class="not-taken">
@@ -73,7 +70,11 @@
 
 <div class="start">
 <a href="{{url('/start')}}" class="btn-start">Start Exam</a>
-
+<form method="POST" action="/takenexam"> 
+  {{ csrf_field() }} 
+  <input type="hidden" name="exam_id" value="1">
+  <button class="btn_start" type="submit">Start</button> 
+</form> 
 </div>
 <!-- kalo udah ngambil exam, tulisan diatas di ganti sama tabel history ini -->
 @if(Session::has('history'))

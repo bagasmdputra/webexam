@@ -120,4 +120,22 @@ class ExamController extends Controller
     return view('pages/exam', ['exam_question' => $exam_question]);
     // return response()->json(['questions' => $exam_question]);
   }
+
+  public function takenExam(Request $request) { 
+    $this->validate($request, 
+    [ 'exam_id' => 'required']); 
+  
+    $id = Auth::user()->id; 
+    DB::table('exam_takens') 
+    ->insert( ['user_id' => $id, 
+               'exam_id' => $request->exam_id,
+               'taken_at' => $request->taken_at,
+               'closed_at' => $request->closed_at] );
+
+    $url = DB::table('examinations')
+              ->select('examinations.url_name as url')
+              ->where('examinations.id', '=', $request->exam_id)
+              ->first();
+    return redirect('exam/' . $url->url . '/1');
+    } 
 }

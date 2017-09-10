@@ -25,9 +25,9 @@ class CreateExamTakens extends Migration
         $table->DateTime('taken_at');
         $table->DateTime('closed_at');
 
-        $table->boolean('isClosed');
+        $table->boolean('isClosed')->default(0);
 
-        $table->boolean('isPassed');
+        $table->boolean('isPassed')->default(0);
       });
     }
 
