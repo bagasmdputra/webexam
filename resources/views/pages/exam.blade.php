@@ -1,4 +1,4 @@
-@extends('layouts.exampage')
+@extends('layouts.app')
 
 @section('content')
 <head>
@@ -35,14 +35,14 @@
             $count_3 = 0;
             @endphp
 
-            @for ($i = 0; $i < $count/10; $i++)
+            @for ($i = 0; $i < $count/15; $i++)
             @php
             $count_2 = 0;
             @endphp
             <div class="row">
               @foreach($exam_question as $question_id)
               @php
-              if($count_2 === $count_3 + 10){
+              if($count_2 === $count_3 + 15){
                 $count_2 = 0;
                 break;
               }
@@ -64,7 +64,7 @@
               @endforeach
             </div> <!-- end div row -->
             @php
-            $count_3 += 10;
+            $count_3 += 15;
             @endphp
             @endfor
           </div><!--end div col-10 -->
@@ -83,7 +83,7 @@
               {{ csrf_field() }}
               <input type="hidden" name="is_closed" id="is_closed" value="{{ $question_id->is_closed }}">
               <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question_id->exam_takens_id }}">
-              <button type="submit" class="end-exam"  style="float:left; margin-left: -15%; margin-top: 15%; " onclick="endExam()" >End Exam</button>
+              <button type="submit" class="end-exam"  style="float:right;" onclick="endExam()" >End Exam</button>
               </form>
               @break
             @endforeach
