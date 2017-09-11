@@ -82,7 +82,7 @@
       }
     });
 
-  
+
     function initializeClock(id, endtime, isMaju) {
       var clock = document.getElementById(id);
       var hoursSpan = clock.querySelector('.hours');
@@ -107,7 +107,7 @@
 <body>
 <br><br>
     <div id="clockdiv" class="countdown-right">
-      <div class="countdown">Time left : 
+      <div class="countdown">Time left :
         <span class="hours"></span>
         <div class="smalltext countdown">Hours</div>
       </div>
@@ -120,7 +120,7 @@
         <div class="smalltext countdown">Seconds</div>
       </div>
     </div>
-    
+
     <div class="container">
     <div id="questionBlock">
       @foreach($quest_detail as $question)
@@ -158,12 +158,6 @@
           <input type="hidden" name="user_answer_id" id="user_answer_id" value="{{ $question->user_answer }}">
           <button type="submit" class="prev-next "  style="float:right; display: inline-block; margin-left: 2%; margin-right: -10%; margin-top: 15%; " onclick="nextQuestion()">Next</button>
           <button type="submit" class="prev-next"  style="float:right; display: inline-block; margin-right: 3%; margin-top: 15%; " onclick="prevQuestion()" >Prev</button>
-          <form action="/closeexam" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
-            <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question->exam_takens_id }}">
-            <button type="submit" style="float:right; display: inline-block; margin-right: 7%; margin-top: 15%; " class="end-exam" onclick="endExam()" >End Exam</button>
-        </form>
 
           <div id="clockdiv2" style="float:left; display: inline-block;  margin-left: 2%; margin-top: 15%;">
             <div class="total-count">
@@ -182,8 +176,13 @@
 <br><br>
         </form>
 
-        
-        
+        <form action="/closeexam" method="post">
+          {{ csrf_field() }}
+          <input type="hidden" name="is_closed" id="is_closed" value="{{ $question->is_closed }}">
+          <input type="hidden" name="exam_takens_id" id="exam_takens_id" value="{{ $question->exam_takens_id }}">
+          <button type="submit" style="float:right; display: inline-block; margin-right: 7%; margin-top: 15%; " class="end-exam" onclick="endExam()" >End Exam</button>
+        </form>
+
         @endforeach
           <tr>
           </tr>
