@@ -21,12 +21,7 @@
         <link href="{{asset('css/contact.css')}}" rel="stylesheet" />
         <link href="{{asset('css/grid.css')}}" rel="stylesheet" />
         <link href="{{asset('css/slick-themes.css')}}" rel="stylesheet" />
-<<<<<<< HEAD
-        <link href="{{asset('css/dashboard.css')}}" rel="stylesheet" />
-
-=======
         @yield('css')
->>>>>>> f6ecb0c48530a5d2e80e289719c57a49e6485ceb
         <!-- <script src="{{asset('js/jquery-migrate.min.js')}}"></script> -->
         <script src="{{asset('js/jquery.js')}}"></script>
         <script type="text/javascript"
